@@ -1,15 +1,223 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LIC Advisor - Vivek Kadam</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LIC Advisor - Vivek Kadam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * { scroll-behavior: smooth; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif; margin: 0;
+      background: #f4f7fa; color: #333; overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(to right, #004aad, #00307a);
+      color: white; text-align: center; padding: 60px 20px 40px;
+      position: relative; overflow: hidden;
+    }
+    header::after {
+      content: ''; background: url('https://images.unsplash.com/photo-1588776814546-9c4b448b9d05?auto=format&fit=crop&w=1950&q=80') no-repeat center/cover;
+      opacity: 0.1; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0; animation: slowZoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes slowZoom { 0% { transform: scale(1);} 100% {transform: scale(1.05);} }
+    header h1, header p { position: relative; z-index: 1; animation: fadeInDown 1s ease forwards; }
+    header p { animation-delay: 0.5s; }
+    @keyframes fadeInDown {
+      0% {opacity: 0; transform: translateY(-20px);} 
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    nav {
+      background: #00307a; padding: 12px 0; text-align: center;
+      position: sticky; top: 0; z-index: 999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+    nav a {
+      color: white; margin: 0 20px; text-decoration: none;
+      font-weight: 500; font-size: 16px; transition: color 0.3s ease;
+    }
+    nav a:hover { color: #FFD700; }
+    section {
+      padding: 60px 20px; max-width: 1000px; margin: auto;
+      opacity: 0; transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    section.visible { opacity: 1; transform: translateY(0); }
+    section:nth-child(even) { background-color: #ffffff; }
+    section:nth-child(odd) { background-color: #f0f4f8; }
+    h2 { color: #004aad; margin-bottom: 20px; text-align: center; }
+    .center { text-align: center; }
+    .profile-img {
+      width: 150px; height: 150px; border-radius: 50%;
+      object-fit: cover; border: 4px solid #004aad;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      margin-bottom: 15px; transition: transform 0.3s ease; display: inline-block;
+    }
+    .profile-img:hover { transform: scale(1.05); }
+    .card, .plan, .review {
+      background: #fff; border-radius: 10px; padding: 30px;
+      margin-bottom: 30px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover, .plan:hover, .review:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
+    }
+    .btn, .cta a {
+      display: inline-block; padding: 12px 25px; border-radius: 6px;
+      text-decoration: none; background: #004aad; color: white;
+      font-weight: 600; margin-top: 15px; transition: background 0.3s ease;
+    }
+    .btn:hover, .cta a:hover { background: #002c70; }
+    .whatsapp-btn { background-color: #25D366; }
+    iframe { border-radius: 10px; border: 0; width: 100%; max-width: 100%; }
+    footer {
+      background: #004aad; color: white; text-align: center;
+      padding: 20px; font-size: 14px;
+    }
+    #topBtn {
+      display: none; position: fixed; bottom: 25px; right: 25px; z-index: 999;
+      background-color: #004aad; color: white; padding: 14px 18px;
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 18px; box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+    }
+    #topBtn:hover { background-color: #002c70; }
+    @media (max-width: 768px) {
+      nav a { display: block; margin: 10px 0; }
+      .card, .plan, form { padding: 20px; }
+      .profile-img { width: 120px; height: 120px; }
+    }
+  </style>
 </head>
 <body>
-<h1>LIC Advisor - Vivek Kadam</h1>
-<p>Your Trusted Life Insurance Partner</p>
-<script src="script.js"></script>
+
+<header>
+  <h1>LIC Advisor - Vivek Kadam</h1>
+  <p>Your Trusted Life Insurance Partner</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#plans">Plans</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- Google Translate Popup -->
+<div id="popupOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center;
+  z-index:9999; font-family:Arial, sans-serif; display:none;" onclick="this.style.display='none'">
+  <div style="background:#fff; padding:30px 40px; border-radius:20px;
+      text-align:center; max-width:400px; width:90%;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25); z-index:10000;
+      position:relative;" onclick="event.stopPropagation()">
+    <div onclick="document.getElementById('popupOverlay').style.display='none'; localStorage.setItem('popupShown','yes');" 
+         style="position:absolute; top:10px; right:15px; font-size:20px;
+         color:#888; cursor:pointer; font-weight:bold;">
+      ✖
+    </div>
+    <h2 style="color:#004aad; margin-bottom:10px;">🌐 Welcome</h2>
+    <p style="color:#444; margin-bottom:20px; font-size:16px;">
+      Please select your preferred language
+    </p>
+    <div id="google_translate_element" style="margin:10px auto;"></div>
+    <p style="font-size:12px; color:#888; margin-top:15px;">
+      You can change this anytime from the menu
+    </p>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {pageLanguage: 'en', includedLanguages: 'en,hi,mr'},
+      'google_translate_element'
+    );
+  }
+  window.onload = function() {
+    if (!localStorage.getItem('popupShown')) {
+      document.getElementById('popupOverlay').style.display = 'flex';
+    }
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<section id="about" class="visible">
+  <div class="card">
+    <div class="center">
+      <img class="profile-img" src="https://i.ibb.co/wZ8cKCfp/Whats-App-Image-2025-07-20-at-3-21-05-PM.jpg" alt="Profile pic">
+    </div>
+    <p><strong>Name:</strong> Vivek Kadam</p>
+    <p><strong>Experience:</strong> 26 Years (1999–2025)</p>
+    <p><strong>MDRT Year:</strong> 2024</p>
+    <h2>Welcome to Vedant Consultancy</h2>
+    <p>At Vedant Consultancy, we believe in more than just policies — we believe in building lasting relationships...</p>
+    <div class="cta center">
+      <p><a href="tel:+919664999797" class="btn">📞 Call Now</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="plans">
+  <h2>Available LIC Plans</h2>
+  <div class="plan"><h3>LIC Jeevan Anand</h3><p>A combination of protection and savings...</p></div>
+  <div class="plan"><h3>LIC New Endowment Plan</h3><p>Offers both investment returns and insurance...</p></div>
+  <div class="plan"><h3>LIC Tech Term Plan</h3><p>Pure term insurance plan available online only...</p></div>
+  <div class="plan"><h3>LIC Jeevan Umang</h3><p>Whole life plan offering annual survival benefits...</p></div>
+</section>
+
+<section id="reviews">
+  <h2>Clients Say</h2>
+  <div class="review"><p>"Vivek is highly professional..." – <strong>Rohit Sharma</strong></p></div>
+  <div class="review"><p>"Excellent service, honest guidance..." – <strong>Meera Patil</strong></p></div>
+  <div class="review"><p>"I’ve been a client for over a decade..." – <strong>Sameer Desai</strong></p></div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <div class="center">
+    <img class="profile-img" src="https://i.ibb.co/wZ8cKCfp/Whats-App-Image-2025-07-20-at-3-21-05-PM.jpg" alt="Profile pic">
+  </div>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd4MmiSHsIic6fXrhXJxeLe7z_FhuRabhRakZVYLyBOLITZFg/viewform?embedded=true" width="640" height="932" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  <p style="text-align:center; margin-top:15px;">
+    <strong>Phone:</strong> <a href="tel:+919664999797">+91-9664999797</a> |
+    <strong>Email:</strong> <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a>
+  </p>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." height="350" loading="lazy"></iframe>
+  <div class="center" style="margin-top: 20px;">
+    <a href="https://wa.me/+919664999797" target="_blank" class="btn whatsapp-btn">💬 WhatsApp</a>
+    <a href="tel:+919664999797" class="btn">📞 Call Now</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 LIC Advisor. All Rights Reserved.</p>
+</footer>
+
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" id="topBtn" title="Back to Top">↑</button>
+
+<script>
+  function onScrollFade() {
+    const sections = document.querySelectorAll('section');
+    const triggerBottom = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if (sectionTop < triggerBottom) {
+        section.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', onScrollFade);
+  window.addEventListener('load', onScrollFade);
+
+  const topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) { topBtn.style.display = 'block'; }
+    else { topBtn.style.display = 'none'; }
+  });
+</script>
+
 </body>
 </html>
