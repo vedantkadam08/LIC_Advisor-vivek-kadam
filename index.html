@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIC Advisor - Vivek Kadam</title>
+<title>LIC Advisor - Vivek Sir</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{--brand:#004aad;--brand-dark:#002c70;--accent:#25D366}
-*{box-sizing:border-box}
+*{box-sizing:border-box} 
 body{font-family:'Poppins',sans-serif;margin:0;background:#f4f7fa;color:#222;line-height:1.5}
 a{color:var(--brand);text-decoration:none}
 header{background:linear-gradient(90deg,var(--brand),#00307a);color:#fff;padding:56px 20px 32px;text-align:center;position:relative;overflow:hidden}
@@ -16,8 +16,13 @@ header h1, header p{position:relative;z-index:1;margin:0}
 header p{margin-top:8px;opacity:.95}
 .profile-img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,0.15);display:block;margin:18px auto 0}
 nav{background:#00307a;padding:12px;text-align:center;position:sticky;top:0;z-index:99;box-shadow:0 2px 6px rgba(0,0,0,0.12)}
-nav a{color:#fff;margin:0 18px;font-weight:600}
+nav a{color:#fff;margin:0 18px;font-weight:600} 
 nav a:hover{color:#ffd700}
+#langToggle{position:fixed;right:22px;bottom:22px;background:#fff;border-radius:30px;padding:8px 14px;border:2px solid #eee;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.08);z-index:9999;display:flex;align-items:center;gap:8px}
+#langToggle .switch{width:46px;height:26px;background:#e9eef8;border-radius:20px;display:inline-block;position:relative}
+#langToggle .knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--brand);transition:all .22s ease}
+#langToggle[data-lang="mr"] .knob{transform:translateX(20px);background:var(--accent)}
+#langHint{font-size:13px;color:#444}
 .container{max-width:1000px;margin:36px auto;padding:0 18px}
 section{margin-bottom:28px}
 .card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
@@ -38,60 +43,61 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
 #chatbotInput{width:calc(100% - 24px);margin:10px 12px 18px;padding:10px;border-radius:8px;border:1px solid #ddd}
 .msg-user{background:#eef3ff;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
 .msg-bot{background:#f2f2f2;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
-#visitorInfo{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px}
-#langToggle{position:fixed;right:22px;bottom:22px;background:#fff;border-radius:30px;padding:8px 14px;border:2px solid #eee;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.08);z-index:9999;display:flex;align-items:center;gap:8px}
-#langToggle .switch{width:46px;height:26px;background:#e9eef8;border-radius:20px;display:inline-block;position:relative}
-#langToggle .knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--brand);transition:all .22s ease}
-#langToggle[data-lang="mr"] .knob{transform:translateX(20px);background:var(--accent)}
-.lang-mr{display:none}
+#visitorInfo{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;}
+.hidden{display:none}
 @media(max-width:700px){nav a{display:inline-block;margin:6px} .profile-img{width:120px;height:120px} #chatbotWindow{width:320px;right:14px}}
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
-  <h1><span class="lang-en">LIC Advisor - Vivek Kadam</span><span class="lang-mr">एलआयसी सल्लागार - विवेक कदम</span></h1>
-  <p><span class="lang-en">Your Trusted Life Insurance Partner</span><span class="lang-mr">आपला विश्वासू जीवन विमा साथी</span></p>
-  <img class="profile-img" src="https://i.ibb.co/wZ8cKCfp/Whats-App-Image-2025-07-20-at-3-21-05-PM.jpg" alt="Vivek Kadam">
+  <h1><span class="lang-en">LIC Advisor - Vivek Sir</span><span class="lang-mr hidden">एलआयसी सल्लागार - विवेक सर</span></h1>
+  <p><span class="lang-en">Your Trusted Life Insurance Partner</span><span class="lang-mr hidden">आपला विश्वासू जीवन विमा साथी</span></p>
+  <img class="profile-img" src="https://i.ibb.co/wZ8cKCfp/Whats-App-Image-2025-07-20-at-3-21-05-PM.jpg" alt="Vivek Sir">
 </header>
 
-<!-- Nav -->
 <nav>
-  <a href="#about"><span class="lang-en">About</span><span class="lang-mr">आमच्याबद्दल</span></a>
-  <a href="#plans"><span class="lang-en">Plans</span><span class="lang-mr">योजना</span></a>
-  <a href="#reviews"><span class="lang-en">Reviews</span><span class="lang-mr">पुनरावलोकने</span></a>
-  <a href="#contact"><span class="lang-en">Contact</span><span class="lang-mr">संपर्क</span></a>
-  <a href="#book"><span class="lang-en">Book Meeting</span><span class="lang-mr">मीटिंग बुक करा</span></a>
+<a href="#about"><span class="lang-en">About</span><span class="lang-mr hidden">आमच्याबद्दल</span></a>
+<a href="#plans"><span class="lang-en">Plans</span><span class="lang-mr hidden">योजना</span></a>
+<a href="#reviews"><span class="lang-en">Reviews</span><span class="lang-mr hidden">पुनरावलोकने</span></a>
+<a href="#contact"><span class="lang-en">Contact</span><span class="lang-mr hidden">संपर्क</span></a>
+<a href="#book"><span class="lang-en">Book Meeting</span><span class="lang-mr hidden">मीटिंग बुक करा</span></a>
 </nav>
+
+<!-- Language Toggle -->
+<div id="langToggle" data-lang="en" aria-label="Language toggle">
+  <div style="display:flex;flex-direction:column;align-items:center">
+    <span id="langHint">EN / MR</span>
+    <div class="switch"><div class="knob"></div></div>
+  </div>
+</div>
 
 <!-- Visitor Info Modal -->
 <section id="visitorInfo">
-<h2><span class="lang-en">Enter Your Details</span><span class="lang-mr">तुमची माहिती भरा</span></h2>
+<h2><span class="lang-en">Enter Your Details</span><span class="lang-mr hidden">तुमची माहिती भरा</span></h2>
 <input type="text" id="visitorName" placeholder="Your Name" required>
-<input type="tel" id="visitorPhone" placeholder="Your Phone Number" required>
-<button id="submitVisitor" class="btn"><span class="lang-en">Submit</span><span class="lang-mr">सबमिट</span></button>
+<input type="tel" id="visitorPhone" placeholder="Your Phone Number (+91XXXXXXXXXX)" pattern="[0-9]{10}" required>
+<button id="submitVisitor" class="btn"><span class="lang-en">Submit</span><span class="lang-mr hidden">सबमिट करा</span></button>
 </section>
 
-<div class="container" style="display:none;" id="mainContent">
-  <!-- About Section -->
+<div class="container hidden" id="mainContent">
   <section id="about" class="card">
-    <h2><span class="lang-en">About Vedant Consultancy</span><span class="lang-mr">वेदांत कन्सल्टन्सीबद्दल</span></h2>
-    <p><strong><span class="lang-en">Name:</span><span class="lang-mr">नाव:</span></strong> Vivek Kadam</p>
-    <p><strong><span class="lang-en">Experience:</span><span class="lang-mr">अनुभव:</span></strong> 26 Years (1999–2025)</p>
-    <p><span class="lang-en">Providing personalized insurance solutions to protect what matters most.</span><span class="lang-mr">सर्वात महत्त्वाच्या गोष्टींचे संरक्षण करण्यासाठी वैयक्तिकृत विमा उपाय प्रदान करणे.</span></p>
+    <h2><span class="lang-en">About Vedant Consultancy</span><span class="lang-mr hidden">वेदांत कन्सल्टन्सीबद्दल</span></h2>
+    <p><strong><span class="lang-en">Name:</span><span class="lang-mr hidden">नाव:</span></strong> Vivek Sir</p>
+    <p><strong><span class="lang-en">Experience:</span><span class="lang-mr hidden">अनुभव:</span></strong> 26 Years (1999–2025)</p>
+    <p><span class="lang-en">Providing personalized insurance solutions to protect what matters most.</span>
+       <span class="lang-mr hidden">महत्त्वाच्या गोष्टींचे रक्षण करण्यासाठी वैयक्तिकृत विमा सोल्यूशन्स प्रदान करणे.</span></p>
   </section>
 
-  <!-- Plans Section -->
   <section id="plans" class="card">
-    <h2><span class="lang-en">Available LIC Plans</span><span class="lang-mr">उपलब्ध एलआयसी योजना</span></h2>
+    <h2><span class="lang-en">Available LIC Plans</span><span class="lang-mr hidden">उपलब्ध एलआयसी योजना</span></h2>
     <input type="search" id="planSearch" placeholder="Search plan name or keyword...">
     <table id="planTable">
       <thead>
         <tr>
-          <th><span class="lang-en">Plan Name</span><span class="lang-mr">योजना नाव</span></th>
-          <th><span class="lang-en">Category</span><span class="lang-mr">वर्ग</span></th>
-          <th><span class="lang-en">Brief</span><span class="lang-mr">तपशील</span></th>
+          <th><span class="lang-en">Plan Name</span><span class="lang-mr hidden">योजनांचे नाव</span></th>
+          <th><span class="lang-en">Category</span><span class="lang-mr hidden">श्रेणी</span></th>
+          <th><span class="lang-en">Brief</span><span class="lang-mr hidden">थोडक्यात</span></th>
         </tr>
       </thead>
       <tbody>
@@ -103,57 +109,82 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
         <tr><td>New Tech Term (Online)</td><td>Term Assurance</td><td>Pure term cover</td></tr>
       </tbody>
     </table>
-    <button id="pdfBtn" class="btn"><span class="lang-en">Download Plans PDF</span><span class="lang-mr">योजना पीडीएफ डाउनलोड करा</span></button>
+    <button id="pdfBtn" class="btn"><span class="lang-en">Download Plans PDF</span><span class="lang-mr hidden">योजना PDF डाउनलोड करा</span></button>
   </section>
-
-  <!-- Reviews Section -->
   <section id="reviews" class="card">
-    <h2><span class="lang-en">Clients Say</span><span class="lang-mr">ग्राहकांचे अभिप्राय</span></h2>
-    <div><strong>Rohit Sharma</strong> — "<span class="lang-en">Vivek Sir is highly professional and helped me understand the best policy for my family’s future.</span><span class="lang-mr">विवेक सर अत्यंत व्यावसायिक आहेत आणि त्यांनी माझ्या कुटुंबाच्या भविष्याकरिता सर्वोत्तम पॉलिसी समजावून सांगितली.</span>"</div>
-    <div style="margin-top:8px"><strong>Meera Patil</strong> — "<span class="lang-en">Excellent service, honest guidance, and always available to support.</span><span class="lang-mr">उत्कृष्ट सेवा, प्रामाणिक मार्गदर्शन आणि नेहमी मदतीसाठी उपलब्ध.</span>"</div>
-    <div style="margin-top:8px"><strong>Sameer Desai</strong> — "<span class="lang-en">I’ve been a client for over a decade. Vivek Sir is someone you can trust blindly.</span><span class="lang-mr">मी एका दशकाहून अधिक काळ ग्राहक आहे. विवेक सरवर पूर्ण विश्वास ठेवता येतो.</span>"</div>
+    <h2><span class="lang-en">Clients Say</span><span class="lang-mr hidden">ग्राहकांचे अभिप्राय</span></h2>
+    <div><strong>Rohit Sharma</strong> — <span class="lang-en">"Vivek Sir is highly professional and helped me understand the best policy for my family’s future."</span><span class="lang-mr hidden">"विवेक सर अत्यंत व्यावसायिक आहेत आणि त्यांनी मला माझ्या कुटुंबाच्या भविष्यासाठी सर्वोत्तम पॉलिसी समजावून सांगितली."</span></div>
+    <div style="margin-top:8px"><strong>Meera Patil</strong> — <span class="lang-en">"Excellent service, honest guidance, and always available to support."</span><span class="lang-mr hidden">"उत्कृष्ट सेवा, प्रामाणिक मार्गदर्शन, आणि नेहमी सहाय्यासाठी उपलब्ध."</span></div>
+    <div style="margin-top:8px"><strong>Sameer Desai</strong> — <span class="lang-en">"I’ve been a client for over a decade. Vivek Sir is someone you can trust blindly."</span><span class="lang-mr hidden">"मी दशकाहून अधिक काळ क्लायंट आहे. विवेक सरवर आपण पूर्ण विश्वास ठेवू शकता."</span></div>
   </section>
-<!-- Contact Section -->
-<section id="contact" class="card center">
-  <h2><span class="lang-en">Contact Me</span><span class="lang-mr">माझ्याशी संपर्क साधा</span></h2>
-  <p>
-    <strong><span class="lang-en">Phone:</span><span class="lang-mr">फोन:</span></strong> 
-    <a href="tel:+919664999797">+91-9664999797</a> | 
-    <strong><span class="lang-en">Email:</span><span class="lang-mr">ईमेल:</span></strong> 
-    <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a>
-  </p>
-  <p style="max-width:720px;margin:0 auto">
-    <strong><span class="lang-en">Office:</span><span class="lang-mr">कार्यालय:</span></strong> 
-    Shivanand, 2nd Flr., SV Rd., Goregaon, nr. Samrat Talkies, Mumbai, Maharashtra 400062
-  </p>
-  <div style="max-width:720px;margin:10px auto;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08)">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.9049341211903!2d72.84293717520738!3d19.155638182065406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b635dce6edc5%3A0xd8889595729557da!2sLIC%20of%20India%2C%20Branch%20Office!5e0!3m2!1sen!2sin!4v1753001927819!5m2!1sen!2sin" width="100%" height="280" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+
+  <section id="contact" class="card center">
+    <h2><span class="lang-en">Contact Me</span><span class="lang-mr hidden">संपर्क</span></h2>
+    <p><strong><span class="lang-en">Phone:</span><span class="lang-mr hidden">फोन:</span></strong> <a href="tel:+919664999797">+91-9664999797</a> | <strong><span class="lang-en">Email:</span><span class="lang-mr hidden">ईमेल:</span></strong> <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a></p>
+    <p><strong><span class="lang-en">Office:</span><span class="lang-mr hidden">कार्यालय:</span></strong> Shivanand, 2nd Flr., SV Rd., Goregaon, nr. Samrat Talkies, Mumbai, Maharashtra 400062</p>
+    <div style="max-width:720px;margin:10px auto;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08)">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.9049341211903!2d72.84293717520738!3d19.155638182065406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b635dce6edc5%3A0xd8889595729557da!2sLIC%20of%20India%2C%20Branch%20Office!5e0!3m2!1sen!2sin!4v1753001927819!5m2!1sen!2sin" width="100%" height="280" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section id="book" class="card center">
+    <h2><span class="lang-en">Book a Meeting</span><span class="lang-mr hidden">मीटिंग बुक करा</span></h2>
+    <p><span class="lang-en">Click the button below to send your details via WhatsApp to Vivek Sir:</span><span class="lang-mr hidden">खालील बटणावर क्लिक करून आपल्या तपशीलांचा WhatsApp द्वारे विवेक सरला पाठवा:</span></p>
+    <button id="bookWhatsApp" class="btn btn-green">💬 <span class="lang-en">Book via WhatsApp</span><span class="lang-mr hidden">WhatsApp द्वारे बुक करा</span></button>
+  </section>
+
+  <!-- Chatbot UI -->
+  <button id="chatbotBtn" title="Chat with advisor">💬</button>
+  <div id="chatbotWindow" aria-hidden="true">
+    <div id="chatbotHeader">Chat with Vivek Sir</div>
+    <div id="chatbotBody" role="log" aria-live="polite"></div>
+    <input id="chatbotInput" placeholder="Type message & press Enter" aria-label="Chat input">
   </div>
-</section>
 
-<!-- Book Meeting Section -->
-<section id="book" class="card center">
-  <h2><span class="lang-en">Book a Meeting</span><span class="lang-mr">मीटिंग बुक करा</span></h2>
-  <p><span class="lang-en">Click the button below to send your details via WhatsApp to Vivek Sir:</span><span class="lang-mr">खालील बटणावर क्लिक करून आपल्या तपशीलांसह व्हॉट्सअॅपवर विवेक सरला संदेश पाठवा:</span></p>
-  <button id="bookWhatsApp" class="btn btn-green">💬 <span class="lang-en">Book via WhatsApp</span><span class="lang-mr">व्हॉट्सअॅपद्वारे बुक करा</span></button>
-</section>
+  <footer style="margin-top:20px;padding:22px;text-align:center;background:var(--brand);color:#fff">
+    &copy; 2025 LIC Advisor. All Rights Reserved.
+  </footer>
 
-<!-- Chatbot UI -->
-<button id="chatbotBtn" title="Chat with advisor">💬</button>
-<div id="chatbotWindow" aria-hidden="true">
-  <div id="chatbotHeader"><span class="lang-en">Chat with Vivek Sir</span><span class="lang-mr">विवेक सरशी चॅट करा</span></div>
-  <div id="chatbotBody" role="log" aria-live="polite"></div>
-  <input id="chatbotInput" placeholder="Type message & press Enter" aria-label="Chat input">
-</div>
-
-<!-- Footer -->
-<footer style="margin-top:20px;padding:22px;text-align:center;background:var(--brand);color:#fff">
-  <span class="lang-en">&copy; 2025 LIC Advisor. All Rights Reserved.</span>
-  <span class="lang-mr">&copy; 2025 एलआयसी सल्लागार. सर्व हक्क राखीव.</span>
-</footer>
-
-<!-- WhatsApp Booking & Chatbot JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 <script>
+// Visitor info submission with validation
+document.getElementById('submitVisitor').addEventListener('click', function(){
+  const name = document.getElementById('visitorName').value.trim();
+  const phone = document.getElementById('visitorPhone').value.trim();
+  const phonePattern = /^[0-9]{10}$/;
+  if(!name || !phone){ alert("Please enter your Name and Phone"); return; }
+  if(!phonePattern.test(phone)){ alert("Enter a valid 10-digit phone number"); return; }
+  localStorage.setItem('visitorName', name);
+  localStorage.setItem('visitorPhone', phone);
+  document.getElementById('visitorInfo').classList.add('hidden');
+  document.getElementById('mainContent').classList.remove('hidden');
+});
+
+// Plan Search
+document.getElementById('planSearch').addEventListener('input', function(){
+  const q = this.value.trim().toLowerCase();
+  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
+    tr.style.display = (q === '' || tr.innerText.toLowerCase().includes(q)) ? '' : 'none';
+  });
+});
+
+// PDF Download
+document.getElementById('pdfBtn').addEventListener('click', function(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({unit:'pt',format:'a4'});
+  doc.setFontSize(14); doc.setTextColor(20,40,80);
+  doc.text('LIC Plans - Vedant Consultancy', 40, 40);
+  const rows = [];
+  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
+    if(tr.style.display==='none') return;
+    const cols = tr.querySelectorAll('td');
+    rows.push([cols[0].innerText, cols[1].innerText, cols[2].innerText]);
+  });
+  doc.autoTable({head:[['Plan Name','Type','Brief']], body:rows, startY:70, styles:{fontSize:10,cellPadding:6}, headStyles:{fillColor:[0,74,173]}});
+  doc.save('LIC_Plans_Vedant_Consultancy.pdf');
+});
+
 // WhatsApp Meeting Button
 document.getElementById('bookWhatsApp').addEventListener('click', function(){
   const name = localStorage.getItem('visitorName') || 'Visitor';
@@ -189,78 +220,15 @@ function appendMsg(who, text){
   chatbotBody.appendChild(el);
   chatbotBody.scrollTop = chatbotBody.scrollHeight;
 }
-</script>
-<!-- Visitor Info Modal -->
-<section id="visitorInfo">
-  <h2><span class="lang-en">Enter Your Details</span><span class="lang-mr">आपले तपशील भरा</span></h2>
-  <input type="text" id="visitorName" placeholder="Your Name / आपले नाव" required>
-  <input type="tel" id="visitorPhone" placeholder="Your Phone Number / आपला फोन नंबर" required pattern="[0-9]{10}">
-  <button id="submitVisitor" class="btn"><span class="lang-en">Submit</span><span class="lang-mr">सबमिट करा</span></button>
-</section>
 
-<div class="container" style="display:none;" id="mainContent">
-  <!-- About, Plans, Reviews, Contact, Book Meeting, Chatbot already included in previous parts -->
-</div>
-
-<!-- Language Toggle -->
-<div id="langToggle" data-lang="en" aria-label="Language toggle">
-  <div style="display:flex;flex-direction:column;align-items:flex-start">
-    <div id="langHint"><span class="lang-en">EN / मराठी</span><span class="lang-mr">EN / मराठी</span></div>
-  </div>
-  <div style="margin-left:8px;position:relative">
-    <div class="switch"><div class="knob"></div></div>
-  </div>
-</div>
-
-<script>
+// Language toggle
 const langToggle = document.getElementById('langToggle');
-const knob = langToggle.querySelector('.knob');
 langToggle.addEventListener('click', ()=>{
-  const current = langToggle.getAttribute('data-lang');
-  const newLang = current==='en'?'mr':'en';
-  langToggle.setAttribute('data-lang', newLang);
-  if(newLang==='mr'){ knob.style.transform='translateX(20px)'; } 
-  else { knob.style.transform='translateX(0)'; }
-
-  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=newLang==='en'?'inline':'none');
-  document.querySelectorAll('.lang-mr').forEach(e=>e.style.display=newLang==='mr'?'inline':'none');
-});
-
-// Show main content after visitor info with validation
-document.getElementById('submitVisitor').addEventListener('click', function(){
-  const name = document.getElementById('visitorName').value.trim();
-  const phone = document.getElementById('visitorPhone').value.trim();
-  const phoneRegex = /^[0-9]{10}$/;
-  if(!name || !phone){ alert("Please enter your Name and Phone"); return; }
-  if(!phoneRegex.test(phone)){ alert("Please enter a valid 10-digit phone number"); return; }
-  localStorage.setItem('visitorName', name);
-  localStorage.setItem('visitorPhone', phone);
-  document.getElementById('visitorInfo').style.display='none';
-  document.getElementById('mainContent').style.display='block';
-});
-
-// PDF Download (English / Marathi)
-document.getElementById('pdfBtn').addEventListener('click', function(){
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({unit:'pt',format:'a4'});
-  const lang = langToggle.getAttribute('data-lang');
-  const title = lang==='en'?'LIC Plans - Vedant Consultancy':'एलआयसी योजना - वेदांत कन्सल्टन्सी';
-  doc.setFontSize(14); doc.setTextColor(20,40,80);
-  if(lang==='mr'){ doc.setFont('Helvetica',''); } // Can replace with a custom Marathi font if added
-  doc.text(title, 40, 40);
-
-  const rows = [];
-  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
-    if(tr.style.display==='none') return;
-    const cols = tr.querySelectorAll('td');
-    let row = [];
-    for(let c=0;c<cols.length;c++){
-      row.push(cols[c].innerText);
-    }
-    rows.push(row);
-  });
-  const head = lang==='en'?[['Plan Name','Type','Brief']]:[['योजनेचे नाव','वर्ग','थोडक्यात']];
-  doc.autoTable({head:head, body:rows, startY:70, styles:{fontSize:10,cellPadding:6}, headStyles:{fillColor:[0,74,173]}});
-  doc.save(lang==='en'?'LIC_Plans_Vedant_Consultancy.pdf':'LIC_Yojana_Vedant_Consultancy.pdf');
+  const isMR = langToggle.dataset.lang==='mr';
+  langToggle.dataset.lang = isMR?'en':'mr';
+  document.querySelectorAll('.lang-en').forEach(el=>el.classList.toggle('hidden', !isMR));
+  document.querySelectorAll('.lang-mr').forEach(el=>el.classList.toggle('hidden', isMR));
 });
 </script>
+</body>
+</html>
