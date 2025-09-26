@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LIC Advisor - Vivek Sir</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{--brand:#004aad;--brand-dark:#002c70;--accent:#25D366}
-*{box-sizing:border-box} body{font-family:'Poppins',sans-serif;margin:0;background:#f4f7fa;color:#222;line-height:1.5}
+*{box-sizing:border-box} 
+body{font-family:'Poppins',sans-serif;margin:0;background:#f4f7fa;color:#222;line-height:1.5}
 a{color:var(--brand);text-decoration:none}
 header{background:linear-gradient(90deg,var(--brand),#00307a);color:#fff;padding:56px 20px 32px;text-align:center;position:relative;overflow:hidden}
 header::after{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1588776814546-9c4b448b9d05?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;opacity:.08;z-index:0}
@@ -15,7 +16,7 @@ header h1, header p{position:relative;z-index:1;margin:0}
 header p{margin-top:8px;opacity:.95}
 .profile-img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,0.15);display:block;margin:18px auto 0}
 nav{background:#00307a;padding:12px;text-align:center;position:sticky;top:0;z-index:99;box-shadow:0 2px 6px rgba(0,0,0,0.12)}
-nav a{color:#fff;margin:0 18px;font-weight:600}
+nav a{color:#fff;margin:0 18px;font-weight:600} 
 nav a:hover{color:#ffd700}
 .container{max-width:1000px;margin:36px auto;padding:0 18px}
 section{margin-bottom:28px}
@@ -29,7 +30,7 @@ h2{color:var(--brand);text-align:center;margin:8px 0 18px}
 table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
 th,td{padding:10px;border:1px solid #e4e7eb;text-align:left;vertical-align:top}
 th{background:var(--brand);color:#fff}
-input[type=search]{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:10px}
+input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:10px}
 #chatbotBtn{position:fixed;right:22px;bottom:96px;width:60px;height:60px;border-radius:50%;background:var(--brand);color:#fff;border:0;font-size:26px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.2);z-index:9999}
 #chatbotWindow{display:none;position:fixed;right:22px;bottom:170px;width:360px;max-width:92%;background:#fff;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,0.18);z-index:9999}
 #chatbotHeader{background:var(--brand);color:#fff;padding:12px;border-top-left-radius:12px;border-top-right-radius:12px;font-weight:700;text-align:center}
@@ -37,149 +38,171 @@ input[type=search]{width:100%;padding:10px;border-radius:8px;border:1px solid #d
 #chatbotInput{width:calc(100% - 24px);margin:10px 12px 18px;padding:10px;border-radius:8px;border:1px solid #ddd}
 .msg-user{background:#eef3ff;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
 .msg-bot{background:#f2f2f2;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
-#langToggle{position:fixed;right:22px;bottom:22px;background:#fff;border-radius:30px;padding:8px 14px;border:2px solid #eee;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.08);z-index:9999;display:flex;align-items:center;gap:8px}
-#langToggle .switch{width:46px;height:26px;background:#e9eef8;border-radius:20px;display:inline-block;position:relative}
-#langToggle .knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--brand);transition:all .22s ease}
-#langToggle[data-lang="mr"] .knob{transform:translateX(20px);background:var(--accent)}
-#langHint{font-size:13px;color:#444}
-.hidden{display:none}
+#visitorInfo{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;}
 @media(max-width:700px){nav a{display:inline-block;margin:6px} .profile-img{width:120px;height:120px} #chatbotWindow{width:320px;right:14px}}
 </style>
 </head>
 <body>
 
 <header>
-<h1><span class="lang-en">LIC Advisor - Vivek Sir</span><span class="lang-mr hidden">एलआयसी सल्लागार - विवेक सर</span></h1>
-<p><span class="lang-en">Your Trusted Life Insurance Partner</span><span class="lang-mr hidden">आपला विश्वासू जीवन विमा साथी</span></p>
+<h1>LIC Advisor - Vivek Sir</h1>
+<p>Your Trusted Life Insurance Partner</p>
 <img class="profile-img" src="https://i.ibb.co/wZ8cKCfp/Whats-App-Image-2025-07-20-at-3-21-05-PM.jpg" alt="Vivek Sir">
 </header>
 
 <nav>
-<a href="#about"><span class="lang-en">About</span><span class="lang-mr hidden">आमच्याबद्दल</span></a>
-<a href="#plans"><span class="lang-en">Plans</span><span class="lang-mr hidden">योजना</span></a>
-<a href="#reviews"><span class="lang-en">Reviews</span><span class="lang-mr hidden">पुनरावलोकने</span></a>
-<a href="#contact"><span class="lang-en">Contact</span><span class="lang-mr hidden">संपर्क</span></a>
-<a href="#book"><span class="lang-en">Book Meeting</span><span class="lang-mr hidden">मीटिंग बुक करा</span></a>
+<a href="#about">About</a>
+<a href="#plans">Plans</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+<a href="#book">Book Meeting</a>
 </nav>
 
-<div class="container">
+<!-- Visitor Info Modal -->
+<section id="visitorInfo">
+<h2>Enter Your Details</h2>
+<input type="text" id="visitorName" placeholder="Your Name" required>
+<input type="tel" id="visitorPhone" placeholder="Your Phone Number" required>
+<button id="submitVisitor" class="btn">Submit</button>
+</section>
 
-<!-- About Section -->
-<section id="about">
-<div class="card">
-<h2><span class="lang-en">Welcome to Vedant Consultancy</span><span class="lang-mr hidden">वेदांत कन्सल्टन्सीमध्ये आपले स्वागत आहे</span></h2>
-<div class="lang-en">
+<div class="container" style="display:none;" id="mainContent">
+  <section id="about" class="card">
+<h2>About Vedant Consultancy</h2>
 <p><strong>Name:</strong> Vivek Sir</p>
 <p><strong>Experience:</strong> 26 Years (1999–2025)</p>
-<p><strong>MDRT Year:</strong> 2024</p>
-<p>At Vedant Consultancy, we provide personalized insurance solutions, building lasting relationships and protecting what matters most to you.</p>
-<h3>Why Choose Us?</h3>
-<ul>
-<li><strong>Expert Guidance:</strong> Clear explanation of options.</li>
-<li><strong>Tailored Solutions:</strong> Life, health, business, retirement planning.</li>
-<li><strong>Trusted Support:</strong> Before, during, and after your policy.</li>
-</ul>
-<div class="center">
-<p><strong>Let’s protect what matters most — together.</strong></p>
-<p><a class="btn" href="tel:+919664999797">📞 Call Now</a></p>
-</div>
-</div>
-<div class="lang-mr hidden">
-<p><strong>नाव:</strong> Vivek Sir</p>
-<p><strong>अनुभव:</strong> 26 वर्षे (1999–2025)</p>
-<p><strong>MDRT वर्ष:</strong> 2024</p>
-<p>वेदांत कन्सल्टन्सी येथे आम्ही वैयक्तिक विमा उपाय प्रदान करतो आणि महत्त्वाच्या गोष्टींचे संरक्षण करतो.</p>
-<h3>आम्हाला का निवडावे?</h3>
-<ul>
-<li><strong>तज्ज्ञ मार्गदर्शन:</strong> पर्याय स्पष्ट समजावून सांगणे.</li>
-<li><strong>अनुकूल उपाय:</strong> जीवन, आरोग्य, व्यवसाय, निवृत्ती नियोजन.</li>
-<li><strong>विश्वसनीय समर्थन:</strong> पॉलिसीपूर्वी, दरम्यान आणि नंतर.</li>
-</ul>
-</div>
-</div>
+<p>Providing personalized insurance solutions to protect what matters most.</p>
 </section>
 
-<!-- Plans Section -->
-<section id="plans">
-<div class="card">
-<h2><span class="lang-en">Available LIC Plans</span><span class="lang-mr hidden">उपलब्ध एलआयसी योजना</span></h2>
-<input type="search" id="planSearch" placeholder="Search plan name or keyword..." aria-label="Search Plans">
-<div style="overflow:auto">
-<table id="planTable" role="table" aria-label="LIC Plans">
+<section id="plans" class="card">
+<h2>Available LIC Plans</h2>
+<input type="search" id="planSearch" placeholder="Search plan name or keyword...">
+<table id="planTable">
 <thead>
-<tr><th><span class="lang-en">Plan Name</span><span class="lang-mr hidden">योजनेचे नाव</span></th>
-<th><span class="lang-en">Category / Type</span><span class="lang-mr hidden">वर्ग</span></th>
-<th><span class="lang-en">Brief (Gist)</span><span class="lang-mr hidden">थोडक्यात</span></th></tr>
+<tr>
+<th>Plan Name</th>
+<th>Category</th>
+<th>Brief</th>
+</tr>
 </thead>
 <tbody>
-<tr><td>New Endowment Plan (714)</td><td>Endowment</td><td>Guaranteed sum + bonuses at maturity or on death.</td></tr>
-<tr><td>Jeevan Anand (715)</td><td>Endowment / Whole Life</td><td>Protection + savings; benefit during lifetime & at maturity.</td></tr>
-<tr><td>Jeevan Labh (736)</td><td>Participating Endowment</td><td>Endowment with bonuses; savings plus cover.</td></tr>
-<tr><td>Amritam (Various)</td><td>Endowment</td><td>Single premium / limited premium endowment variants.</td></tr>
-<tr><td>New Money Back (720 / 721)</td><td>Money Back</td><td>Periodic survival benefits during term + maturity payout.</td></tr>
-<tr><td>Bima Shree (748)</td><td>Money Back</td><td>Periodic payouts with death benefits.</td></tr>
-<tr><td>Jeevan Umang (745)</td><td>Whole Life</td><td>Annual survival benefits and whole life cover.</td></tr>
-<tr><td>New Tech Term (Online)</td><td>Term Assurance</td><td>Pure term cover; high sum at affordable premiums.</td></tr>
-<tr><td>New Pension Plus (867)</td><td>Pension / Deferred</td><td>Deferred pension with annuity options.</td></tr>
-<tr><td>Jeevan Akshay VII</td><td>Immediate Annuity</td><td>Immediate annuity options for retirement income.</td></tr>
+<tr><td>New Endowment Plan (714)</td><td>Endowment</td><td>Guaranteed sum + bonuses</td></tr>
+<tr><td>Jeevan Anand (715)</td><td>Endowment / Whole Life</td><td>Protection + savings</td></tr>
+<tr><td>Jeevan Labh (736)</td><td>Participating Endowment</td><td>Endowment with bonuses</td></tr>
+<tr><td>New Money Back (720 / 721)</td><td>Money Back</td><td>Periodic survival benefits</td></tr>
+<tr><td>Jeevan Umang (745)</td><td>Whole Life</td><td>Annual survival benefits and life cover</td></tr>
+<tr><td>New Tech Term (Online)</td><td>Term Assurance</td><td>Pure term cover</td></tr>
 </tbody>
 </table>
-</div>
-<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-<button id="pdfBtn" class="btn"><span class="lang-en">Download Plans PDF</span><span class="lang-mr hidden">योजना पीडीएफ डाउनलोड करा</span></button>
-</div>
-</div>
+<button id="pdfBtn" class="btn">Download Plans PDF</button>
+</section>
+<section id="reviews" class="card">
+<h2>Clients Say</h2>
+<div><strong>Rohit Sharma</strong> — "Vivek Sir is highly professional and helped me understand the best policy for my family’s future."</div>
+<div style="margin-top:8px"><strong>Meera Patil</strong> — "Excellent service, honest guidance, and always available to support."</div>
+<div style="margin-top:8px"><strong>Sameer Desai</strong> — "I’ve been a client for over a decade. Vivek Sir is someone you can trust blindly."</div>
 </section>
 
-<!-- Reviews Section -->
-<section id="reviews">
-<div class="card">
-<h2><span class="lang-en">Clients Say</span><span class="lang-mr hidden">ग्राहक काय म्हणतात</span></h2>
-<div><strong>Rohit Sharma</strong> — <span class="lang-en">"Vivek is highly professional and helped me understand the best policy for my family’s future."</span><span class="lang-mr hidden">"विवेक अत्यंत व्यावसायिक आहेत आणि त्यांनी माझ्या कुटुंबाच्या भविष्यासाठी सर्वोत्तम पॉलिसी समजावून सांगितली."</span></div>
-<div style="margin-top:8px"><strong>Meera Patil</strong> — <span class="lang-en">"Excellent service, honest guidance, and always available to support. Truly MDRT material!"</span><span class="lang-mr hidden">"उत्तम सेवा, प्रामाणिक मार्गदर्शन, आणि नेहमी उपलब्ध."</span></div>
-<div style="margin-top:8px"><strong>Sameer Desai</strong> — <span class="lang-en">"I’ve been a client for over a decade. Vivek is someone you can trust blindly."</span><span class="lang-mr hidden">"मी एक दशकाहून अधिक काळ ग्राहक आहे. विवेक हे पूर्णपणे विश्वसनीय आहेत."</span></div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
-<div class="card center">
-<h2><span class="lang-en">Contact Me</span><span class="lang-mr hidden">माझ्याशी संपर्क साधा</span></h2>
-<p><strong><span class="lang-en">Phone:</span><span class="lang-mr hidden">फोन:</span></strong> <a href="tel:+919664999797">+91-9664999797</a> |
-<strong><span class="lang-en">Email:</span><span class="lang-mr hidden">ईमेल:</span></strong> <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a></p>
-<p style="max-width:720px;margin:0 auto"><strong><span class="lang-en">Office:</span><span class="lang-mr hidden">कार्यालय:</span></strong> Shivanand, 2nd Flr., SV Rd., Goregaon, nr. Samrat Talkies, Mumbai, Maharashtra 400062</p>
+<section id="contact" class="card center">
+<h2>Contact Me</h2>
+<p><strong>Phone:</strong> <a href="tel:+919664999797">+91-9664999797</a> | <strong>Email:</strong> <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a></p>
+<p><strong>Office:</strong> Shivanand, 2nd Flr., SV Rd., Goregaon, nr. Samrat Talkies, Mumbai, Maharashtra 400062</p>
 <div style="max-width:720px;margin:10px auto;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08)">
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.9049341211903!2d72.84293717520738!3d19.155638182065406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b635dce6edc5%3A0xd8889595729557da!2sLIC%20of%20India%2C%20Branch%20Office!5e0!3m2!1sen!2sin!4v1753001927819!5m2!1sen!2sin" width="100%" height="280" style="border:0" allowfullscreen="" loading="lazy"></iframe>
 </div>
-<div style="margin-top:10px">
-<a class="btn whatsapp-btn btn-green" id="freeConsultBtn" href="#" target="_blank">💬 <span class="lang-en">Free Consultation (WhatsApp)</span><span class="lang-mr hidden">मुफ्त सल्ला (WhatsApp)</span></a>
-</div>
-</div>
 </section>
 
-<!-- Book Meeting Section -->
-<section id="book">
-<div class="card center">
-<h2><span class="lang-en">Book a Meeting</span><span class="lang-mr hidden">मीटिंग बुक करा</span></h2>
-<p><span class="lang-en">Click below to schedule a meeting with Vivek Sir via WhatsApp:</span><span class="lang-mr hidden">विवेक सरसोबत मीटिंग शेड्यूल करण्यासाठी खाली क्लिक करा:</span></p>
-<div class="center" style="margin-top:12px">
-<a class="btn btn-green" href="https://api.whatsapp.com/send?phone=+919664999797&text=Hello%20Vivek%20Sir,%20I%20want%20to%20book%20a%20meeting." target="_blank">💬 <span class="lang-en">Book Meeting</span><span class="lang-mr hidden">मीटिंग बुक करा</span></a>
-</div>
-</div>
+<section id="book" class="card center">
+<h2>Book a Meeting</h2>
+<p>Click the button below to send your details via WhatsApp to Vivek Sir:</p>
+<button id="bookWhatsApp" class="btn btn-green">💬 Book via WhatsApp</button>
 </section>
-
-<footer style="margin-top:20px;padding:22px;text-align:center;background:var(--brand);color:#fff">
-<span class="lang-en">&copy; 2025 LIC Advisor. All Rights Reserved.</span>
-<span class="lang-mr hidden">&copy; 2025 एलआयसी सल्लागार. सर्व हक्क राखीव.</span>
-</footer>
-
-<!-- Chatbot -->
+<!-- Chatbot UI -->
 <button id="chatbotBtn" title="Chat with advisor">💬</button>
 <div id="chatbotWindow" aria-hidden="true">
-<div id="chatbotHeader"><span class="lang-en">Chat with Advisor</span><span class="lang-mr hidden">सल्लागाराशी चॅट करा</span></div>
-<div id="chatbotBody" role="log" aria-live="polite"></div>
-<input id="chatbotInput" placeholder="Type message & press Enter" aria-label="Chat input">
+  <div id="chatbotHeader">Chat with Vivek Sir</div>
+  <div id="chatbotBody" role="log" aria-live="polite"></div>
+  <input id="chatbotInput" placeholder="Type message & press Enter" aria-label="Chat input">
 </div>
 
-<!-- Language Toggle -->
-<div id="lang
+<footer style="margin-top:20px;padding:22px;text-align:center;background:var(--brand);color:#fff">
+&copy; 2025 LIC Advisor. All Rights Reserved.
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+<script>
+// Show main content after visitor info
+document.getElementById('submitVisitor').addEventListener('click', function(){
+  const name = document.getElementById('visitorName').value.trim();
+  const phone = document.getElementById('visitorPhone').value.trim();
+  if(!name || !phone){ alert("Please enter your Name and Phone"); return; }
+  localStorage.setItem('visitorName', name);
+  localStorage.setItem('visitorPhone', phone);
+  document.getElementById('visitorInfo').style.display='none';
+  document.getElementById('mainContent').style.display='block';
+});
+
+// Plan Search
+document.getElementById('planSearch').addEventListener('input', function(){
+  const q = this.value.trim().toLowerCase();
+  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
+    tr.style.display = (q === '' || tr.innerText.toLowerCase().includes(q)) ? '' : 'none';
+  });
+});
+
+// PDF Download
+document.getElementById('pdfBtn').addEventListener('click', function(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({unit:'pt',format:'a4'});
+  doc.setFontSize(14); doc.setTextColor(20,40,80);
+  doc.text('LIC Plans - Vedant Consultancy', 40, 40);
+  const rows = [];
+  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
+    if(tr.style.display==='none') return;
+    const cols = tr.querySelectorAll('td');
+    rows.push([cols[0].innerText, cols[1].innerText, cols[2].innerText]);
+  });
+  doc.autoTable({head:[['Plan Name','Type','Brief']], body:rows, startY:70, styles:{fontSize:10,cellPadding:6}, headStyles:{fillColor:[0,74,173]}});
+  doc.save('LIC_Plans_Vedant_Consultancy.pdf');
+});
+
+// WhatsApp Meeting Button
+document.getElementById('bookWhatsApp').addEventListener('click', function(){
+  const name = localStorage.getItem('visitorName') || 'Visitor';
+  const phone = localStorage.getItem('visitorPhone') || '';
+  const msg = `Hello Vivek Sir, this is ${name} (${phone}). I want to book a meeting.`;
+  const url = `https://api.whatsapp.com/send?phone=+919664999797&text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+});
+
+// Chatbot Toggle
+const chatbotBtn = document.getElementById('chatbotBtn');
+const chatbotWindow = document.getElementById('chatbotWindow');
+chatbotBtn.addEventListener('click', ()=>{ 
+  chatbotWindow.style.display = chatbotWindow.style.display==='block'?'none':'block';
+});
+
+// Simple Chatbot Logic
+const chatbotInput = document.getElementById('chatbotInput');
+const chatbotBody = document.getElementById('chatbotBody');
+chatbotInput.addEventListener('keypress', function(e){
+  if(e.key==='Enter' && this.value.trim()!==''){
+    const text = this.value.trim();
+    const name = localStorage.getItem('visitorName') || 'Visitor';
+    appendMsg('user', text);
+    this.value='';
+    // simple fallback response
+    setTimeout(()=>appendMsg('bot', `Sorry ${name}, I didn't understand. Please contact via WhatsApp.`), 500);
+  }
+});
+function appendMsg(who, text){
+  const el = document.createElement('div');
+  el.className = who==='user'?'msg-user':'msg-bot';
+  el.textContent = text;
+  chatbotBody.appendChild(el);
+  chatbotBody.scrollTop = chatbotBody.scrollHeight;
+}
+</script>
+</body>
+</html>
