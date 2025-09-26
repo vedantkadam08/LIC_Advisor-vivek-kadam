@@ -6,44 +6,44 @@
 <title>LIC Advisor - Vivek Kadam</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root{--brand:#004aad;--brand-dark:#002c70;--accent:#25D366}
-  *{box-sizing:border-box} body{font-family:'Poppins',sans-serif;margin:0;background:#f4f7fa;color:#222;line-height:1.5}
-  a{color:var(--brand);text-decoration:none}
-  header{background:linear-gradient(90deg,var(--brand),#00307a);color:#fff;padding:56px 20px 32px;text-align:center;position:relative;overflow:hidden}
-  header::after{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1588776814546-9c4b448b9d05?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;opacity:.08;z-index:0}
-  header h1, header p{position:relative;z-index:1;margin:0}
-  header p{margin-top:8px;opacity:.95}
-  .profile-img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,0.15);display:block;margin:18px auto 0}
-  nav{background:#00307a;padding:12px;text-align:center;position:sticky;top:0;z-index:99;box-shadow:0 2px 6px rgba(0,0,0,0.12)}
-  nav a{color:#fff;margin:0 18px;font-weight:600}
-  nav a:hover{color:#ffd700}
-  .container{max-width:1000px;margin:36px auto;padding:0 18px}
-  section{margin-bottom:28px}
-  .card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
-  h2{color:var(--brand);text-align:center;margin:8px 0 18px}
-  .center{text-align:center}
-  .btn{display:inline-block;padding:10px 18px;border-radius:8px;background:var(--brand);color:#fff;font-weight:600;border:0;cursor:pointer}
-  .btn:hover{background:var(--brand-dark)}
-  .btn-outline{background:transparent;border:2px solid var(--brand);color:var(--brand);padding:8px 14px;border-radius:8px}
-  .btn-green{background:var(--accent);border:0;color:#fff}
-  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
-  th,td{padding:10px;border:1px solid #e4e7eb;text-align:left;vertical-align:top}
-  th{background:var(--brand);color:#fff}
-  input[type=search]{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:10px}
-  #chatbotBtn{position:fixed;right:22px;bottom:96px;width:60px;height:60px;border-radius:50%;background:var(--brand);color:#fff;border:0;font-size:26px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.2);z-index:9999}
-  #chatbotWindow{display:none;position:fixed;right:22px;bottom:170px;width:360px;max-width:92%;background:#fff;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,0.18);z-index:9999}
-  #chatbotHeader{background:var(--brand);color:#fff;padding:12px;border-top-left-radius:12px;border-top-right-radius:12px;font-weight:700;text-align:center}
-  #chatbotBody{padding:12px;max-height:320px;overflow:auto;font-size:14px}
-  #chatbotInput{width:calc(100% - 24px);margin:10px 12px 18px;padding:10px;border-radius:8px;border:1px solid #ddd}
-  .msg-user{background:#eef3ff;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
-  .msg-bot{background:#f2f2f2;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
-  #langToggle{position:fixed;right:22px;bottom:22px;background:#fff;border-radius:30px;padding:8px 14px;border:2px solid #eee;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.08);z-index:9999;display:flex;align-items:center;gap:8px}
-  #langToggle .switch{width:46px;height:26px;background:#e9eef8;border-radius:20px;display:inline-block;position:relative}
-  #langToggle .knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--brand);transition:all .22s ease}
-  #langToggle[data-lang="mr"] .knob{transform:translateX(20px);background:var(--accent)}
-  #langHint{font-size:13px;color:#444}
-  .hidden{display:none}
-  @media(max-width:700px){nav a{display:inline-block;margin:6px} .profile-img{width:120px;height:120px} #chatbotWindow{width:320px;right:14px}}
+:root{--brand:#004aad;--brand-dark:#002c70;--accent:#25D366}
+*{box-sizing:border-box} body{font-family:'Poppins',sans-serif;margin:0;background:#f4f7fa;color:#222;line-height:1.5}
+a{color:var(--brand);text-decoration:none}
+header{background:linear-gradient(90deg,var(--brand),#00307a);color:#fff;padding:56px 20px 32px;text-align:center;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1588776814546-9c4b448b9d05?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;opacity:.08;z-index:0}
+header h1, header p{position:relative;z-index:1;margin:0}
+header p{margin-top:8px;opacity:.95}
+.profile-img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,0.15);display:block;margin:18px auto 0}
+nav{background:#00307a;padding:12px;text-align:center;position:sticky;top:0;z-index:99;box-shadow:0 2px 6px rgba(0,0,0,0.12)}
+nav a{color:#fff;margin:0 18px;font-weight:600}
+nav a:hover{color:#ffd700}
+.container{max-width:1000px;margin:36px auto;padding:0 18px}
+section{margin-bottom:28px}
+.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
+h2{color:var(--brand);text-align:center;margin:8px 0 18px}
+.center{text-align:center}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;background:var(--brand);color:#fff;font-weight:600;border:0;cursor:pointer}
+.btn:hover{background:var(--brand-dark)}
+.btn-outline{background:transparent;border:2px solid var(--brand);color:var(--brand);padding:8px 14px;border-radius:8px}
+.btn-green{background:var(--accent);border:0;color:#fff}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
+th,td{padding:10px;border:1px solid #e4e7eb;text-align:left;vertical-align:top}
+th{background:var(--brand);color:#fff}
+input[type=search]{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:10px}
+#chatbotBtn{position:fixed;right:22px;bottom:96px;width:60px;height:60px;border-radius:50%;background:var(--brand);color:#fff;border:0;font-size:26px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.2);z-index:9999}
+#chatbotWindow{display:none;position:fixed;right:22px;bottom:170px;width:360px;max-width:92%;background:#fff;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,0.18);z-index:9999}
+#chatbotHeader{background:var(--brand);color:#fff;padding:12px;border-top-left-radius:12px;border-top-right-radius:12px;font-weight:700;text-align:center}
+#chatbotBody{padding:12px;max-height:320px;overflow:auto;font-size:14px}
+#chatbotInput{width:calc(100% - 24px);margin:10px 12px 18px;padding:10px;border-radius:8px;border:1px solid #ddd}
+.msg-user{background:#eef3ff;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
+.msg-bot{background:#f2f2f2;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
+#langToggle{position:fixed;right:22px;bottom:22px;background:#fff;border-radius:30px;padding:8px 14px;border:2px solid #eee;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.08);z-index:9999;display:flex;align-items:center;gap:8px}
+#langToggle .switch{width:46px;height:26px;background:#e9eef8;border-radius:20px;display:inline-block;position:relative}
+#langToggle .knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--brand);transition:all .22s ease}
+#langToggle[data-lang="mr"] .knob{transform:translateX(20px);background:var(--accent)}
+#langHint{font-size:13px;color:#444}
+.hidden{display:none}
+@media(max-width:700px){nav a{display:inline-block;margin:6px} .profile-img{width:120px;height:120px} #chatbotWindow{width:320px;right:14px}}
 </style>
 </head>
 <body>
@@ -65,158 +65,50 @@
 
 <div class="container">
 
-  <!-- About -->
+  <!-- About Section -->
   <section id="about">
     <div class="card">
       <h2>
         <span class="lang-en">Welcome to Vedant Consultancy</span>
         <span class="lang-mr hidden">वेदांत कन्सल्टन्सीमध्ये आपले स्वागत आहे</span>
       </h2>
-
       <div class="lang-en">
         <p><strong>Name:</strong> Vivek Kadam</p>
         <p><strong>Experience:</strong> 26 Years (1999–2025)</p>
         <p><strong>MDRT Year:</strong> 2024</p>
-
-        <p>At Vedant Consultancy, we believe in more than just policies — we believe in building lasting relationships and providing peace of mind through personalized insurance solutions. Our mission is to protect what matters most to you, whether it's your health, family, business, or future.</p>
-
-        <p>Founded on the principles of trust, integrity, and exceptional service, we are proud to serve individuals, families, and businesses with a comprehensive range of insurance products tailored to their unique needs.</p>
-
-        <h3>A Commitment to Excellence</h3>
-        <p>With years of experience in the insurance industry, our founder and lead advisor earned the prestigious <strong>Million Dollar Round Table (MDRT)</strong> designation in <strong>2024</strong> — an honor that recognizes the top professionals in the field for their ethical standards, exceptional service, and outstanding performance.</p>
-
-        <h3>Why Choose Us?</h3>
-        <ul>
-          <li><strong>Expert Guidance:</strong> We take time to understand your needs and explain your options in clear, simple terms.</li>
-          <li><strong>Tailored Solutions:</strong> Whether it’s life, health, business, or retirement planning — we provide solutions that fit you.</li>
-          <li><strong>Trusted Support:</strong> We’re here when you need us, before, during, and after the policy is in place.</li>
-        </ul>
-
-        <div class="center">
-          <p><strong>Let’s protect what matters most — together.</strong></p>
-          <p><a class="btn" href="tel:+919664999797">📞 Call Now</a></p>
-        </div>
+        <p>We believe in building lasting relationships and providing peace of mind through personalized insurance solutions.</p>
       </div>
-
       <div class="lang-mr hidden">
         <p><strong>नाव:</strong> Vivek Kadam</p>
         <p><strong>अनुभव:</strong> 26 वर्षे (1999–2025)</p>
-        <p><strong>MDRT वर्ष:</strong> 2024</p>
-
-        <p>वेदांत कन्सल्टन्सी येथे, आम्ही फक्त पॉलिसीजपुरते मर्यादित नाही आहोत — आम्ही दीर्घकालीन नाते निर्माण करण्यात आणि वैयक्तिक सल्ल्यांद्वारे मनःशांती देण्यात विश्वास ठेवतो. आमचे उद्दीष्ट म्हणजे तुमच्या आरोग्य, कुटुंब, व्यवसाय किंवा भविष्यासाठी महत्वाच्या गोष्टींचे संरक्षण करणे.</p>
-
-        <p>विश्वास, प्रामाणिकपणा आणि उत्कृष्ट ग्राहकसेवा या तत्त्वांवर आधारित, आम्हाला वैयक्तिक, कौटुंबिक आणि व्यावसायिक ग्राहकांना त्यांच्या गरजांनुसार सानुकूलित विमा उत्पादनांची सेवा देण्याचा अभिमान आहे.</p>
-
-        <h3>उत्कृष्टतेची बांधिलकी</h3>
-        <p>विमा उद्योगातील अनेक वर्षांच्या अनुभवासह, आमच्या संस्थापक व मुख्य सल्लागारांना वर्ष 2024 मध्ये <strong>मिलियन डॉलर राउंड टेबल (MDRT)</strong> हे प्रतिष्ठित मानांकन प्राप्त झाले आहे — जे उद्योगातील उत्कृष्ट व्यावसायिकांना त्यांच्या नैतिक मूल्ये, उत्कृष्ट सेवा आणि कामगिरीसाठी सन्मानित करते.</p>
-
-        <h3>आम्हाला का निवडावे?</h3>
-        <ul>
-          <li><strong>तज्ज्ञ मार्गदर्शन:</strong> आम्ही तुमच्या गरजा समजून घेतो आणि सोप्या शब्दांत पर्याय समजावून सांगतो.</li>
-          <li><strong>अनुकूल उपाय:</strong> जीवन, आरोग्य, व्यवसाय किंवा निवृत्ती नियोजन — आम्ही तुमच्यासाठी योग्य उपाय देतो.</li>
-          <li><strong>विश्वसनीय समर्थन:</strong> पॉलिसी सुरू करण्यापूर्वी, दरम्यान आणि नंतर आम्ही तुमच्या सेवेत आहोत.</li>
-        </ul>
-
-        <div class="center">
-          <p><strong>चला एकत्रितपणे महत्वाच्या गोष्टींचे संरक्षण करूया.</strong></p>
-          <p><a class="btn" href="tel:+919664999797">📞 कॉल करा</a></p>
-        </div>
+        <p>आम्ही दीर्घकालीन नाते निर्माण करण्यात आणि वैयक्तिक सल्ल्यांद्वारे मनःशांती देण्यात विश्वास ठेवतो.</p>
       </div>
-
     </div>
   </section>
 
-  <!-- Plans -->
+  <!-- Plans Section -->
   <section id="plans">
     <div class="card">
       <h2><span class="lang-en">Available LIC Plans</span><span class="lang-mr hidden">उपलब्ध एलआयसी योजना</span></h2>
-
       <input type="search" id="planSearch" placeholder="Search plan name or keyword..." aria-label="Search Plans">
-
       <div style="overflow:auto">
         <table id="planTable" role="table" aria-label="LIC Plans">
           <thead>
             <tr><th><span class="lang-en">Plan Name</span><span class="lang-mr hidden">योजनेचे नाव</span></th>
                 <th><span class="lang-en">Category / Type</span><span class="lang-mr hidden">वर्ग</span></th>
-                <th><span class="lang-en">Brief (Gist)</span><span class="lang-mr hidden">थोडक्यात</span></th></tr>
+                <th><span class="lang-en">Brief</span><span class="lang-mr hidden">थोडक्यात</span></th></tr>
           </thead>
           <tbody>
-            <!-- A selection of commonly-known LIC plans; you can expand later -->
-            <tr><td>New Endowment Plan (714)</td><td>Endowment</td><td>Guaranteed sum + bonuses at maturity or on death.</td></tr>
-            <tr><td>Jeevan Anand (715)</td><td>Endowment / Whole Life</td><td>Protection + savings; benefit during lifetime & at maturity.</td></tr>
-            <tr><td>Jeevan Labh (736)</td><td>Participating Endowment</td><td>Endowment with bonuses; savings plus cover.</td></tr>
-            <tr><td>Amritam (Various)</td><td>Endowment</td><td>Single premium / limited premium endowment variants.</td></tr>
-
-            <tr><td>New Money Back (720 / 721)</td><td>Money Back</td><td>Periodic survival benefits during term + maturity payout.</td></tr>
-            <tr><td>Bima Shree (748)</td><td>Money Back</td><td>Periodic payouts with death benefits.</td></tr>
-
-            <tr><td>Jeevan Umang (745)</td><td>Whole Life</td><td>Annual survival benefits and whole life cover.</td></tr>
-            <tr><td>Jeevan Utsav (771)</td><td>Whole Life</td><td>Whole life benefits with flexibility.</td></tr>
-
-            <tr><td>New Tech Term (Online)</td><td>Term Assurance</td><td>Pure term cover; high sum at affordable premiums.</td></tr>
-            <tr><td>Digi Term (876)</td><td>Term Assurance</td><td>Digital term plan for straightforward cover.</td></tr>
-            <tr><td>New Jeevan Amar</td><td>Term Assurance</td><td>Term assurance for pure protection.</td></tr>
-
-            <tr><td>New Pension Plus (867)</td><td>Pension / Deferred</td><td>Deferred pension with annuity options.</td></tr>
-            <tr><td>Jeevan Akshay VII</td><td>Immediate Annuity</td><td>Immediate annuity options for retirement income.</td></tr>
-
-            <tr><td>Nivesh Plus (ULIP)</td><td>ULIP</td><td>Unit-linked investment + life cover.</td></tr>
-            <tr><td>Index / ULIP variants</td><td>ULIP</td><td>Fund linked investment with varying risk profiles.</td></tr>
-
-            <tr><td>Children’s Money Back (732)</td><td>Child Plan</td><td>Education and future savings for children.</td></tr>
-
-            <tr><td>Group Schemes / Micro-insurance</td><td>Group / Micro</td><td>Group or low-premium policies for organizations.</td></tr>
-
-            <tr><td>Accident Benefit Rider</td><td>Rider</td><td>Extra sum on accidental death/disability.</td></tr>
-            <tr><td>Waiver of Premium Rider</td><td>Rider</td><td>Waives future premiums on specified events.</td></tr>
-            <!-- Add more rows as needed -->
+            <tr><td><span class="lang-en">New Endowment Plan (714)</span><span class="lang-mr hidden">न्यू एंडोमेंट प्लॅन (714)</span></td><td>Endowment</td><td><span class="lang-en">Guaranteed sum + bonuses at maturity or on death.</span><span class="lang-mr hidden">निश्चित रक्कम + फायदे शेवटी किंवा मृत्यूच्या वेळी.</span></td></tr>
+            <tr><td><span class="lang-en">Jeevan Anand (715)</span><span class="lang-mr hidden">जीवन आनंद (715)</span></td><td>Endowment / Whole Life</td><td><span class="lang-en">Protection + savings; benefit during lifetime & at maturity.</span><span class="lang-mr hidden">संरक्षण + बचत; जीवनकाळात आणि शेवटी फायदा.</span></td></tr>
+            <tr><td><span class="lang-en">Jeevan Labh (736)</span><span class="lang-mr hidden">जीवन लाभ (736)</span></td><td>Participating Endowment</td><td><span class="lang-en">Endowment with bonuses; savings plus cover.</span><span class="lang-mr hidden">फायदे असलेला एंडोमेंट; बचत आणि संरक्षण.</span></td></tr>
           </tbody>
         </table>
       </div>
-
-      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-        <button id="pdfBtn" class="btn"><span class="lang-en">Download Plans PDF</span><span class="lang-mr hidden">योजना पीडीएफ डाउनलोड करा</span></button>
-        <button id="downloadChats" class="btn btn-outline" title="Download visitor chat messages">Download Chats (JSON)</button>
-        <small style="color:#555;margin-left:auto"><span class="lang-en">Showing a gist. For full details visit LIC's official site or contact advisor.</span><span class="lang-mr hidden">थोडक्यात माहिती दर्शविली जात आहे. पूर्ण तपशीलांसाठी एलआयसीच्या अधिकृत साइटला भेट द्या किंवा सल्लागाराशी संपर्क करा.</span></small>
-      </div>
     </div>
   </section>
 
-  <!-- Reviews -->
-  <section id="reviews">
-    <div class="card">
-      <h2><span class="lang-en">Clients Say</span><span class="lang-mr hidden">ग्राहक काय म्हणतात</span></h2>
-      <div><strong>Rohit Sharma</strong> — <span class="lang-en">"Vivek is highly professional and helped me understand the best policy for my family’s future."</span><span class="lang-mr hidden">"विवेक अत्यंत व्यावसायिक आहेत आणि त्यांनी माझ्या कुटुंबाच्या भविष्यासाठी सर्वोत्तम पॉलिसी समजावून सांगितली."</span></div>
-      <div style="margin-top:8px"><strong>Meera Patil</strong> — <span class="lang-en">"Excellent service, honest guidance, and always available to support. Truly MDRT material!"</span><span class="lang-mr hidden">"उत्तम सेवा, प्रामाणिक मार्गदर्शन, आणि नेहमी उपलब्ध." </span></div>
-      <div style="margin-top:8px"><strong>Sameer Desai</strong> — <span class="lang-en">"I’ve been a client for over a decade. Vivek is someone you can trust blindly."</span><span class="lang-mr hidden">"मी एक दशकाहून अधिक काळ ग्राहक आहे. विवेक हे पूर्णपणे विश्वसनीय आहेत."</span></div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="card center">
-      <h2><span class="lang-en">Contact Me</span><span class="lang-mr hidden">माझ्याशी संपर्क साधा</span></h2>
-      <p><strong><span class="lang-en">Phone:</span><span class="lang-mr hidden">फोन:</span></strong> <a href="tel:+919664999797">+91-9664999797</a> |
-         <strong><span class="lang-en">Email:</span><span class="lang-mr hidden">ईमेल:</span></strong> <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a></p>
-
-      <p style="max-width:720px;margin:0 auto"><strong><span class="lang-en">Office:</span><span class="lang-mr hidden">कार्यालय:</span></strong> Shivanand, 2nd Flr., SV Rd., Goregaon, nr. Samrat Talkies, Mumbai, Maharashtra 400062</p>
-
-      <div style="max-width:720px;margin:10px auto;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08)">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.9049341211903!2d72.84293717520738!3d19.155638182065406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b635dce6edc5%3A0xd8889595729557da!2sLIC%20of%20India%2C%20Branch%20Office!5e0!3m2!1sen!2sin!4v1753001927819!5m2!1sen!2sin" width="100%" height="280" style="border:0" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-
-      <div style="margin-top:10px">
-        <a class="btn whatsapp-btn btn-green" id="freeConsultBtn" href="#" target="_blank">💬 <span class="lang-en">Free Consultation (WhatsApp)</span><span class="lang-mr hidden">मुफ्त सल्ला (WhatsApp)</span></a>
-      </div>
-    </div>
-  </section>
-
-</div> <!-- /container -->
-
-<footer style="margin-top:20px;padding:22px;text-align:center;background:var(--brand);color:#fff">
-  <span class="lang-en">&copy; 2025 LIC Advisor. All Rights Reserved.</span>
-  <span class="lang-mr hidden">&copy; 2025 एलआयसी सल्लागार. सर्व हक्क राखीव.</span>
-</footer>
+</div>
 
 <!-- Chatbot UI -->
 <button id="chatbotBtn" title="Chat with advisor">💬</button>
@@ -226,7 +118,7 @@
   <input id="chatbotInput" placeholder="Type message & press Enter" aria-label="Chat input">
 </div>
 
-<!-- Lang toggle -->
+<!-- Language Toggle -->
 <div id="langToggle" data-lang="en" aria-label="Language toggle">
   <div style="display:flex;flex-direction:column;align-items:flex-start">
     <div id="langHint"><span class="lang-en">EN / मराठी</span><span class="lang-mr hidden">EN / मराठी</span></div>
@@ -236,98 +128,42 @@
   </div>
 </div>
 
-<!-- External libs for PDF -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-
 <script>
-/* ========= Configuration ========= */
-const ADVISOR_PHONE = '+919664999797';
-const ADVISOR_EMAIL = 'vivekkadam1969@gmail.com';
+// ========= Language Toggle =========
+const langToggle = document.getElementById('langToggle');
+const knob = langToggle.querySelector('.knob');
+const savedLang = localStorage.getItem('vedant_lang') || 'en';
+setLanguage(savedLang);
 
-/* ========= Helpers ========= */
-function sanitize(text){ return (''+text).replace(/</g,'&lt;').replace(/>/g,'&gt;') }
+langToggle.addEventListener('click', () => {
+  const currentLang = langToggle.getAttribute('data-lang');
+  const newLang = currentLang === 'en' ? 'mr' : 'en';
+  setLanguage(newLang);
+});
 
-/* ========= Plan Search ========= */
-const planSearch = document.getElementById('planSearch');
-planSearch.addEventListener('input', function(){
+function setLanguage(lang){
+  langToggle.setAttribute('data-lang', lang);
+  knob.style.transform = lang === 'mr' ? 'translateX(20px)' : 'translateX(0)';
+  document.querySelectorAll('.lang-en').forEach(el=>el.classList.toggle('hidden', lang!=='en'));
+  document.querySelectorAll('.lang-mr').forEach(el=>el.classList.toggle('hidden', lang!=='mr'));
+  localStorage.setItem('vedant_lang', lang);
+}
+
+// ========= Plan Search =========
+document.getElementById('planSearch').addEventListener('input', function(){
   const q = this.value.trim().toLowerCase();
   document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
     tr.style.display = (q === '' || tr.innerText.toLowerCase().includes(q)) ? '' : 'none';
   });
 });
-<script>
-// Language Toggle
-const langToggle = document.getElementById('langToggle');
-const knob = langToggle.querySelector('.knob');
 
-langToggle.addEventListener('click', () => {
-  const currentLang = langToggle.getAttribute('data-lang');
-  const newLang = currentLang === 'en' ? 'mr' : 'en';
-  langToggle.setAttribute('data-lang', newLang);
-
-  // Move knob
-  if (newLang === 'mr') {
-    knob.style.transform = 'translateX(20px)';
-  } else {
-    knob.style.transform = 'translateX(0)';
-  }
-
-  // Show/hide text
-  document.querySelectorAll('.lang-en').forEach(el => {
-    el.classList.toggle('hidden', newLang !== 'en');
-  });
-  document.querySelectorAll('.lang-mr').forEach(el => {
-    el.classList.toggle('hidden', newLang !== 'mr');
-  });
-});
-</script>
-/* ========= PDF generation ========= */
-document.getElementById('pdfBtn').addEventListener('click', function(){
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({unit:'pt',format:'a4'});
-  doc.setFontSize(14); doc.setTextColor(20,40,80);
-  doc.text('LIC Plans - Vedant Consultancy', 40, 40);
-  const rows = [];
-  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
-    if(tr.style.display === 'none') return;
-    const cols = tr.querySelectorAll('td');
-    rows.push([cols[0].innerText, cols[1].innerText, cols[2].innerText]);
-  });
-  doc.autoTable({head:[['Plan Name','Type','Brief']], body:rows, startY:70, styles:{fontSize:10,cellPadding:6}, headStyles:{fillColor:[0,74,173]}});
-  doc.save('LIC_Plans_Vedant_Consultancy.pdf');
-});
-
-/* ========= Chatbot ========= */
+// ========= Chatbot Toggle =========
 const chatbotBtn = document.getElementById('chatbotBtn');
 const chatbotWindow = document.getElementById('chatbotWindow');
-const chatbotBody = document.getElementById('chatbotBody');
-const chatbotInput = document.getElementById('chatbotInput');
+chatbotBtn.addEventListener('click', ()=> {
+  chatbotWindow.style.display = chatbotWindow.style.display==='block' ? 'none' : 'block';
+});
+</script>
 
-let chats = JSON.parse(localStorage.getItem('vedant_chats') || '[]');
-function persistChats(){ localStorage.setItem('vedant_chats', JSON.stringify(chats)); }
-function appendMsg(who, text, rawHtml=false){
-  const el = document.createElement('div');
-  if(rawHtml){
-    el.innerHTML = `<div class="${who==='user'?'msg-user':'msg-bot'}">${text}</div>`;
-  } else {
-    el.innerHTML = `<div class="${who==='user'?'msg-user':'msg-bot'}">${sanitize(text)}</div>`;
-  }
-  chatbotBody.appendChild(el);
-  chatbotBody.scrollTop = chatbotBody.scrollHeight;
-}
-if(chats.length){ chats.forEach(c=>appendMsg(c.from, c.text)); }
-
-function showPlansInChat(){
-  let html = '<div style="font-size:13px"><strong>Key Plans (gist):</strong><br><table style="width:100%;border-collapse:collapse;font-size:12px">';
-  html += '<tr style="background:#f1f5ff"><th style="padding:6px;border:1px solid #eee">Plan</th><th style="padding:6px;border:1px solid #eee">Type</th></tr>';
-  const rows = document.querySelectorAll('#planTable tbody tr');
-  for(let i=0;i<Math.min(12, rows.length); i++){
-    const cols = rows[i].querySelectorAll('td');
-    html += `<tr><td style="padding:6px;border:1px solid #eee">${sanitize(cols[0].innerText)}</td><td style="padding:6px;border:1px solid #eee">${sanitize(cols[1].innerText)}</td></tr>`;
-  }
-  html += '</table><small>Download full PDF or view the plans table for more.</small></div>';
-  appendMsg('bot', html, true);
-}
-
-function openWhatsApp(toPhone, visi
+</body>
+</html>
