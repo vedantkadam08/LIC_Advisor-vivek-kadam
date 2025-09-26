@@ -44,126 +44,87 @@ input[type=search]{width:100%;padding:10px;border-radius:8px;border:1px solid #d
 #langHint{font-size:13px;color:#444}
 .hidden{display:none}
 @media(max-width:700px){nav a{display:inline-block;margin:6px} .profile-img{width:120px;height:120px} #chatbotWindow{width:320px;right:14px}}
+.table-container{overflow-x:auto}
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
   <h1><span class="lang-en">LIC Advisor - Vivek Kadam</span><span class="lang-mr hidden">एलआयसी सल्लागार - विवेक कदम</span></h1>
   <p><span class="lang-en">Your Trusted Life Insurance Partner</span><span class="lang-mr hidden">आपला विश्वासू जीवन विमा साथी</span></p>
   <img class="profile-img" src="https://i.ibb.co/wZ8cKCfp/Whats-App-Image-2025-07-20-at-3-21-05-PM.jpg" alt="Vivek Kadam">
 </header>
 
-<!-- Nav -->
 <nav>
   <a href="#about"><span class="lang-en">About</span><span class="lang-mr hidden">आमच्याबद्दल</span></a>
   <a href="#plans"><span class="lang-en">Plans</span><span class="lang-mr hidden">योजना</span></a>
-  <a href="#reviews"><span class="lang-en">Reviews</span><span class="lang-mr hidden">पुनरावलोकने</span></a>
   <a href="#contact"><span class="lang-en">Contact</span><span class="lang-mr hidden">संपर्क</span></a>
 </nav>
 
 <div class="container">
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="card">
-      <h2>
-        <span class="lang-en">Welcome to Vedant Consultancy</span>
-        <span class="lang-mr hidden">वेदांत कन्सल्टन्सीमध्ये आपले स्वागत आहे</span>
-      </h2>
-      <div class="lang-en">
-        <p><strong>Name:</strong> Vivek Kadam</p>
-        <p><strong>Experience:</strong> 26 Years (1999–2025)</p>
-        <p><strong>MDRT Year:</strong> 2024</p>
-        <p>We believe in building lasting relationships and providing peace of mind through personalized insurance solutions.</p>
-      </div>
-      <div class="lang-mr hidden">
-        <p><strong>नाव:</strong> Vivek Kadam</p>
-        <p><strong>अनुभव:</strong> 26 वर्षे (1999–2025)</p>
-        <p>आम्ही दीर्घकालीन नाते निर्माण करण्यात आणि वैयक्तिक सल्ल्यांद्वारे मनःशांती देण्यात विश्वास ठेवतो.</p>
-      </div>
+<!-- About -->
+<section id="about">
+  <div class="card">
+    <h2><span class="lang-en">Welcome to Vedant Consultancy</span><span class="lang-mr hidden">वेदांत कन्सल्टन्सीमध्ये आपले स्वागत आहे</span></h2>
+    <div class="lang-en">
+      <p><strong>Name:</strong> Vivek Kadam</p>
+      <p><strong>Experience:</strong> 26 Years (1999–2025)</p>
+      <p><strong>MDRT Year:</strong> 2024</p>
+      <p>We provide personalized insurance solutions to protect what matters most to you.</p>
     </div>
-  </section>
-
-  <!-- Plans Section -->
-  <section id="plans">
-    <div class="card">
-      <h2><span class="lang-en">Available LIC Plans</span><span class="lang-mr hidden">उपलब्ध एलआयसी योजना</span></h2>
-      <input type="search" id="planSearch" placeholder="Search plan name or keyword..." aria-label="Search Plans">
-      <div style="overflow:auto">
-        <table id="planTable" role="table" aria-label="LIC Plans">
-          <thead>
-            <tr><th><span class="lang-en">Plan Name</span><span class="lang-mr hidden">योजनेचे नाव</span></th>
-                <th><span class="lang-en">Category / Type</span><span class="lang-mr hidden">वर्ग</span></th>
-                <th><span class="lang-en">Brief</span><span class="lang-mr hidden">थोडक्यात</span></th></tr>
-          </thead>
-          <tbody>
-            <tr><td><span class="lang-en">New Endowment Plan (714)</span><span class="lang-mr hidden">न्यू एंडोमेंट प्लॅन (714)</span></td><td>Endowment</td><td><span class="lang-en">Guaranteed sum + bonuses at maturity or on death.</span><span class="lang-mr hidden">निश्चित रक्कम + फायदे शेवटी किंवा मृत्यूच्या वेळी.</span></td></tr>
-            <tr><td><span class="lang-en">Jeevan Anand (715)</span><span class="lang-mr hidden">जीवन आनंद (715)</span></td><td>Endowment / Whole Life</td><td><span class="lang-en">Protection + savings; benefit during lifetime & at maturity.</span><span class="lang-mr hidden">संरक्षण + बचत; जीवनकाळात आणि शेवटी फायदा.</span></td></tr>
-            <tr><td><span class="lang-en">Jeevan Labh (736)</span><span class="lang-mr hidden">जीवन लाभ (736)</span></td><td>Participating Endowment</td><td><span class="lang-en">Endowment with bonuses; savings plus cover.</span><span class="lang-mr hidden">फायदे असलेला एंडोमेंट; बचत आणि संरक्षण.</span></td></tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="lang-mr hidden">
+      <p><strong>नाव:</strong> Vivek Kadam</p>
+      <p><strong>अनुभव:</strong> 26 वर्षे (1999–2025)</p>
+      <p><strong>MDRT वर्ष:</strong> 2024</p>
+      <p>आम्ही तुमच्या गरजा लक्षात घेऊन वैयक्तिक सल्ला देतो.</p>
     </div>
-  </section>
-
-</div>
-
-<!-- Chatbot UI -->
-<button id="chatbotBtn" title="Chat with advisor">💬</button>
-<div id="chatbotWindow" aria-hidden="true">
-  <div id="chatbotHeader"><span class="lang-en">Chat with Advisor</span><span class="lang-mr hidden">सल्लागाराशी चॅट करा</span></div>
-  <div id="chatbotBody" role="log" aria-live="polite"></div>
-  <input id="chatbotInput" placeholder="Type message & press Enter" aria-label="Chat input">
-</div>
-
-<!-- Language Toggle -->
-<div id="langToggle" data-lang="en" aria-label="Language toggle">
-  <div style="display:flex;flex-direction:column;align-items:flex-start">
-    <div id="langHint"><span class="lang-en">EN / मराठी</span><span class="lang-mr hidden">EN / मराठी</span></div>
   </div>
-  <div style="margin-left:8px;position:relative">
-    <div class="switch"><div class="knob"></div></div>
+</section>
+
+<!-- Plans -->
+<section id="plans">
+  <div class="card">
+    <h2><span class="lang-en">Available LIC Plans</span><span class="lang-mr hidden">उपलब्ध एलआयसी योजना</span></h2>
+    <input type="search" id="planSearch" placeholder="Search plan name or keyword..." aria-label="Search Plans">
+    <div class="table-container">
+      <table id="planTable" role="table">
+        <thead>
+          <tr><th><span class="lang-en">Plan Name</span><span class="lang-mr hidden">योजनेचे नाव</span></th>
+              <th><span class="lang-en">Category / Type</span><span class="lang-mr hidden">वर्ग</span></th>
+              <th><span class="lang-en">Brief</span><span class="lang-mr hidden">थोडक्यात</span></th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-en="New Endowment Plan (714)" data-mr="न्यू एंडोमेंट प्लॅन (714)">New Endowment Plan (714)</td>
+            <td data-en="Endowment" data-mr="एंडोमेंट">Endowment</td>
+            <td data-en="Guaranteed sum + bonuses at maturity or on death." data-mr="निश्चित रक्कम + फायदे शेवटी किंवा मृत्यूच्या वेळी.">Guaranteed sum + bonuses at maturity or on death.</td>
+          </tr>
+          <tr>
+            <td data-en="Jeevan Anand (715)" data-mr="जीवन आनंद (715)">Jeevan Anand (715)</td>
+            <td data-en="Endowment / Whole Life" data-mr="एंडोमेंट / संपूर्ण आयुष्य">Endowment / Whole Life</td>
+            <td data-en="Protection + savings; benefit during lifetime & at maturity." data-mr="संरक्षण + बचत; जीवनकाळात आणि शेवटी फायदा.">Protection + savings; benefit during lifetime & at maturity.</td>
+          </tr>
+          <tr>
+            <td data-en="Jeevan Labh (736)" data-mr="जीवन लाभ (736)">Jeevan Labh (736)</td>
+            <td data-en="Participating Endowment" data-mr="भाग घेणारा एंडोमेंट">Participating Endowment</td>
+            <td data-en="Endowment with bonuses; savings plus cover." data-mr="फायदे असलेला एंडोमेंट; बचत आणि संरक्षण.">Endowment with bonuses; savings plus cover.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <button id="pdfBtn" class="btn"><span class="lang-en">Download Plans PDF</span><span class="lang-mr hidden">योजना पीडीएफ डाउनलोड करा</span></button>
+    </div>
   </div>
-</div>
+</section>
 
-<script>
-// ========= Language Toggle =========
-const langToggle = document.getElementById('langToggle');
-const knob = langToggle.querySelector('.knob');
-const savedLang = localStorage.getItem('vedant_lang') || 'en';
-setLanguage(savedLang);
-
-langToggle.addEventListener('click', () => {
-  const currentLang = langToggle.getAttribute('data-lang');
-  const newLang = currentLang === 'en' ? 'mr' : 'en';
-  setLanguage(newLang);
-});
-
-function setLanguage(lang){
-  langToggle.setAttribute('data-lang', lang);
-  knob.style.transform = lang === 'mr' ? 'translateX(20px)' : 'translateX(0)';
-  document.querySelectorAll('.lang-en').forEach(el=>el.classList.toggle('hidden', lang!=='en'));
-  document.querySelectorAll('.lang-mr').forEach(el=>el.classList.toggle('hidden', lang!=='mr'));
-  localStorage.setItem('vedant_lang', lang);
-}
-
-// ========= Plan Search =========
-document.getElementById('planSearch').addEventListener('input', function(){
-  const q = this.value.trim().toLowerCase();
-  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
-    tr.style.display = (q === '' || tr.innerText.toLowerCase().includes(q)) ? '' : 'none';
-  });
-});
-
-// ========= Chatbot Toggle =========
-const chatbotBtn = document.getElementById('chatbotBtn');
-const chatbotWindow = document.getElementById('chatbotWindow');
-chatbotBtn.addEventListener('click', ()=> {
-  chatbotWindow.style.display = chatbotWindow.style.display==='block' ? 'none' : 'block';
-});
-</script>
-
-</body>
-</html>
+<!-- Contact -->
+<section id="contact">
+  <div class="card center">
+    <h2><span class="lang-en">Contact Me</span><span class="lang-mr hidden">माझ्याशी संपर्क साधा</span></h2>
+    <p><strong><span class="lang-en">Phone:</span><span class="lang-mr hidden">फोन:</span></strong> <a href="tel:+919664999797">+91-9664999797</a></p>
+    <p><strong><span class="lang-en">Email:</span><span class="lang-mr hidden">ईमेल:</span></strong> <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a></p>
+    <p style="max-width:720px;margin:0 auto"><strong><span class="lang-en">Office:</span><span class="lang-mr hidden">कार्यालय:</span></strong> Shivanand, 2nd Flr., SV Rd., Goregaon, Mumbai, Maharashtra 400062</p>
+    <div style="max-width:720px;margin:10px auto;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08)">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.9049341211903!2d72.84293717520738!3d19.155638182065406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b635dce6edc5%3A0xd8889595729557da!2sLIC%20of%20India%2C%20Branch%
