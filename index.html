@@ -79,8 +79,23 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
 
 <p><span class="lang-en">Founded on the principles of trust, integrity, and exceptional service, we are proud to serve individuals, families, and businesses with a comprehensive range of insurance products tailored to their unique needs.</span>
 <span class="lang-mr hidden">विश्वास, प्रामाणिकपणा आणि उत्कृष्ट ग्राहकसेवा या तत्त्वांवर आधारित, आम्हाला वैयक्तिक, कौटुंबिक आणि व्यावसायिक ग्राहकांना त्यांच्या गरजांनुसार सानुकूलित विमा उत्पादनांची सेवा देण्याचा अभिमान आहे.</span></p>
-</section>
 
+<h3><span class="lang-en">A Commitment to Excellence</span><span class="lang-mr hidden">उत्कृष्टतेसाठी वचनबद्धता</span></h3>
+<p><span class="lang-en">With years of experience in the insurance industry, our founder and lead advisor earned the prestigious <strong>MDRT</strong> designation in 2024 — an honor that recognizes the top professionals in the field for their ethical standards, exceptional service, and outstanding performance.</span>
+<span class="lang-mr hidden">विमा उद्योगातील अनेक वर्षांच्या अनुभवासह, आमच्या संस्थापक आणि मुख्य सल्लागाराने 2024 मध्ये प्रतिष्ठित <strong>MDRT</strong> मान्यता मिळवली — जे त्यांच्या नैतिक मानकांसाठी, उत्कृष्ट सेवेसाठी आणि उत्कृष्ट कामगिरीसाठी सर्वोच्च व्यावसायिकांना ओळखते.</span></p>
+
+<h3><span class="lang-en">Why Choose Us?</span><span class="lang-mr hidden">आम्हाला का निवडावे?</span></h3>
+<ul>
+<li><strong><span class="lang-en">Expert Guidance:</span><span class="lang-mr hidden">तज्ञ मार्गदर्शन:</span></strong> <span class="lang-en">We take time to understand your needs and explain your options in clear, simple terms.</span><span class="lang-mr hidden">आम्ही तुमच्या गरजा समजून घेण्यासाठी वेळ देतो आणि स्पष्ट, सोप्या भाषेत तुमच्या पर्यायांचे स्पष्टीकरण देतो.</span></li>
+<li><strong><span class="lang-en">Tailored Solutions:</span><span class="lang-mr hidden">सानुकूलित उपाय:</span></strong> <span class="lang-en">Whether it’s life, health, business, or retirement planning — we provide solutions that fit you.</span><span class="lang-mr hidden">जीवन, आरोग्य, व्यवसाय किंवा निवृत्ती नियोजन असो — आम्ही तुमच्यासाठी योग्य उपाय प्रदान करतो.</span></li>
+<li><strong><span class="lang-en">Trusted Support:</span><span class="lang-mr hidden">विश्वसनीय समर्थन:</span></strong> <span class="lang-en">We’re here when you need us, before, during, and after the policy is in place.</span><span class="lang-mr hidden">तुम्हाला जेव्हा हवे तेव्हा आम्ही येथे आहोत, पॉलिसी सुरु होण्यापूर्वी, दरम्यान आणि नंतर.</span></li>
+</ul>
+
+<div class="cta center">
+<p><strong><span class="lang-en">Let’s protect what matters most — together.</span><span class="lang-mr hidden">चला जे महत्वाचे आहे ते एकत्रितपणे संरक्षित करूया.</span></strong></p>
+<p><a href="tel:+919664999797" class="btn btn-green">📞 <span class="lang-en">Call Now</span><span class="lang-mr hidden">आता कॉल करा</span></a></p>
+</div>
+</section>
 <section id="plans" class="card">
 <h2><span class="lang-en">Available LIC Plans</span><span class="lang-mr hidden">उपलब्ध एलआयसी योजना</span></h2>
 <input type="search" id="planSearch" placeholder="Search plan name or keyword..." class="lang-en">
@@ -150,6 +165,7 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
 <p><span class="lang-en">Click the button below to send your details via WhatsApp to Vivek Sir:</span><span class="lang-mr hidden">खालील बटणावर क्लिक करून तुमची माहिती विवेक सर यांना व्हाट्सअॅपवर पाठवा:</span></p>
 <button id="bookWhatsApp" class="btn btn-green">💬 <span class="lang-en">Book via WhatsApp</span><span class="lang-mr hidden">व्हाट्सअॅपवर बुक करा</span></button>
 </section>
+
 <!-- Chatbot UI -->
 <button id="chatbotBtn" title="Chat with advisor">💬</button>
 <div id="chatbotWindow" aria-hidden="true">
@@ -161,7 +177,6 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
 <footer style="margin-top:20px;padding:22px;text-align:center;background:var(--brand);color:#fff">
 &copy; 2025 LIC Advisor. All Rights Reserved.
 </footer>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 <script>
@@ -234,7 +249,6 @@ chatbotInput.addEventListener('keypress', function(e){
     const name = localStorage.getItem('visitorName') || 'Visitor';
     appendMsg('user', text);
     this.value='';
-    // simple fallback response
     setTimeout(()=>appendMsg('bot', `Sorry ${name}, I didn't understand. Please contact via WhatsApp.`), 500);
   }
 });
@@ -247,27 +261,21 @@ function appendMsg(who, text){
 }
 
 // Language Toggle
-function showEnglish(){ document.querySelectorAll('.lang-en').forEach(el=>el.classList.remove('hidden')); document.querySelectorAll('.lang-mr').forEach(el=>el.classList.add('hidden')); }
-function showMarathi(){ document.querySelectorAll('.lang-en').forEach(el=>el.classList.add('hidden')); document.querySelectorAll('.lang-mr').forEach(el=>el.classList.remove('hidden')); }
+function showEnglish(){ 
+  document.querySelectorAll('.lang-en').forEach(el=>el.classList.remove('hidden')); 
+  document.querySelectorAll('.lang-mr').forEach(el=>el.classList.add('hidden')); 
+}
+function showMarathi(){ 
+  document.querySelectorAll('.lang-en').forEach(el=>el.classList.add('hidden')); 
+  document.querySelectorAll('.lang-mr').forEach(el=>el.classList.remove('hidden')); 
+}
 </script>
+
 <!-- Language Toggle Buttons -->
 <div style="position:fixed;top:18px;right:18px;z-index:9999;">
   <button class="btn btn-outline" onclick="showEnglish()">English</button>
   <button class="btn btn-outline" onclick="showMarathi()">मराठी</button>
 </div>
+</body>
+</html>
 
-<!-- Add language classes to all text elements -->
-<script>
-// Wrap text content in spans with class lang-en and lang-mr
-document.querySelectorAll('h1, h2, p, th, td, button, div').forEach(el=>{
-  if(el.innerText.trim()!==''){
-    const enText = el.getAttribute('data-en') || el.innerText;
-    const mrText = el.getAttribute('data-mr') || el.innerText; // Replace with actual Marathi translation
-    el.innerHTML = `<span class="lang-en">${enText}</span><span class="lang-mr hidden">${mrText}</span>`;
-  }
-});
-</script>
-
-<style>
-.hidden{display:none;}
-</style>
