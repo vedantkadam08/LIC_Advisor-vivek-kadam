@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +6,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{--brand:#004aad;--brand-dark:#002c70;--accent:#25D366}
-*{box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;margin:0;background:#f4f7fa;color:#222;line-height:1.5}
+*{box-sizing:border-box} body{font-family:'Poppins',sans-serif;margin:0;background:#f4f7fa;color:#222;line-height:1.5}
 a{color:var(--brand);text-decoration:none}
-.hidden{display:none !important;}
 header{background:linear-gradient(90deg,var(--brand),#00307a);color:#fff;padding:56px 20px 32px;text-align:center;position:relative;overflow:hidden}
 header::after{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1588776814546-9c4b448b9d05?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;opacity:.08;z-index:0}
 header h1, header p{position:relative;z-index:1;margin:0}
 header p{margin-top:8px;opacity:.95}
 .profile-img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,0.15);display:block;margin:18px auto 0}
 nav{background:#00307a;padding:12px;text-align:center;position:sticky;top:0;z-index:99;box-shadow:0 2px 6px rgba(0,0,0,0.12)}
-nav a{color:#fff;margin:0 12px;font-weight:600} 
-nav a:hover{color:#ffd700}
+nav a{color:#fff;margin:0 18px;font-weight:600} nav a:hover{color:#ffd700}
 .container{max-width:1000px;margin:36px auto;padding:0 18px}
 section{margin-bottom:28px}
 .card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
@@ -31,7 +27,7 @@ h2{color:var(--brand);text-align:center;margin:8px 0 18px}
 table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
 th,td{padding:10px;border:1px solid #e4e7eb;text-align:left;vertical-align:top}
 th{background:var(--brand);color:#fff}
-input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:10px}
+input[type=search],input[type=text]{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:10px}
 #chatbotBtn{position:fixed;right:22px;bottom:96px;width:60px;height:60px;border-radius:50%;background:var(--brand);color:#fff;border:0;font-size:26px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.2);z-index:9999}
 #chatbotWindow{display:none;position:fixed;right:22px;bottom:170px;width:360px;max-width:92%;background:#fff;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,0.18);z-index:9999}
 #chatbotHeader{background:var(--brand);color:#fff;padding:12px;border-top-left-radius:12px;border-top-right-radius:12px;font-weight:700;text-align:center}
@@ -39,243 +35,101 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
 #chatbotInput{width:calc(100% - 24px);margin:10px 12px 18px;padding:10px;border-radius:8px;border:1px solid #ddd}
 .msg-user{background:#eef3ff;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
 .msg-bot{background:#f2f2f2;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
-#visitorInfo{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;}
 @media(max-width:700px){nav a{display:inline-block;margin:6px} .profile-img{width:120px;height:120px} #chatbotWindow{width:320px;right:14px}}
 </style>
 </head>
 <body>
 <header>
-<h1><span class="lang-en">LIC Advisor - Vivek Sir</span><span class="lang-mr hidden">एलआयसी सल्लागार - विवेक सर</span></h1>
-<p><span class="lang-en">Your Trusted Life Insurance Partner</span><span class="lang-mr hidden">आपला विश्वासू जीवन विमा साथी</span></p>
+<h1>LIC Advisor - Vivek Sir</h1>
+<p>Your Trusted Life Insurance Partner</p>
 <img class="profile-img" src="https://i.ibb.co/wZ8cKCfp/Whats-App-Image-2025-07-20-at-3-21-05-PM.jpg" alt="Vivek Sir">
 </header>
-
 <nav>
-<a href="#about"><span class="lang-en">About</span><span class="lang-mr hidden">आमच्याबद्दल</span></a>
-<a href="#plans"><span class="lang-en">Plans</span><span class="lang-mr hidden">योजना</span></a>
-<a href="#reviews"><span class="lang-en">Reviews</span><span class="lang-mr hidden">पुनरावलोकने</span></a>
-<a href="#contact"><span class="lang-en">Contact</span><span class="lang-mr hidden">संपर्क</span></a>
-<a href="#book"><span class="lang-en">Book Meeting</span><span class="lang-mr hidden">मीटिंग बुक करा</span></a>
+<a href="#about">About</a>
+<a href="#plans">Plans</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+<a href="#book">Book Meeting</a>
 </nav>
-
-<!-- Visitor Info Modal -->
-<section id="visitorInfo">
-<h2><span class="lang-en">Enter Your Details</span><span class="lang-mr hidden">तुमची माहिती भरा</span></h2>
+<div class="container"><section id="visitorNameSection" class="card center">
+<h2>Enter Your Name</h2>
 <input type="text" id="visitorName" placeholder="Your Name" required>
-<input type="tel" id="visitorPhone" placeholder="Your Phone Number" required pattern="[0-9]{10}">
-<button id="submitVisitor" class="btn"><span class="lang-en">Submit</span><span class="lang-mr hidden">सबमिट करा</span></button>
-</section>
-
-<div class="container hidden" id="mainContent">
-<section id="about" class="card">
-<h2><span class="lang-en">Welcome to Vedant Consultancy</span><span class="lang-mr hidden">वेदांत कन्सल्टन्सीमध्ये आपले स्वागत आहे</span></h2>
-<div>
-<p><strong><span class="lang-en">Name:</span><span class="lang-mr hidden">नाव:</span></strong> Vivek Sir</p>
-<p><strong><span class="lang-en">Experience:</span><span class="lang-mr hidden">अनुभव:</span></strong> 26 Years (1999–2025)</p>
-<p><strong><span class="lang-en">MDRT Year:</span><span class="lang-mr hidden">MDRT वर्ष:</span></strong> 2024</p>
-
-<p><span class="lang-en">At Vedant Consultancy, we believe in more than just policies — we believe in building lasting relationships and providing peace of mind through personalized insurance solutions. Our mission is to protect what matters most to you, whether it's your health, family, business, or future.</span>
-<span class="lang-mr hidden">वेदांत कन्सल्टन्सी येथे, आम्ही फक्त पॉलिसीजपुरते मर्यादित नाही आहोत — आम्ही दीर्घकालीन नाते निर्माण करण्यात आणि वैयक्तिक सल्ल्यांद्वारे मनःशांती देण्यात विश्वास ठेवतो. आमचे उद्दीष्ट म्हणजे तुमच्या आरोग्य, कुटुंब, व्यवसाय किंवा भविष्यासाठी महत्वाच्या गोष्टींचे संरक्षण करणे.</span></p>
-
-<p><span class="lang-en">Founded on the principles of trust, integrity, and exceptional service, we are proud to serve individuals, families, and businesses with a comprehensive range of insurance products tailored to their unique needs.</span>
-<span class="lang-mr hidden">विश्वास, प्रामाणिकपणा आणि उत्कृष्ट ग्राहकसेवा या तत्त्वांवर आधारित, आम्हाला वैयक्तिक, कौटुंबिक आणि व्यावसायिक ग्राहकांना त्यांच्या गरजांनुसार सानुकूलित विमा उत्पादनांची सेवा देण्याचा अभिमान आहे.</span></p>
-
-<h3><span class="lang-en">A Commitment to Excellence</span><span class="lang-mr hidden">उत्कृष्टतेसाठी वचनबद्धता</span></h3>
-<p><span class="lang-en">With years of experience in the insurance industry, our founder and lead advisor earned the prestigious <strong>MDRT</strong> designation in 2024 — an honor that recognizes the top professionals in the field for their ethical standards, exceptional service, and outstanding performance.</span>
-<span class="lang-mr hidden">विमा उद्योगातील अनेक वर्षांच्या अनुभवासह, आमच्या संस्थापक आणि मुख्य सल्लागाराने 2024 मध्ये प्रतिष्ठित <strong>MDRT</strong> मान्यता मिळवली — जे त्यांच्या नैतिक मानकांसाठी, उत्कृष्ट सेवेसाठी आणि उत्कृष्ट कामगिरीसाठी सर्वोच्च व्यावसायिकांना ओळखते.</span></p>
-
-<h3><span class="lang-en">Why Choose Us?</span><span class="lang-mr hidden">आम्हाला का निवडावे?</span></h3>
-<ul>
-<li><strong><span class="lang-en">Expert Guidance:</span><span class="lang-mr hidden">तज्ञ मार्गदर्शन:</span></strong> <span class="lang-en">We take time to understand your needs and explain your options in clear, simple terms.</span><span class="lang-mr hidden">आम्ही तुमच्या गरजा समजून घेण्यासाठी वेळ देतो आणि स्पष्ट, सोप्या भाषेत तुमच्या पर्यायांचे स्पष्टीकरण देतो.</span></li>
-<li><strong><span class="lang-en">Tailored Solutions:</span><span class="lang-mr hidden">सानुकूलित उपाय:</span></strong> <span class="lang-en">Whether it’s life, health, business, or retirement planning — we provide solutions that fit you.</span><span class="lang-mr hidden">जीवन, आरोग्य, व्यवसाय किंवा निवृत्ती नियोजन असो — आम्ही तुमच्यासाठी योग्य उपाय प्रदान करतो.</span></li>
-<li><strong><span class="lang-en">Trusted Support:</span><span class="lang-mr hidden">विश्वसनीय समर्थन:</span></strong> <span class="lang-en">We’re here when you need us, before, during, and after the policy is in place.</span><span class="lang-mr hidden">तुम्हाला जेव्हा हवे तेव्हा आम्ही येथे आहोत, पॉलिसी सुरु होण्यापूर्वी, दरम्यान आणि नंतर.</span></li>
-</ul>
-
-<div class="cta center">
-<p><strong><span class="lang-en">Let’s protect what matters most — together.</span><span class="lang-mr hidden">चला जे महत्वाचे आहे ते एकत्रितपणे संरक्षित करूया.</span></strong></p>
-<p><a href="tel:+919664999797" class="btn btn-green">📞 <span class="lang-en">Call Now</span><span class="lang-mr hidden">आता कॉल करा</span></a></p>
-</div>
-</section>
-<section id="plans" class="card">
-<h2><span class="lang-en">Available LIC Plans</span><span class="lang-mr hidden">उपलब्ध एलआयसी योजना</span></h2>
-<input type="search" id="planSearch" placeholder="Search plan name or keyword..." class="lang-en">
-<input type="search" id="planSearchMR" placeholder="योजनेचे नाव किंवा कीवर्ड शोधा..." class="lang-mr hidden">
+</section><section id="about" class="card">
+<h2>About Vedant Consultancy</h2>
+<p><strong>Name:</strong> Vivek Sir</p>
+<p><strong>Experience:</strong> 26 Years (1999–2025)</p>
+<p>Providing personalized insurance solutions to protect what matters most.</p>
+</section><section id="plans" class="card">
+<h2>Available LIC Plans</h2>
+<input type="search" id="planSearch" placeholder="Search plan name or keyword...">
 <table id="planTable">
-<thead>
-<tr>
-<th><span class="lang-en">Plan Name</span><span class="lang-mr hidden">योजनेचे नाव</span></th>
-<th><span class="lang-en">Category</span><span class="lang-mr hidden">श्रेणी</span></th>
-<th><span class="lang-en">Brief</span><span class="lang-mr hidden">सारांश</span></th>
-</tr>
-</thead>
+<thead><tr><th>Plan Name</th><th>Category</th><th>Brief</th></tr></thead>
 <tbody>
-<tr>
-<td><span class="lang-en">New Endowment Plan (714)</span><span class="lang-mr hidden">नवीन एंडोमेंट योजना (७१४)</span></td>
-<td><span class="lang-en">Endowment</span><span class="lang-mr hidden">एंडोमेंट</span></td>
-<td><span class="lang-en">Guaranteed sum + bonuses</span><span class="lang-mr hidden">हमाकालीन रक्कम + बोनस</span></td>
-</tr>
-<tr>
-<td><span class="lang-en">Jeevan Anand (715)</span><span class="lang-mr hidden">जीवन आनंद (७१५)</span></td>
-<td><span class="lang-en">Endowment / Whole Life</span><span class="lang-mr hidden">एंडोमेंट / संपूर्ण जीवन</span></td>
-<td><span class="lang-en">Protection + savings</span><span class="lang-mr hidden">संरक्षण + बचत</span></td>
-</tr>
-<tr>
-<td><span class="lang-en">Jeevan Labh (736)</span><span class="lang-mr hidden">जीवन लाभ (७३६)</span></td>
-<td><span class="lang-en">Participating Endowment</span><span class="lang-mr hidden">सहभागी एंडोमेंट</span></td>
-<td><span class="lang-en">Endowment with bonuses</span><span class="lang-mr hidden">बोनससह एंडोमेंट</span></td>
-</tr>
-<tr>
-<td><span class="lang-en">New Money Back (720 / 721)</span><span class="lang-mr hidden">नवीन मनी बॅक (७२० / ७२१)</span></td>
-<td><span class="lang-en">Money Back</span><span class="lang-mr hidden">मनी बॅक</span></td>
-<td><span class="lang-en">Periodic survival benefits</span><span class="lang-mr hidden">कालावधी जीवन लाभ</span></td>
-</tr>
-<tr>
-<td><span class="lang-en">Jeevan Umang (745)</span><span class="lang-mr hidden">जीवन उमंग (७४५)</span></td>
-<td><span class="lang-en">Whole Life</span><span class="lang-mr hidden">संपूर्ण जीवन</span></td>
-<td><span class="lang-en">Annual survival benefits and life cover</span><span class="lang-mr hidden">वार्षिक जीवन लाभ आणि जीवन संरक्षण</span></td>
-</tr>
-<tr>
-<td><span class="lang-en">New Tech Term (Online)</span><span class="lang-mr hidden">नवीन टेक टर्म (ऑनलाइन)</span></td>
-<td><span class="lang-en">Term Assurance</span><span class="lang-mr hidden">टर्म अॅश्युरन्स</span></td>
-<td><span class="lang-en">Pure term cover</span><span class="lang-mr hidden">निष्कलंक टर्म कव्हर</span></td>
-</tr>
+<tr><td>New Endowment Plan (714)</td><td>Endowment</td><td>Guaranteed sum + bonuses</td></tr>
+<tr><td>Jeevan Anand (715)</td><td>Endowment / Whole Life</td><td>Protection + savings</td></tr>
+<tr><td>Jeevan Labh (736)</td><td>Participating Endowment</td><td>Endowment with bonuses</td></tr>
+<tr><td>New Money Back (720 / 721)</td><td>Money Back</td><td>Periodic survival benefits</td></tr>
+<tr><td>Jeevan Umang (745)</td><td>Whole Life</td><td>Annual survival benefits and life cover</td></tr>
+<tr><td>New Tech Term (Online)</td><td>Term Assurance</td><td>Pure term cover</td></tr>
 </tbody>
 </table>
-<button id="pdfBtn" class="btn"><span class="lang-en">Download Plans PDF</span><span class="lang-mr hidden">योजना PDF डाउनलोड करा</span></button>
-</section>
-
-<section id="reviews" class="card">
-<h2><span class="lang-en">Clients Say</span><span class="lang-mr hidden">ग्राहक काय म्हणतात</span></h2>
-<div><strong><span class="lang-en">Rohit Sharma</span><span class="lang-mr hidden">रोहित शर्मा</span></strong> — <span class="lang-en">"Vivek Sir is highly professional and helped me understand the best policy for my family’s future."</span><span class="lang-mr hidden">"विवेक सर अत्यंत व्यावसायिक आहेत आणि त्यांनी माझ्या कुटुंबाच्या भविष्यासाठी सर्वोत्तम पॉलिसी समजून घेण्यास मदत केली."</span></div>
-<div style="margin-top:8px"><strong><span class="lang-en">Meera Patil</span><span class="lang-mr hidden">मीरा पाटील</span></strong> — <span class="lang-en">"Excellent service, honest guidance, and always available to support."</span><span class="lang-mr hidden">"उत्कृष्ट सेवा, प्रामाणिक मार्गदर्शन, आणि नेहमी मदतीसाठी उपलब्ध."</span></div>
-<div style="margin-top:8px"><strong><span class="lang-en">Sameer Desai</span><span class="lang-mr hidden">समीर देसाई</span></strong> — <span class="lang-en">"I’ve been a client for over a decade. Vivek Sir is someone you can trust blindly."</span><span class="lang-mr hidden">"मी दशकांहून अधिक काळ ग्राहक आहे. विवेक सरवर तुम्ही पूर्ण विश्वास ठेवू शकता."</span></div>
-</section>
-
-<section id="contact" class="card center">
-<h2><span class="lang-en">Contact Me</span><span class="lang-mr hidden">संपर्क करा</span></h2>
-<p><strong><span class="lang-en">Phone:</span><span class="lang-mr hidden">फोन:</span></strong> <a href="tel:+919664999797">+91-9664999797</a> | <strong><span class="lang-en">Email:</span><span class="lang-mr hidden">ईमेल:</span></strong> <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a></p>
-<p><strong><span class="lang-en">Office:</span><span class="lang-mr hidden">कार्यालय:</span></strong> Shivanand, 2nd Flr., SV Rd., Goregaon, nr. Samrat Talkies, Mumbai, Maharashtra 400062</p>
-<div style="max-width:720px;margin:10px auto;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08)">
+<button id="pdfBtn" class="btn">Download Plans PDF</button>
+</section><section id="reviews" class="card">
+<h2>Clients Say</h2>
+<p><strong>Rohit Sharma:</strong> Vivek Sir is highly professional.</p>
+<p><strong>Meera Patil:</strong> Excellent service and guidance.</p>
+<p><strong>Sameer Desai:</strong> Trusted advisor over a decade.</p>
+</section><section id="contact" class="card">
+<h2>Contact Me</h2>
+<p>Phone: <a href="tel:+919664999797">+91-9664999797</a></p>
+<p>Email: <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a></p>
+<p>Office: Shivanand, 2nd Flr., SV Rd., Goregaon, Mumbai, Maharashtra 400062</p>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.9049341211903!2d72.84293717520738!3d19.155638182065406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b635dce6edc5%3A0xd8889595729557da!2sLIC%20of%20India%2C%20Branch%20Office!5e0!3m2!1sen!2sin!4v1753001927819!5m2!1sen!2sin" width="100%" height="280" style="border:0" allowfullscreen="" loading="lazy"></iframe>
-</div>
-</section>
+</section><section id="book" class="card center">
+<h2>Book a Meeting</h2>
+<a href="#" id="whatsappMeeting" class="btn btn-green">Book via WhatsApp</a>
+</section><button id="chatbotBtn">💬</button>
 
-<section id="book" class="card center">
-<h2><span class="lang-en">Book a Meeting</span><span class="lang-mr hidden">मीटिंग बुक करा</span></h2>
-<p><span class="lang-en">Click the button below to send your details via WhatsApp to Vivek Sir:</span><span class="lang-mr hidden">खालील बटणावर क्लिक करून तुमची माहिती विवेक सर यांना व्हाट्सअॅपवर पाठवा:</span></p>
-<button id="bookWhatsApp" class="btn btn-green">💬 <span class="lang-en">Book via WhatsApp</span><span class="lang-mr hidden">व्हाट्सअॅपवर बुक करा</span></button>
-</section>
-
-<!-- Chatbot UI -->
-<button id="chatbotBtn" title="Chat with advisor">💬</button>
-<div id="chatbotWindow" aria-hidden="true">
-  <div id="chatbotHeader">Chat with Vivek Sir</div>
-  <div id="chatbotBody" role="log" aria-live="polite"></div>
-  <input id="chatbotInput" placeholder="Type message & press Enter" aria-label="Chat input">
-</div>
-
-<footer style="margin-top:20px;padding:22px;text-align:center;background:var(--brand);color:#fff">
-&copy; 2025 LIC Advisor. All Rights Reserved.
-</footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-<script>
-// Visitor Info Validation and Main Content Display
-document.getElementById('submitVisitor').addEventListener('click', function(){
-  const name = document.getElementById('visitorName').value.trim();
-  const phone = document.getElementById('visitorPhone').value.trim();
-  const phonePattern = /^[6-9]\d{9}$/; // Valid Indian mobile number
-  if(!name){ alert("Please enter your Name"); return; }
-  if(!phone || !phonePattern.test(phone)){ alert("Please enter a valid 10-digit phone number"); return; }
-  localStorage.setItem('visitorName', name);
-  localStorage.setItem('visitorPhone', phone);
-  document.getElementById('visitorInfo').style.display='none';
-  document.getElementById('mainContent').style.display='block';
-});
+<div id="chatbotWindow">
+<div id="chatbotHeader">Chat with Advisor</div>
+<div id="chatbotBody"></div>
+<input id="chatbotInput" placeholder="Type message & press Enter">
+</div><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script><script>
+// Visitor Name
+let visitorName = '';
+document.getElementById('visitorName').addEventListener('input', function(){ visitorName = this.value.trim(); });
 
 // Plan Search
 document.getElementById('planSearch').addEventListener('input', function(){
-  const q = this.value.trim().toLowerCase();
-  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
-    tr.style.display = (q === '' || tr.innerText.toLowerCase().includes(q)) ? '' : 'none';
-  });
-});
-document.getElementById('planSearchMR').addEventListener('input', function(){
-  const q = this.value.trim();
-  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
-    tr.style.display = (q === '' || tr.innerText.includes(q)) ? '' : 'none';
-  });
+const q=this.value.trim().toLowerCase();
+document.querySelectorAll('#planTable tbody tr').forEach(tr=>{tr.style.display=(q===''||tr.innerText.toLowerCase().includes(q))?'':'none';});
 });
 
 // PDF Download
 document.getElementById('pdfBtn').addEventListener('click', function(){
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({unit:'pt',format:'a4'});
-  doc.setFontSize(14); doc.setTextColor(20,40,80);
-  const isMarathi = document.querySelector('.lang-mr').classList.contains('hidden')===false;
-  doc.text(isMarathi?'एलआयसी योजना - वेदांत कन्सल्टन्सी':'LIC Plans - Vedant Consultancy', 40, 40);
-  const rows = [];
-  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
-    if(tr.style.display==='none') return;
-    const cols = tr.querySelectorAll('td');
-    rows.push([cols[0].innerText, cols[1].innerText, cols[2].innerText]);
-  });
-  doc.autoTable({head:[isMarathi?['योजनेचे नाव','श्रेणी','सारांश']:['Plan Name','Type','Brief']], body:rows, startY:70, styles:{fontSize:10,cellPadding:6}, headStyles:{fillColor:[0,74,173]}});
-  doc.save(isMarathi?'LIC_Plans_Vedant_Consultancy_Marathi.pdf':'LIC_Plans_Vedant_Consultancy.pdf');
+const { jsPDF } = window.jspdf;
+const doc = new jsPDF();
+doc.text('LIC Plans - Vedant Consultancy',14,20);
+let rows=[];
+document.querySelectorAll('#planTable tbody tr').forEach(tr=>{if(tr.style.display==='none')return; let cols=tr.querySelectorAll('td'); rows.push([cols[0].innerText,cols[1].innerText,cols[2].innerText]);});
+doc.autoTable({head:[['Plan Name','Type','Brief']],body:rows,startY:30});
+doc.save('LIC_Plans.pdf');
 });
 
-// WhatsApp Meeting Button
-document.getElementById('bookWhatsApp').addEventListener('click', function(){
-  const name = localStorage.getItem('visitorName') || 'Visitor';
-  const phone = localStorage.getItem('visitorPhone') || '';
-  const msg = `Hello Vivek Sir, this is ${name} (${phone}). I want to book a meeting.`;
-  const url = `https://api.whatsapp.com/send?phone=+919664999797&text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
+// WhatsApp Meeting
+document.getElementById('whatsappMeeting').addEventListener('click', function(){
+let nameText = visitorName||'Visitor';
+let msg = `Hello Vivek Sir, I am ${nameText}. I would like to book a meeting.`;
+window.open(`https://wa.me/919664999797?text=${encodeURIComponent(msg)}`,'_blank');
 });
 
-// Chatbot Toggle
-const chatbotBtn = document.getElementById('chatbotBtn');
-const chatbotWindow = document.getElementById('chatbotWindow');
-chatbotBtn.addEventListener('click', ()=>{ 
-  chatbotWindow.style.display = chatbotWindow.style.display==='block'?'none':'block';
-});
-
-// Simple Chatbot Logic
-const chatbotInput = document.getElementById('chatbotInput');
-const chatbotBody = document.getElementById('chatbotBody');
-chatbotInput.addEventListener('keypress', function(e){
-  if(e.key==='Enter' && this.value.trim()!==''){
-    const text = this.value.trim();
-    const name = localStorage.getItem('visitorName') || 'Visitor';
-    appendMsg('user', text);
-    this.value='';
-    setTimeout(()=>appendMsg('bot', `Sorry ${name}, I didn't understand. Please contact via WhatsApp.`), 500);
-  }
-});
-function appendMsg(who, text){
-  const el = document.createElement('div');
-  el.className = who==='user'?'msg-user':'msg-bot';
-  el.textContent = text;
-  chatbotBody.appendChild(el);
-  chatbotBody.scrollTop = chatbotBody.scrollHeight;
-}
-
-// Language Toggle
-function showEnglish(){ 
-  document.querySelectorAll('.lang-en').forEach(el=>el.classList.remove('hidden')); 
-  document.querySelectorAll('.lang-mr').forEach(el=>el.classList.add('hidden')); 
-}
-function showMarathi(){ 
-  document.querySelectorAll('.lang-en').forEach(el=>el.classList.add('hidden')); 
-  document.querySelectorAll('.lang-mr').forEach(el=>el.classList.remove('hidden')); 
-}
-</script>
-
-<!-- Language Toggle Buttons -->
-<div style="position:fixed;top:18px;right:18px;z-index:9999;">
-  <button class="btn btn-outline" onclick="showEnglish()">English</button>
-  <button class="btn btn-outline" onclick="showMarathi()">मराठी</button>
-</div>
-</body>
+// Chatbot
+const chatbotBtn=document.getElementById('chatbotBtn');
+const chatbotWindow=document.getElementById('chatbotWindow');
+const chatbotBody=document.getElementById('chatbotBody');
+const chatbotInput=document.getElementById('chatbotInput');
+chatbotBtn.addEventListener('click',()=>{chatbotWindow.style.display=chatbotWindow.style.display==='none'?'block':'none';});
+chatbotInput.addEventListener('keypress',e=>{if(e.key==='Enter'){let msg=chatbotInput.value.trim(); if(!msg)return; appendMsg('user',msg); chatbotInput.value=''; appendMsg('bot','Sorry, I will contact you shortly.'); window.open(`https://wa.me/919664999797?text=${encodeURIComponent('Message from '+(visitorName||'Visitor')+': '+msg)}`,'_blank');}});
+function appendMsg(who,text){const el=document.createElement('div'); el.innerHTML=`<div class='msg-${who}'>${text}</div>`; chatbotBody.appendChild(el); chatbotBody.scrollTop=chatbotBody.scrollHeight;}
+</script></body>
 </html>
-
