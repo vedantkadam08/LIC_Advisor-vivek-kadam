@@ -77,17 +77,15 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
 <!-- About Section -->
 <section id="about" class="card">
 <h2><span class="lang-en">Welcome to Vedant Consultancy</span><span class="lang-mr hidden">वेदांत कन्सल्टन्सीमध्ये आपले स्वागत आहे</span></h2>
-
-<div>
 <p><strong><span class="lang-en">Name:</span><span class="lang-mr hidden">नाव:</span></strong> Vivek Kadam</p>
 <p><strong><span class="lang-en">Experience:</span><span class="lang-mr hidden">अनुभव:</span></strong> 26 Years (1999–2025)</p>
 <p><strong><span class="lang-en">MDRT Year:</span><span class="lang-mr hidden">MDRT वर्ष:</span></strong> 2024</p>
-
 <p><span class="lang-en">At Vedant Consultancy, we believe in more than just policies — we believe in building lasting relationships and providing peace of mind through personalized insurance solutions. Our mission is to protect what matters most to you, whether it's your health, family, business, or future.</span>
 <span class="lang-mr hidden">वेदांत कन्सल्टन्सी येथे, आम्ही फक्त पॉलिसीजपुरते मर्यादित नाही आहोत — आम्ही दीर्घकालीन नाते निर्माण करण्यात आणि वैयक्तिक सल्ल्यांद्वारे मनःशांती देण्यात विश्वास ठेवतो. आमचे उद्दीष्ट म्हणजे तुमच्या आरोग्य, कुटुंब, व्यवसाय किंवा भविष्यासाठी महत्वाच्या गोष्टींचे संरक्षण करणे.</span></p>
-
 <p><span class="lang-en">Founded on the principles of trust, integrity, and exceptional service, we are proud to serve individuals, families, and businesses with a comprehensive range of insurance products tailored to their unique needs.</span>
 <span class="lang-mr hidden">विश्वास, प्रामाणिकपणा आणि उत्कृष्ट ग्राहकसेवा या तत्त्वांवर आधारित, आम्हाला वैयक्तिक, कौटुंबिक आणि व्यावसायिक ग्राहकांना त्यांच्या गरजांनुसार सानुकूलित विमा उत्पादनांची सेवा देण्याचा अभिमान आहे.</span></p>
+</section>
+
 <!-- Plans Section -->
 <section id="plans" class="card">
 <h2><span class="lang-en">Available LIC Plans</span><span class="lang-mr hidden">उपलब्ध LIC योजना</span></h2>
@@ -191,64 +189,3 @@ document.getElementById('pdfBtn').addEventListener('click', function(){
   doc.setFontSize(14); doc.setTextColor(20,40,80);
   doc.text('LIC Plans - Vedant Consultancy', 40, 40);
   const rows = [];
-  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
-    if(tr.style.display==='none') return;
-    const cols = tr.querySelectorAll('td');
-    rows.push([cols[0].innerText, cols[1].innerText, cols[2].innerText]);
-  });
-  doc.autoTable({head:[['Plan Name','Type','Brief']], body:rows, startY:70, styles:{fontSize:10,cellPadding:6}, headStyles:{fillColor:[0,74,173]}});
-  doc.save('LIC_Plans_Vedant_Consultancy.pdf');
-});
-
-// WhatsApp Booking
-document.getElementById('bookWhatsApp').addEventListener('click', function(){
-  const name = localStorage.getItem('visitorName') || 'Visitor';
-  const phone = localStorage.getItem('visitorPhone') || '';
-  const msg = `Hello Vivek Sir, this is ${name} (${phone}). I want to book a meeting.`;
-  const url = `https://api.whatsapp.com/send?phone=+919664999797&text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
-});
-
-// Chatbot toggle
-const chatbotBtn = document.getElementById('chatbotBtn');
-const chatbotWindow = document.getElementById('chatbotWindow');
-chatbotBtn.addEventListener('click', ()=>{ 
-  chatbotWindow.style.display = chatbotWindow.style.display==='block'?'none':'block';
-});
-
-// Chatbot input
-const chatbotInput = document.getElementById('chatbotInput');
-const chatbotBody = document.getElementById('chatbotBody');
-chatbotInput.addEventListener('keypress', function(e){
-  if(e.key==='Enter' && this.value.trim()!==''){
-    const text = this.value.trim();
-    const name = localStorage.getItem('visitorName') || 'Visitor';
-    appendMsg('user', text);
-    this.value='';
-    setTimeout(()=>appendMsg('bot', `Sorry ${name}, I didn't understand. Please contact via WhatsApp.`), 500);
-  }
-});
-function appendMsg(who, text){
-  const el = document.createElement('div');
-  el.className = who==='user'?'msg-user':'msg-bot';
-  el.textContent = text;
-  chatbotBody.appendChild(el);
-  chatbotBody.scrollTop = chatbotBody.scrollHeight;
-}
-
-// Language toggle
-const langToggle = document.getElementById('langToggle');
-langToggle.addEventListener('click', ()=>{
-  if(langToggle.dataset.lang==='en'){
-    langToggle.dataset.lang='mr';
-    document.querySelectorAll('.lang-en').forEach(el=>el.classList.add('hidden'));
-    document.querySelectorAll('.lang-mr').forEach(el=>el.classList.remove('hidden'));
-  } else {
-    langToggle.dataset.lang='en';
-    document.querySelectorAll('.lang-en').forEach(el=>el.classList.remove('hidden'));
-    document.querySelectorAll('.lang-mr').forEach(el=>el.classList.add('hidden'));
-  }
-});
-</script>
-</body>
-</html>
