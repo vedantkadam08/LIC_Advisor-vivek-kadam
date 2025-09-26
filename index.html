@@ -256,7 +256,32 @@ planSearch.addEventListener('input', function(){
     tr.style.display = (q === '' || tr.innerText.toLowerCase().includes(q)) ? '' : 'none';
   });
 });
+<script>
+// Language Toggle
+const langToggle = document.getElementById('langToggle');
+const knob = langToggle.querySelector('.knob');
 
+langToggle.addEventListener('click', () => {
+  const currentLang = langToggle.getAttribute('data-lang');
+  const newLang = currentLang === 'en' ? 'mr' : 'en';
+  langToggle.setAttribute('data-lang', newLang);
+
+  // Move knob
+  if (newLang === 'mr') {
+    knob.style.transform = 'translateX(20px)';
+  } else {
+    knob.style.transform = 'translateX(0)';
+  }
+
+  // Show/hide text
+  document.querySelectorAll('.lang-en').forEach(el => {
+    el.classList.toggle('hidden', newLang !== 'en');
+  });
+  document.querySelectorAll('.lang-mr').forEach(el => {
+    el.classList.toggle('hidden', newLang !== 'mr');
+  });
+});
+</script>
 /* ========= PDF generation ========= */
 document.getElementById('pdfBtn').addEventListener('click', function(){
   const { jsPDF } = window.jspdf;
