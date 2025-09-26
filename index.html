@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>LIC Advisor - Vivek Kadam</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<!-- jsPDF for PDF export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 <style>
 :root{--brand:#004aad;--brand-dark:#002c70;--accent:#25D366}
 *{box-sizing:border-box} body{font-family:'Poppins',sans-serif;margin:0;background:#f4f7fa;color:#222;line-height:1.5}
@@ -15,7 +18,7 @@ header h1, header p{position:relative;z-index:1;margin:0}
 header p{margin-top:8px;opacity:.95}
 .profile-img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,0.15);display:block;margin:18px auto 0}
 nav{background:#00307a;padding:12px;text-align:center;position:sticky;top:0;z-index:99;box-shadow:0 2px 6px rgba(0,0,0,0.12)}
-nav a{color:#fff;margin:0 18px;font-weight:600}
+nav a{color:#fff;margin:0 14px;font-weight:600}
 nav a:hover{color:#ffd700}
 .container{max-width:1000px;margin:36px auto;padding:0 18px}
 section{margin-bottom:28px}
@@ -26,7 +29,8 @@ h2{color:var(--brand);text-align:center;margin:8px 0 18px}
 .btn:hover{background:var(--brand-dark)}
 .btn-outline{background:transparent;border:2px solid var(--brand);color:var(--brand);padding:8px 14px;border-radius:8px}
 .btn-green{background:var(--accent);border:0;color:#fff}
-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
+.table-container{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px;min-width:720px}
 th,td{padding:10px;border:1px solid #e4e7eb;text-align:left;vertical-align:top}
 th{background:var(--brand);color:#fff}
 input[type=search]{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-bottom:10px}
@@ -35,16 +39,17 @@ input[type=search]{width:100%;padding:10px;border-radius:8px;border:1px solid #d
 #chatbotHeader{background:var(--brand);color:#fff;padding:12px;border-top-left-radius:12px;border-top-right-radius:12px;font-weight:700;text-align:center}
 #chatbotBody{padding:12px;max-height:320px;overflow:auto;font-size:14px}
 #chatbotInput{width:calc(100% - 24px);margin:10px 12px 18px;padding:10px;border-radius:8px;border:1px solid #ddd}
-.msg-user{background:#eef3ff;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
-.msg-bot{background:#f2f2f2;padding:8px;border-radius:8px;margin:6px 0;display:inline-block}
+.msg-user{background:#eef3ff;padding:8px;border-radius:8px;margin:6px 0;display:inline-block;max-width:85%}
+.msg-bot{background:#f2f2f2;padding:8px;border-radius:8px;margin:6px 0;display:inline-block;max-width:85%}
 #langToggle{position:fixed;right:22px;bottom:22px;background:#fff;border-radius:30px;padding:8px 14px;border:2px solid #eee;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.08);z-index:9999;display:flex;align-items:center;gap:8px}
 #langToggle .switch{width:46px;height:26px;background:#e9eef8;border-radius:20px;display:inline-block;position:relative}
 #langToggle .knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--brand);transition:all .22s ease}
 #langToggle[data-lang="mr"] .knob{transform:translateX(20px);background:var(--accent)}
 #langHint{font-size:13px;color:#444}
 .hidden{display:none}
-@media(max-width:700px){nav a{display:inline-block;margin:6px} .profile-img{width:120px;height:120px} #chatbotWindow{width:320px;right:14px}}
-.table-container{overflow-x:auto}
+@media(max-width:900px){ .container{padding:0 12px} header{padding:36px 12px 20px} .profile-img{width:120px;height:120px} table{min-width:600px} nav a{margin:0 8px} }
+@media(max-width:640px){ table{min-width:480px} #chatbotWindow{width:320px;right:12px} #chatbotBtn{right:12px;bottom:86px} #langToggle{right:12px;bottom:12px} }
+footer{margin-top:20px;padding:22px;text-align:center;background:var(--brand);color:#fff}
 </style>
 </head>
 <body>
@@ -63,68 +68,263 @@ input[type=search]{width:100%;padding:10px;border-radius:8px;border:1px solid #d
 
 <div class="container">
 
-<!-- About -->
-<section id="about">
-  <div class="card">
-    <h2><span class="lang-en">Welcome to Vedant Consultancy</span><span class="lang-mr hidden">वेदांत कन्सल्टन्सीमध्ये आपले स्वागत आहे</span></h2>
-    <div class="lang-en">
-      <p><strong>Name:</strong> Vivek Kadam</p>
-      <p><strong>Experience:</strong> 26 Years (1999–2025)</p>
-      <p><strong>MDRT Year:</strong> 2024</p>
-      <p>We provide personalized insurance solutions to protect what matters most to you.</p>
+  <!-- About -->
+  <section id="about">
+    <div class="card">
+      <h2><span class="lang-en">Welcome to Vedant Consultancy</span><span class="lang-mr hidden">वेदांत कन्सल्टन्सीमध्ये आपले स्वागत आहे</span></h2>
+      <div class="lang-en">
+        <p><strong>Name:</strong> Vivek Kadam</p>
+        <p><strong>Experience:</strong> 26 Years (1999–2025)</p>
+        <p><strong>MDRT Year:</strong> 2024</p>
+        <p>We provide personalized insurance solutions to protect what matters most to you.</p>
+      </div>
+      <div class="lang-mr hidden">
+        <p><strong>नाव:</strong> Vivek Kadam</p>
+        <p><strong>अनुभव:</strong> 26 वर्षे (1999–2025)</p>
+        <p><strong>MDRT वर्ष:</strong> 2024</p>
+        <p>आम्ही तुमच्या गरजा लक्षात घेऊन वैयक्तिक सल्ला देतो.</p>
+      </div>
     </div>
-    <div class="lang-mr hidden">
-      <p><strong>नाव:</strong> Vivek Kadam</p>
-      <p><strong>अनुभव:</strong> 26 वर्षे (1999–2025)</p>
-      <p><strong>MDRT वर्ष:</strong> 2024</p>
-      <p>आम्ही तुमच्या गरजा लक्षात घेऊन वैयक्तिक सल्ला देतो.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Plans -->
-<section id="plans">
-  <div class="card">
-    <h2><span class="lang-en">Available LIC Plans</span><span class="lang-mr hidden">उपलब्ध एलआयसी योजना</span></h2>
-    <input type="search" id="planSearch" placeholder="Search plan name or keyword..." aria-label="Search Plans">
-    <div class="table-container">
-      <table id="planTable" role="table">
-        <thead>
-          <tr><th><span class="lang-en">Plan Name</span><span class="lang-mr hidden">योजनेचे नाव</span></th>
+  <!-- Plans -->
+  <section id="plans">
+    <div class="card">
+      <h2><span class="lang-en">Available LIC Plans</span><span class="lang-mr hidden">उपलब्ध एलआयसी योजना</span></h2>
+
+      <input type="search" id="planSearch" placeholder="Search plan name or keyword..." aria-label="Search Plans">
+
+      <div class="table-container" aria-hidden="false">
+        <table id="planTable" role="table" aria-label="LIC Plans table">
+          <thead>
+            <tr>
+              <th><span class="lang-en">Plan Name</span><span class="lang-mr hidden">योजनेचे नाव</span></th>
               <th><span class="lang-en">Category / Type</span><span class="lang-mr hidden">वर्ग</span></th>
-              <th><span class="lang-en">Brief</span><span class="lang-mr hidden">थोडक्यात</span></th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-en="New Endowment Plan (714)" data-mr="न्यू एंडोमेंट प्लॅन (714)">New Endowment Plan (714)</td>
-            <td data-en="Endowment" data-mr="एंडोमेंट">Endowment</td>
-            <td data-en="Guaranteed sum + bonuses at maturity or on death." data-mr="निश्चित रक्कम + फायदे शेवटी किंवा मृत्यूच्या वेळी.">Guaranteed sum + bonuses at maturity or on death.</td>
-          </tr>
-          <tr>
-            <td data-en="Jeevan Anand (715)" data-mr="जीवन आनंद (715)">Jeevan Anand (715)</td>
-            <td data-en="Endowment / Whole Life" data-mr="एंडोमेंट / संपूर्ण आयुष्य">Endowment / Whole Life</td>
-            <td data-en="Protection + savings; benefit during lifetime & at maturity." data-mr="संरक्षण + बचत; जीवनकाळात आणि शेवटी फायदा.">Protection + savings; benefit during lifetime & at maturity.</td>
-          </tr>
-          <tr>
-            <td data-en="Jeevan Labh (736)" data-mr="जीवन लाभ (736)">Jeevan Labh (736)</td>
-            <td data-en="Participating Endowment" data-mr="भाग घेणारा एंडोमेंट">Participating Endowment</td>
-            <td data-en="Endowment with bonuses; savings plus cover." data-mr="फायदे असलेला एंडोमेंट; बचत आणि संरक्षण.">Endowment with bonuses; savings plus cover.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-      <button id="pdfBtn" class="btn"><span class="lang-en">Download Plans PDF</span><span class="lang-mr hidden">योजना पीडीएफ डाउनलोड करा</span></button>
-    </div>
-  </div>
-</section>
+              <th><span class="lang-en">Brief (Gist)</span><span class="lang-mr hidden">थोडक्यात</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows include data-en and data-mr attributes for dynamic toggle -->
+            <tr>
+              <td data-en="New Endowment Plan (714)" data-mr="न्यू एंडोमेंट प्लॅन (714)">New Endowment Plan (714)</td>
+              <td data-en="Endowment" data-mr="एंडोमेंट">Endowment</td>
+              <td data-en="Guaranteed sum + bonuses at maturity or on death." data-mr="निश्चित रक्कम + फायदे शेवटी किंवा मृत्यूच्या वेळी.">Guaranteed sum + bonuses at maturity or on death.</td>
+            </tr>
+            <tr>
+              <td data-en="Jeevan Anand (715)" data-mr="जीवन आनंद (715)">Jeevan Anand (715)</td>
+              <td data-en="Endowment / Whole Life" data-mr="एंडोमेंट / संपूर्ण आयुष्य">Endowment / Whole Life</td>
+              <td data-en="Protection + savings; benefit during lifetime & at maturity." data-mr="संरक्षण + बचत; जीवनकाळात आणि शेवटी फायदा.">Protection + savings; benefit during lifetime & at maturity.</td>
+            </tr>
+            <tr>
+              <td data-en="Jeevan Labh (736)" data-mr="जीवन लाभ (736)">Jeevan Labh (736)</td>
+              <td data-en="Participating Endowment" data-mr="भाग घेणारा एंडोमेंट">Participating Endowment</td>
+              <td data-en="Endowment with bonuses; savings plus cover." data-mr="फायदे असलेला एंडोमेंट; बचत आणि संरक्षण.">Endowment with bonuses; savings plus cover.</td>
+            </tr>
+            <tr>
+              <td data-en="New Tech Term (Online)" data-mr="न्यू टेक टर्म (ऑनलाइन)">New Tech Term (Online)</td>
+              <td data-en="Term Assurance" data-mr="टर्म आश्वासन">Term Assurance</td>
+              <td data-en="Pure term cover; affordable premiums." data-mr="शुद्ध टर्म कव्हर; परवडणारे प्रीमियम.">Pure term cover; affordable premiums.</td>
+            </tr>
+            <tr>
+              <td data-en="Jeevan Umang (745)" data-mr="जीवन उमंग (745)">Jeevan Umang (745)</td>
+              <td data-en="Whole Life" data-mr="संपूर्ण आयुष्य">Whole Life</td>
+              <td data-en="Annual survival benefits and whole life cover." data-mr="वार्षिक सर्व्हायव्हल फायदे व संपूर्ण आयुष्य संरक्षण.">Annual survival benefits and whole life cover.</td>
+            </tr>
+            <tr>
+              <td data-en="New Pension Plus (867)" data-mr="न्यू पेन्शन प्लस (867)">New Pension Plus (867)</td>
+              <td data-en="Pension / Deferred" data-mr="पेन्शन / डिफर्ड">Pension / Deferred</td>
+              <td data-en="Deferred pension with annuity options." data-mr="वाटप नंतर पेन्शन व अ‍ॅन्युटी पर्याय.">Deferred pension with annuity options.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-<!-- Contact -->
-<section id="contact">
-  <div class="card center">
-    <h2><span class="lang-en">Contact Me</span><span class="lang-mr hidden">माझ्याशी संपर्क साधा</span></h2>
-    <p><strong><span class="lang-en">Phone:</span><span class="lang-mr hidden">फोन:</span></strong> <a href="tel:+919664999797">+91-9664999797</a></p>
-    <p><strong><span class="lang-en">Email:</span><span class="lang-mr hidden">ईमेल:</span></strong> <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a></p>
-    <p style="max-width:720px;margin:0 auto"><strong><span class="lang-en">Office:</span><span class="lang-mr hidden">कार्यालय:</span></strong> Shivanand, 2nd Flr., SV Rd., Goregaon, Mumbai, Maharashtra 400062</p>
-    <div style="max-width:720px;margin:10px auto;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08)">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.9049341211903!2d72.84293717520738!3d19.155638182065406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b635dce6edc5%3A0xd8889595729557da!2sLIC%20of%20India%2C%20Branch%
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <button id="pdfBtn" class="btn"><span class="lang-en">Download Plans PDF</span><span class="lang-mr hidden">योजना पीडीएफ डाउनलोड करा</span></button>
+        <button id="downloadChats" class="btn btn-outline"><span class="lang-en">Download Chats (JSON)</span><span class="lang-mr hidden">चॅट डाउनलोड करा (JSON)</span></button>
+        <small style="color:#555;margin-left:auto"><span class="lang-en">Showing a gist. For full details visit LIC's official site or contact advisor.</span><span class="lang-mr hidden">थोडक्यात माहिती दर्शविली जात आहे. पूर्ण तपशीलांसाठी एलआयसीच्या अधिकृत साइटला भेट द्या किंवा सल्लागाराशी संपर्क करा.</span></small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="card center">
+      <h2><span class="lang-en">Contact Me</span><span class="lang-mr hidden">माझ्याशी संपर्क साधा</span></h2>
+      <p><strong><span class="lang-en">Phone:</span><span class="lang-mr hidden">फोन:</span></strong> <a href="tel:+919664999797">+91-9664999797</a></p>
+      <p><strong><span class="lang-en">Email:</span><span class="lang-mr hidden">ईमेल:</span></strong> <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a></p>
+      <p style="max-width:720px;margin:0 auto"><strong><span class="lang-en">Office:</span><span class="lang-mr hidden">कार्यालय:</span></strong> Shivanand, 2nd Flr., SV Rd., Goregaon, Mumbai, Maharashtra 400062</p>
+
+      <div style="max-width:720px;margin:10px auto;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08)">
+        <!-- Embedded Google Map -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.9049341211903!2d72.84293717520738!3d19.155638182065406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b635dce6edc5%3A0xd8889595729557da!2sLIC%20of%20India%2C%20Branch%20Office!5e0!3m2!1sen!2sin!4v1753001927819!5m2!1sen!2sin" width="100%" height="280" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+
+      <div style="margin-top:10px">
+        <a class="btn whatsapp-btn btn-green" id="freeConsultBtn" href="https://wa.me/919664999797" target="_blank" rel="noopener">💬 <span class="lang-en">Free Consultation (WhatsApp)</span><span class="lang-mr hidden">मुफ्त सल्ला (WhatsApp)</span></a>
+      </div>
+    </div>
+  </section>
+
+</div> <!-- /container -->
+
+<footer>
+  <div style="max-width:1000px;margin:0 auto;padding:8px 18px;color:#fff">
+    <div><span class="lang-en">&copy; 2025 LIC Advisor. All Rights Reserved.</span><span class="lang-mr hidden">&copy; 2025 एलआयसी सल्लागार. सर्व हक्क राखीव.</span></div>
+  </div>
+</footer>
+
+<!-- Chatbot UI -->
+<button id="chatbotBtn" title="Chat with advisor">💬</button>
+<div id="chatbotWindow" aria-hidden="true">
+  <div id="chatbotHeader"><span class="lang-en">Chat with Advisor</span><span class="lang-mr hidden">सल्लागाराशी चॅट करा</span></div>
+  <div id="chatbotBody" role="log" aria-live="polite" style="padding:12px"></div>
+  <input id="chatbotInput" placeholder="Type message & press Enter" aria-label="Chat input">
+</div>
+
+<!-- Language Toggle -->
+<div id="langToggle" data-lang="en" aria-label="Language toggle">
+  <div style="display:flex;flex-direction:column;align-items:flex-start">
+    <div id="langHint"><span class="lang-en">EN / मराठी</span><span class="lang-mr hidden">EN / मराठी</span></div>
+  </div>
+  <div style="margin-left:8px;position:relative">
+    <div class="switch"><div class="knob"></div></div>
+  </div>
+</div>
+
+<script>
+/* ========= Config ========= */
+const ADVISOR_PHONE = '+919664999797';
+const ADVISOR_EMAIL = 'vivekkadam1969@gmail.com';
+
+/* ========= Helpers ========= */
+function sanitize(text){ return (''+text).replace(/</g,'&lt;').replace(/>/g,'&gt;') }
+
+/* ========= Language Toggle ========= */
+const langToggle = document.getElementById('langToggle');
+const knob = langToggle.querySelector('.knob');
+const savedLang = localStorage.getItem('vedant_lang') || 'en';
+setLanguage(savedLang);
+
+langToggle.addEventListener('click', () => {
+  const currentLang = langToggle.getAttribute('data-lang');
+  const newLang = currentLang === 'en' ? 'mr' : 'en';
+  setLanguage(newLang);
+});
+
+function setLanguage(lang){
+  langToggle.setAttribute('data-lang', lang);
+  knob.style.transform = lang === 'mr' ? 'translateX(20px)' : 'translateX(0)';
+  document.querySelectorAll('.lang-en').forEach(el=>el.classList.toggle('hidden', lang!=='en'));
+  document.querySelectorAll('.lang-mr').forEach(el=>el.classList.toggle('hidden', lang!=='mr'));
+  localStorage.setItem('vedant_lang', lang);
+
+  // Update table cells which use data-en/data-mr attributes
+  document.querySelectorAll('#planTable tbody tr').forEach(row=>{
+    row.querySelectorAll('td').forEach(td=>{
+      const v = td.getAttribute(`data-${lang}`);
+      if(v !== null) td.textContent = v;
+    });
+  });
+}
+
+/* ========= Plan Search ========= */
+const planSearch = document.getElementById('planSearch');
+planSearch.addEventListener('input', function(){
+  const q = this.value.trim().toLowerCase();
+  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
+    tr.style.display = (q === '' || tr.innerText.toLowerCase().includes(q)) ? '' : 'none';
+  });
+});
+
+/* ========= PDF generation ========= */
+document.getElementById('pdfBtn').addEventListener('click', function(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({unit:'pt',format:'a4'});
+  const lang = localStorage.getItem('vedant_lang') || 'en';
+  const title = lang==='mr' ? 'एलआयसी योजना - वेदांत कन्सल्टन्सी' : 'LIC Plans - Vedant Consultancy';
+  doc.setFontSize(14); doc.setTextColor(20,40,80);
+  doc.text(title, 40, 40);
+
+  const rows = [];
+  document.querySelectorAll('#planTable tbody tr').forEach(tr=>{
+    if(tr.style.display === 'none') return;
+    const cols = tr.querySelectorAll('td');
+    rows.push([cols[0].innerText, cols[1].innerText, cols[2].innerText]);
+  });
+
+  doc.autoTable({head:[[lang==='mr'?'योजनांचे नाव':'Plan Name', lang==='mr'?'वर्ग':'Type', lang==='mr'?'थोडक्यात':'Brief']], body:rows, startY:70, styles:{fontSize:10,cellPadding:6}, headStyles:{fillColor:[0,74,173]}});
+  doc.save((lang==='mr'?'LIC_Yojana_Vedant.pdf':'LIC_Plans_Vedant_Consultancy.pdf'));
+});
+
+/* ========= Chatbot (local placeholder) ========= */
+const chatbotBtn = document.getElementById('chatbotBtn');
+const chatbotWindow = document.getElementById('chatbotWindow');
+const chatbotBody = document.getElementById('chatbotBody');
+const chatbotInput = document.getElementById('chatbotInput');
+
+let chats = JSON.parse(localStorage.getItem('vedant_chats') || '[]');
+function persistChats(){ localStorage.setItem('vedant_chats', JSON.stringify(chats)); }
+function appendMsg(who, text, rawHtml=false){
+  const wrap = document.createElement('div');
+  wrap.style.marginBottom = '6px';
+  if(rawHtml){
+    wrap.innerHTML = `<div class="${who==='user'?'msg-user':'msg-bot'}">${text}</div>`;
+  } else {
+    wrap.innerHTML = `<div class="${who==='user'?'msg-user':'msg-bot'}">${sanitize(text)}</div>`;
+  }
+  chatbotBody.appendChild(wrap);
+  chatbotBody.scrollTop = chatbotBody.scrollHeight;
+}
+if(chats.length) chats.forEach(c=>appendMsg(c.from, c.text));
+
+chatbotBtn.addEventListener('click', ()=> {
+  const shown = chatbotWindow.style.display === 'block';
+  chatbotWindow.style.display = shown ? 'none' : 'block';
+  chatbotWindow.setAttribute('aria-hidden', shown ? 'true' : 'false');
+});
+
+chatbotInput.addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter' && chatbotInput.value.trim()){
+    const txt = chatbotInput.value.trim();
+    chats.push({from:'user', text:txt, ts:Date.now()});
+    appendMsg('user', txt);
+    chatbotInput.value = '';
+    // Simple rule-based reply in selected language
+    const lang = localStorage.getItem('vedant_lang') || 'en';
+    let reply = '';
+    const q = txt.toLowerCase();
+    if(q.includes('plan') || q.includes('योजना') || q.includes('premium') || q.includes('प्रिमियम')){
+      reply = lang==='mr' ? 'आपण कोणत्या प्रकारची योजना शोधत आहात? (उदा. टर्म, एंडोमेंट, पेन्शन)' : 'Which type of plan are you looking for? (e.g. term, endowment, pension)';
+    } else if(q.includes('call') || q.includes('phone') || q.includes('फोन') || q.includes('कॉल')){
+      reply = lang==='mr' ? `कृपया कॉल करा: ${ADVISOR_PHONE}` : `Please call: ${ADVISOR_PHONE}`;
+    } else if(q.includes('email') || q.includes('ईमेल')){
+      reply = lang==='mr' ? `ईमेल करा: ${ADVISOR_EMAIL}` : `Email: ${ADVISOR_EMAIL}`;
+    } else {
+      reply = lang==='mr' ? 'आपल्या चौकशीसाठी धन्यवाद. आम्ही लवकरच संपर्क करू.' : 'Thanks for your query. We will get back to you shortly.';
+    }
+    chats.push({from:'bot', text:reply, ts:Date.now()});
+    setTimeout(()=>{ appendMsg('bot', reply); persistChats(); }, 500);
+  }
+});
+
+/* Download chats */
+document.getElementById('downloadChats').addEventListener('click', ()=>{
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(chats, null, 2));
+  const dl = document.createElement('a');
+  dl.setAttribute('href', dataStr);
+  dl.setAttribute('download', 'vedant_chats.json');
+  document.body.appendChild(dl);
+  dl.click();
+  dl.remove();
+});
+
+/* Clear chats if long (optional safety) */
+if(chats.length > 500) { chats = []; persistChats(); localStorage.removeItem('vedant_chats'); }
+
+/* Accessibility: focus */
+chatbotBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter') chatbotBtn.click(); });
+
+</script>
+</body>
+</html>
