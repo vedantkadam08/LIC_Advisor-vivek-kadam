@@ -1,427 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LIC Advisor - Vivek Kadam / Vedant Consultancy (Hybrid)</title>
-
-  <!-- Fonts (kept simple) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LIC Advisor - Vivek Kadam | Vedant Consultancy</title>
+  
+  <!-- Soft Professional Animations -->
   <style>
-    :root{
-      --brand: #004aad;
-      --brand-dark: #002c70;
-      --accent: #25D366;
-      --bg: #f7f9fc;
-      --card-bg: #fff;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Poppins', Arial, sans-serif;
-      background:var(--bg);
-      color:#222;
-      line-height:1.5;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+      animation: fadeIn 1.2s ease-in-out;
     }
 
-    /* Header + hero (modern) */
-    header{
-      background: linear-gradient(90deg, var(--brand), #00307a);
-      color:#fff;
-      padding:46px 20px;
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
-    header::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:url('https://images.unsplash.com/photo-1588776814546-9c4b448b9d05?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-      opacity:0.06;
-      z-index:0;
-    }
-    header .header-inner{position:relative;z-index:1;max-width:1100px;margin:auto}
-    header h1{margin:0;font-size:28px}
-    header p{margin:6px 0 0;opacity:0.95}
-
-    /* Nav */
-    nav{
-      background:#00307a;
-      padding:12px;
-      text-align:center;
-      position:sticky;
-      top:0;
-      z-index:99;
-      box-shadow:0 2px 6px rgba(0,0,0,0.08);
-    }
-    nav a{color:#fff;margin:0 14px;text-decoration:none;font-weight:600}
-    nav a:hover{opacity:0.9}
-
-    /* Profile image used in both styles */
-    .profile-img{
-      width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid #fff;
-      box-shadow:0 8px 18px rgba(0,0,0,0.12);display:block;margin:18px auto 6px; background:#fff;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    .container{max-width:1000px;margin:28px auto;padding:0 18px}
+    section { animation: fadeIn 1.5s ease; }
 
-    /* Card / section */
-    .card{background:var(--card-bg);border-radius:12px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.06);margin-bottom:20px}
-    h2{color:var(--brand);margin-top:0}
-    .center{text-align:center}
+    header {
+      background: #004aad;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      animation: slideDown 0.9s ease;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-    /* Plans style (preserve original simple plan look but in cards) */
-    .plan{border:1px solid #e6e6e6;border-radius:8px;padding:14px;margin-bottom:12px;background:#fff}
-    .plan h3{margin:0 0 6px;color:var(--brand)}
-    .features{display:flex;gap:20px;justify-content:space-between;padding:24px}
-    .feature{text-align:center;width:30%}
-    .feature img{max-width:150px;height:auto}
+    nav {
+      background: #00307a;
+      padding: 12px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+    nav a:hover { opacity: 0.7; }
 
-    /* Buttons */
-    .btn{display:inline-block;padding:10px 18px;border-radius:8px;background:var(--brand);color:#fff;font-weight:600;border:0;cursor:pointer;text-decoration:none}
-    .btn-green{background:var(--accent)}
-    .btn-outline{background:transparent;border:2px solid var(--brand);color:var(--brand);padding:8px 14px;border-radius:8px}
+    .pfp {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #004aad;
+      object-fit: cover;
+      margin: 18px auto;
+      display: block;
+      animation: float 4s ease-in-out infinite;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
 
-    /* Contact card small tweaks */
-    .contact-row{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
-    .contact-row img{border-radius:50%;border:3px solid var(--brand);width:150px;height:150px;object-fit:cover}
+    .plan, .feature, .container, .cta {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 900px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+    .plan:hover, .feature:hover, .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
 
     /* Chatbot */
-    #chatbotBtn{position:fixed;right:22px;bottom:20px;width:60px;height:60px;border-radius:50%;background:var(--brand);color:#fff;border:0;font-size:26px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.2);z-index:9999}
-    #chatbotWindow{display:none;position:fixed;right:22px;bottom:96px;width:360px;max-width:92%;background:#fff;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,0.18);z-index:9999;overflow:hidden;flex-direction:column}
-    #chatbotHeader{background:var(--brand);color:#fff;padding:12px;font-weight:700;text-align:center}
-    #chatbotBody{padding:12px;max-height:320px;overflow:auto;font-size:14px;background:#fbfbfd}
-    #chatbotInputWrap{display:flex;border-top:1px solid #eee;padding:10px;gap:8px}
-    #chatbotInput{flex:1;padding:10px;border-radius:8px;border:1px solid #ddd;outline:none}
-    .msg-user{background:#e8f3ff;padding:8px;border-radius:8px;margin:8px 0;display:inline-block}
-    .msg-bot{background:#f2f2f2;padding:8px;border-radius:8px;margin:8px 0;display:inline-block}
-
-    /* Footer */
-    footer{margin-top:20px;padding:22px;text-align:center;background:var(--brand);color:#fff}
-
-    /* Responsive */
-    @media(max-width:900px){
-      .features{flex-direction:column;align-items:center}
-      .feature{width:80%}
-      .contact-row{flex-direction:column;align-items:center}
+    #chatbot-container {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 320px;
+      max-height: 450px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: slideUp 0.4s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
-    /* Preserve legacy simple styles from first code where needed (scoped) */
-    .legacy-section h3{color:#004aad}
-    .legacy-plan{border:1px solid #ddd;border-radius:5px;padding:15px;margin-bottom:15px;background:white}
+    .chat-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #004aad;
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: 0.3s ease;
+    }
+    .chat-toggle:hover { transform: scale(1.05); }
+
+    .wa-btn {
+      background: #25D366;
+      color: white;
+      padding: 8px 12px;
+      display: inline-block;
+      border-radius: 6px;
+      margin-top: 6px;
+      text-decoration: none;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Modern header (keeps title from first code) -->
-  <header>
-    <div class="header-inner">
-      <h1>LIC Advisor - Vivek Kadam</h1>
-      <p>Your Trusted Life Insurance Partner</p>
-      <!-- use the profile image provided in original content -->
-      <img class="profile-img" src="https://lh3.googleusercontent.com/pw/AP1GczPlzTcIZ7AGf_dvuyBZN2jlZ3wMcA3aUq5s1lEeJX5Wk6WqLTWkcPhMXbwygpPB6_nkjuBzK0MXe20FTHVdSYgB8AG0Ju7l6VYf-uJLIVMXWRvnyxHZWyeikj-kweK-2XreouJvPw8S5uOZv-vAGPFd=w391-h869-s-no-gm?authuser=0" alt="LIC Advisor - Vivek Kadam">
-    </div>
-  </header>
+<header>
+  <h1>LIC Advisor - Vivek Kadam</h1>
+  <p>Your Trusted Life Insurance Partner</p>
+</header>
 
-  <!-- Unified nav (combined both navs) -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#plans">Plans</a>
-    <a href="#vedant-hero">Vedant</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact">Contact</a>
-    <a href="#book">Get a Quote</a>
-  </nav>
+<nav>
+  <a href="#plans">Plans</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <div class="container">
+<img class="pfp" src="https://lh3.googleusercontent.com/pw/AP1GczPlzTcIZ7AGf_dvuyBZN2jlZ3wMcA3aUq5s1lEeJX5Wk6WqLTWkcPhMXbwygpPB6_nkjuBzK0MXe20FTHVdSYgB8AG0Ju7l6VYf-uJLIVMXWRvnyxHZWyeikj-kweK-2XreouJvPw8S5uOZv-vAGPFd=w391-h869-s-no-gm?authuser=0" />
 
-    <!-- ABOUT: includes all original "first code" info + Vedant About content preserved -->
-    <section id="about" class="card">
-      <h2>About / Profile</h2>
+<p style="text-align:center"><strong>Name:</strong> Vivek Kadam<br>
+<strong>Experience:</strong> 26 years (1999–2025)<br>
+<strong>MDRT Year:</strong> 2024</p>
 
-      <!-- Original profile content (kept exactly as in your first code) -->
-      <p><strong>Name:</strong> Vivek Kadam</p>
-      <p><strong>Year of experience:</strong> 26 year [1999-2025]</p>
-      <p><strong>Year of MDRT:</strong> 2024</p>
+<!-- ===================== PLANS ===================== -->
+<section id="plans">
+  <h2 style="text-align:center; color:#004aad;">Available LIC Plans</h2>
 
-      <!-- Vedant Consultancy 'About Us' content (kept intact) -->
-      <div style="margin-top:16px">
-        <h3>About Vedant Consultancy</h3>
-        <div style="background:#f9f9f9;padding:12px;border-radius:8px">
-          <h4>Welcome to Vedant Consultancy</h4>
-          <p>At Vedant Consultancy, we believe in more than just policies — we believe in building lasting relationships and providing peace of mind through personalized insurance solutions. Our mission is to protect what matters most to you, whether it's your health, family, business, or future.</p>
-          <p>Founded on the principles of trust, integrity, and exceptional service, we are proud to serve individuals, families, and businesses with a comprehensive range of insurance products tailored to their unique needs.</p>
+  <div class="plan"><h3>LIC Jeevan Anand</h3><p>A combination of protection and savings.</p></div>
+  <div class="plan"><h3>LIC New Endowment Plan</h3><p>Ideal for long‑term guaranteed returns.</p></div>
+  <div class="plan"><h3>LIC Tech Term Plan</h3><p>High cover at low premiums.</p></div>
+  <div class="plan"><h3>LIC Jeevan Umang</h3><p>Whole life plan with annual benefits.</p></div>
+</section>
 
-          <h4>A Commitment to Excellence</h4>
-          <p>With years of experience in the insurance industry, our founder and lead advisor earned the prestigious <strong>Million Dollar Round Table (MDRT)</strong> designation in <strong>2024</strong> — an honor that recognizes the top professionals in the field for their ethical standards, exceptional service, and outstanding performance.</p>
+<!-- ===================== ABOUT ===================== -->
+<section id="about" class="container">
+  <h1>About Us<br><small style="font-size:16px; color:#555">Vedant Consultancy</small></h1>
+  <p>At Vedant Consultancy, we believe in building lasting relationships...</p>
+</section>
 
-          <h4>Why Choose Us?</h4>
-          <ul>
-            <li><strong>Expert Guidance:</strong> We take time to understand your needs and explain your options in clear, simple terms.</li>
-            <li><strong>Tailored Solutions:</strong> Whether it’s life, health, business, or retirement planning — we provide solutions that fit you.</li>
-            <li><strong>Trusted Support:</strong> We’re here when you need us, before, during, and after the policy is in place.</li>
-          </ul>
+<!-- ===================== CONTACT ===================== -->
+<section id="contact">
+  <h2 style="text-align:center; color:#004aad;">Contact Me</h2>
 
-          <div class="cta" style="margin-top:12px;padding:12px;background:#e8f4fd;border-left:5px solid #005a8d;">
-            <p><strong>Let’s protect what matters most — together.</strong></p>
-            <p><a href="tel:+919664999797" class="btn" style="background:var(--brand)">📞 Call Now: +91-9664999797</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <img class="pfp" src="https://lh3.googleusercontent.com/pw/AP1GczPlzTcIZ7AGf_dvuyBZN2jlZ3wMcA3aUq5s1lEeJX5Wk6WqLTWkcPhMXbwygpPB6_nkjuBzK0MXe20FTHVdSYgB8AG0Ju7l6VYf-uJLIVMXWRvnyxHZWyeikj-kweK-2XreouJvPw8S5uOZv-vAGPFd=w391-h869-s-no-gm?authuser=0" />
 
-    <!-- VEDANT HERO & FEATURES (kept from second code) -->
-    <section id="vedant-hero" class="card center">
-      <h2>Protect What Matters Most</h2>
-      <p>Affordable and reliable life insurance tailored for you and your family.</p>
-      <a class="btn" href="#quote" onclick="location.hash='quote'">Get a Free Quote</a>
-    </section>
+  <p style="text-align:center"><strong>Name:</strong> Vivek Kadam<br>
+  <strong>Phone:</strong> +91-9664999797<br>
+  <strong>Email:</strong> vivekkadam1969@gmail.com</p>
 
-    <section class="card features" aria-label="features">
-      <div class="feature">
-        <img src="https://t3.ftcdn.net/jpg/08/68/17/04/360_F_868170457_v9qrFCh30ymov7TzkFu4T0FBOIaFTLd1.jpg" alt="Easy Application">
-        <h4>Easy Application</h4>
-        <p>Get covered in minutes with our seamless online process.</p>
-      </div>
-      <div class="feature">
-        <img src="https://cdn-icons-png.flaticon.com/512/8759/8759165.png" alt="Flexible Plans">
-        <h4>Flexible Plans</h4>
-        <p>Choose the plan that fits your life stage and needs.</p>
-      </div>
-      <div class="feature">
-        <img src="https://cdn-icons-png.flaticon.com/512/4185/4185509.png" alt="Trusted Support">
-        <h4>Trusted Support</h4>
-        <p>Talk to our licensed experts anytime, day or night.</p>
-      </div>
-    </section>
-
-    <!-- PLANS: include all LIC plans from original first code (unchanged text content) -->
-    <section id="plans" class="card">
-      <h2>Available LIC Plans</h2>
-
-      <!-- Legacy plan blocks exactly preserved content (styling adapted) -->
-      <div class="legacy-plan plan">
-        <h3>LIC Jeevan Anand</h3>
-        <p>A combination of protection and savings. Provides financial protection against death throughout the lifetime of the policyholder.</p>
-      </div>
-
-      <div class="legacy-plan plan">
-        <h3>LIC New Endowment Plan</h3>
-        <p>Offers both investment returns and insurance. Ideal for long-term savings with guaranteed returns.</p>
-      </div>
-
-      <div class="legacy-plan plan">
-        <h3>LIC Tech Term Plan</h3>
-        <p>Pure term insurance plan available online only. Offers high cover at low premiums.</p>
-      </div>
-
-      <div class="legacy-plan plan">
-        <h3>LIC Jeevan Umang</h3>
-        <p>Whole life plan offering annual survival benefits and lump sum at maturity or on death.</p>
-      </div>
-
-      <!-- Additional plan table from modern second code (kept; information preserved) -->
-      <div style="margin-top:12px">
-        <table style="width:100%;border-collapse:collapse;font-size:14px">
-          <thead>
-            <tr>
-              <th style="background:var(--brand);color:#fff;padding:10px;text-align:left">Plan Name</th>
-              <th style="background:var(--brand);color:#fff;padding:10px;text-align:left">Category</th>
-              <th style="background:var(--brand);color:#fff;padding:10px;text-align:left">Brief</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td style="padding:10px;border:1px solid #e4e7eb">New Endowment Plan (714)</td><td style="padding:10px;border:1px solid #e4e7eb">Endowment</td><td style="padding:10px;border:1px solid #e4e7eb">Guaranteed sum + bonuses</td></tr>
-            <tr><td style="padding:10px;border:1px solid #e4e7eb">Jeevan Anand (715)</td><td style="padding:10px;border:1px solid #e4e7eb">Endowment / Whole Life</td><td style="padding:10px;border:1px solid #e4e7eb">Protection + savings</td></tr>
-            <tr><td style="padding:10px;border:1px solid #e4e7eb">Jeevan Labh (736)</td><td style="padding:10px;border:1px solid #e4e7eb">Participating Endowment</td><td style="padding:10px;border:1px solid #e4e7eb">Endowment with bonuses</td></tr>
-            <tr><td style="padding:10px;border:1px solid #e4e7eb">New Money Back (720 / 721)</td><td style="padding:10px;border:1px solid #e4e7eb">Money Back</td><td style="padding:10px;border:1px solid #e4e7eb">Periodic survival benefits</td></tr>
-            <tr><td style="padding:10px;border:1px solid #e4e7eb">Jeevan Umang (745)</td><td style="padding:10px;border:1px solid #e4e7eb">Whole Life</td><td style="padding:10px;border:1px solid #e4e7eb">Annual survival benefits and life cover</td></tr>
-            <tr><td style="padding:10px;border:1px solid #e4e7eb">New Tech Term (Online)</td><td style="padding:10px;border:1px solid #e4e7eb">Term Assurance</td><td style="padding:10px;border:1px solid #e4e7eb">Pure term cover</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div style="margin-top:12px" class="center">
-        <a class="btn" id="downloadPlansBtn">Download Plans PDF</a>
-      </div>
-    </section>
-
-    <!-- REVIEWS (from second code) -->
-    <section id="reviews" class="card">
-      <h2>Clients Say</h2>
-      <div><strong>Rohit Sharma</strong> — "Vivek Sir is highly professional and helped me understand the best policy for my family’s future."</div>
-      <div style="margin-top:8px"><strong>Meera Patil</strong> — "Excellent service, honest guidance, and always available to support."</div>
-      <div style="margin-top:8px"><strong>Sameer Desai</strong> — "I’ve been a client for over a decade. Vivek Sir is someone you can trust blindly."</div>
-    </section>
-
-    <!-- CONTACT: all original contact content preserved -->
-    <section id="contact" class="card">
-      <h2>Contact Me</h2>
-
-      <div class="contact-row">
-        <!-- original profile photo repeated as in first code -->
-        <img src="https://lh3.googleusercontent.com/pw/AP1GczPlzTcIZ7AGf_dvuyBZN2jlZ3wMcA3aUq5s1lEeJX5Wk6WqLTWkcPhMXbwygpPB6_nkjuBzK0MXe20FTHVdSYgB8AG0Ju7l6VYf-uJLIVMXWRvnyxHZWyeikj-kweK-2XreouJvPw8S5uOZv-vAGPFd=w391-h869-s-no-gm?authuser=0" alt="LIC Advisor" style="width:150px;height:150px;object-fit:cover;border-radius:50%;border:3px solid var(--brand);box-shadow:0 2px 6px rgba(0,0,0,0.2)">
-
-        <div style="flex:1">
-          <p><strong>Name:</strong> Vivek Kadam</p>
-          <p><strong>Phone:</strong> <a href="tel:+919664999797">+91-9664999797</a></p>
-          <p><strong>Email:</strong> <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a></p>
-          <p><strong>Office Address:</strong> Shivanand, 2nd Flr., SV Rd., Goregaon, nr. Samrat Talkies, Mumbai, Maharashtra 400062</p>
-
-          <div style="margin-top:12px">
-            <a class="btn btn-green" href="https://wa.me/+919664999797" target="_blank">💬 WhatsApp</a>
-            <a class="btn" href="tel:+919664999797" style="margin-left:8px">📞 Call Now</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Google Maps iframe (kept as in second code added earlier) -->
-      <div style="margin-top:14px;max-width:720px;margin-left:auto;margin-right:auto;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08)">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.9049341211903!2d72.84293717520738!3d19.155638182065406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b635dce6edc5%3A0xd8889595729557da!2sLIC%20of%20India%2C%20Branch%20Office!5e0!3m2!1sen!2sin!4v1753001927819!5m2!1sen!2sin" width="100%" height="280" style="border:0" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-    </section>
-
-    <!-- BOOK / CTA -->
-    <section id="book" class="card center">
-      <h2>Get Covered Today</h2>
-      <p>Peace of mind is just a few clicks away. Let’s build your future together.</p>
-      <a class="btn" href="tel:+919664999797">📞 Call +91-9664999797</a>
-      <a class="btn btn-green" href="https://wa.me/+919664999797" style="margin-left:8px">💬 Book via WhatsApp</a>
-    </section>
-
-  </div> <!-- .container -->
-
-  <!-- Footer (original copyright preserved) -->
-  <footer>
-    <p>&copy; 2025 LIC Advisor. All Rights Reserved.</p>
-  </footer>
-
-  <!-- Chatbot button and window (working) -->
-  <button id="chatbotBtn" title="Chat with advisor">💬</button>
-
-  <div id="chatbotWindow" role="dialog" aria-hidden="true" style="display:none;flex-direction:column;">
-    <div id="chatbotHeader">Chat with Vivek Sir</div>
-    <div id="chatbotBody"></div>
-    <div id="chatbotInputWrap">
-      <input id="chatbotInput" aria-label="Chat input" placeholder="Type message & press Enter">
-      <button id="chatbotSend" class="btn">Send</button>
-    </div>
+  <div style="text-align:center; margin:15px;">
+    <a href="https://wa.me/919664999797" target="_blank" class="wa-btn">💬 WhatsApp</a>
+    <a href="tel:+9196649999797" class="wa-btn" style="background:#004aad;">📞 Call Now</a>
   </div>
+</section>
 
-  <!-- Optional: jsPDF libs for Download Plans PDF (from second code) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+<footer style="text-align:center; background:#004aad; color:white; padding:15px; margin-top:30px;">
+  © 2025 LIC Advisor. All Rights Reserved.
+</footer>
 
-  <script>
-    // ---------- Chatbot logic ----------
-    const chatbotBtn = document.getElementById('chatbotBtn');
-    const chatbotWindow = document.getElementById('chatbotWindow');
-    const chatbotBody = document.getElementById('chatbotBody');
-    const chatbotInput = document.getElementById('chatbotInput');
-    const chatbotSend = document.getElementById('chatbotSend');
+<!-- ===================== CHATBOT ===================== -->
+<div id="chatbot-container">
+  <div style="background:#004aad; color:white; padding:12px; font-weight:bold;">LIC Chatbot</div>
+  <div id="chatbot-messages" style="padding:10px; height:300px; overflow-y:auto;"></div>
+  <div style="display:flex; border-top:1px solid #ddd;">
+    <input id="chatbot-input" type="text" placeholder="Type your message..." style="flex:1; padding:10px; border:none;">
+    <button onclick="sendChat()" style="background:#004aad; color:white; border:none; padding:10px 15px;">Send</button>
+  </div>
+</div>
 
-    function showChat(){
-      chatbotWindow.style.display = 'flex';
-      chatbotWindow.style.right = '22px';
-      chatbotWindow.style.bottom = '96px';
-      chatbotWindow.style.width = '360px';
-      chatbotWindow.style.maxWidth = '92%';
-      chatbotWindow.setAttribute('aria-hidden','false');
-      chatbotBody.scrollTop = chatbotBody.scrollHeight;
-    }
-    function hideChat(){
-      chatbotWindow.style.display = 'none';
-      chatbotWindow.setAttribute('aria-hidden','true');
-    }
+<button class="chat-toggle" onclick="toggleChatbot()">💬</button>
 
-    chatbotBtn.addEventListener('click', ()=>{
-      if(chatbotWindow.style.display === 'flex') hideChat();
-      else showChat();
-    });
+<script>
+function toggleChatbot() {
+  const bot = document.getElementById('chatbot-container');
+  bot.style.display = bot.style.display === 'flex' ? 'none' : 'flex';
+}
 
-    function appendMessage(who, text){
-      const el = document.createElement('div');
-      el.style.marginBottom = '8px';
-      if(who === 'user'){
-        el.innerHTML = `<div class="msg-user"><strong>You:</strong> ${escapeHtml(text)}</div>`;
-      } else {
-        el.innerHTML = `<div class="msg-bot"><strong>Bot:</strong> ${escapeHtml(text)}</div>`;
-      }
-      chatbotBody.appendChild(el);
-      chatbotBody.scrollTop = chatbotBody.scrollHeight;
-    }
+function sendChat() {
+  const input = document.get
+  function sendChat() {
+  const input = document.getElementById('chatbot-input');
+  const msg = input.value.trim();
+  if (!msg) return;
 
-    function escapeHtml(str){
-      return str.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
-    }
+  const box = document.getElementById('chatbot-messages');
 
-    function botReplyFor(msg){
-      const m = msg.toLowerCase();
-      // preserve original simple reply set but a bit extended
-      if(m.includes('plan') || m.includes('plans')) return "We offer Jeevan Anand, New Endowment, Jeevan Umang, New Tech Term (online) and more. Which plan would you like details on?";
-      if(m.includes('jeevan') || m.includes('jeevan anand')) return "LIC Jeevan Anand: Protection + savings. Contact for premium/term details.";
-      if(m.includes('endowment') || m.includes('new endowment')) return "LIC New Endowment Plan: Offers both investment returns and insurance. Ideal for long-term savings with guaranteed returns.";
-      if(m.includes('term') || m.includes('tech term')) return "LIC New Tech Term: Pure term insurance available online only. High cover at low premium.";
-      if(m.includes('quote')) return "To prepare a quote, please share age, sum assured and your preferred plan.";
-      if(m.includes('contact') || m.includes('phone') || m.includes('call')) return "You can contact Vivek Kadam at +91-9664999797 or email vivekkadam1969@gmail.com.";
-      if(m.includes('whatsapp')) return "Click the WhatsApp button on the page or use https://wa.me/+919664999797 to message directly.";
-      if(m.includes('office')||m.includes('address')) return "Office: Shivanand, 2nd Flr., SV Rd., Goregaon, nr. Samrat Talkies, Mumbai, Maharashtra 400062.";
-      // fallback generic
-      return "I can help with LIC plans, quotes, contact info, and booking meetings. Ask me about 'plans', 'quote', or 'contact'.";
-    }
+  // Show user message
+  box.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
 
-    function sendChat(){
-      const txt = (chatbotInput.value || '').trim();
-      if(!txt) return;
-      appendMessage('user', txt);
-      chatbotInput.value = '';
-      // show typing indicator
-      appendMessage('bot', '...');
+  // Auto-reply system
+  const botMsg = autoReply(msg);
+  box.innerHTML += `<div style='margin-top:5px; color:#004aad;'><strong>Bot:</strong> ${botMsg}</div>`;
 
-      setTimeout(()=>{
-        // remove last '...' message
-        const nodes = chatbotBody.querySelectorAll('.msg-bot');
-        if(nodes.length) {
-          const last = nodes[nodes.length-1];
-          if(last && last.textContent.includes('...')) last.remove();
-        }
-        const reply = botReplyFor(txt);
-        appendMessage('bot', reply);
-      }, 700);
-    }
+  // WhatsApp button for relevant queries
+  if (msg.includes('quote') || msg.includes('plan') || msg.includes('whatsapp')) {
+    box.innerHTML += `
+      <a class="wa-btn" href="https://wa.me/919664999797?text=Hi%20Vivek%20Sir,%20I%20want%20a%20LIC%20plan%20quote." target="_blank">
+        Open WhatsApp
+      </a>`;
+  }
 
-    chatbotSend.addEventListener('click', sendChat);
-    chatbotInput.addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter') sendChat();
-    });
+  box.scrollTop = box.scrollHeight;
+  input.value = '';
+}
 
-    // ---------- Download Plans PDF (simple) ----------
-    document.getElementById('downloadPlansBtn').addEventListener('click', ()=>{
-      // create simple PDF using jsPDF
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-      doc.setFontSize(14);
-      doc.text("Available LIC Plans - Vedant Consultancy / LIC Advisor", 14, 20);
-      doc.setFontSize(11);
-      const rows = [
-        ["LIC Jeevan Anand", "Endowment / Whole Life", "Protection + savings"],
-        ["LIC New Endowment Plan", "Endowment", "Guaranteed sum + bonuses"],
-        ["LIC Tech Term Plan", "Term Assurance", "Pure term cover (online)"],
-        ["LIC Jeevan Umang", "Whole Life", "Annual survival benefits and life cover"]
-      ];
-      doc.autoTable({
-        head:[['Plan','Category','Brief']],
-        body: rows,
-        startY:30,
-        styles:{fontSize:10}
-      });
-      doc.save('LIC_Plans.pdf');
-    });
+// Auto-reply logic
+function autoReply(msg) {
+  msg = msg.toLowerCase();
 
-    // ---------- Preserve user content integrity notice ----------
-    // All visible text and images from your original first code are included above unchanged.
-  </script>
+  if (msg.includes("hi") || msg.includes("hello")) 
+    return "Hello! How can I assist you with LIC plans today?";
+
+  if (msg.includes("plan")) 
+    return "We offer Term Plan, Jeevan Anand, Child Plan & more. Want a WhatsApp quote?";
+
+  if (msg.includes("quote")) 
+    return "Sure! I can give you an instant LIC quote. Tap the WhatsApp button below.";
+
+  if (msg.includes("contact")) 
+    return "You can call me anytime at +91 96649 99797.";
+
+  if (msg.includes("whatsapp")) 
+    return "Opening WhatsApp for instant assistance…";
+
+  return "I’m here to help! Ask me anything about LIC policies.";
+}
+
+// DARK MODE TOGGLE
+const darkBtn = document.createElement("button");
+darkBtn.id = "darkModeToggle";
+darkBtn.textContent = "🌙";
+darkBtn.style.cssText =
+  "position:fixed;bottom:90px;right:20px;z-index:999;background:#222;color:#fff;border:none;padding:10px 16px;border-radius:50px;cursor:pointer;";
+document.body.appendChild(darkBtn);
+
+darkBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  darkBtn.textContent = document.body.classList.contains("dark-mode")
+    ? "☀️"
+    : "🌙";
+});
+
+// Floating CALL button
+const callBtn = document.createElement("a");
+callBtn.href = "tel:+919664999797";
+callBtn.textContent = "📞";
+callBtn.style.cssText =
+  "position:fixed;bottom:150px;right:20px;z-index:999;background:#25d366;color:#fff;padding:14px 18px;border-radius:50%;font-size:20px;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,0.3);";
+document.body.appendChild(callBtn);
+</script>
+
 </body>
 </html>
+
