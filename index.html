@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LIC Advisor - Vivek Kadam / Vedant Consultancy</title>
 <meta name="description" content="LIC Advisor Vivek Kadam | Vedant Consultancy. Trusted Life Insurance and Financial Planning services since 1999. MDRT recognized.">
-<link rel="icon" href="https://m.media-amazon.com/images/I/41N74gIUw1L._SY300_SX300_QL70_FMwebp_.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23004aad;%7D.b%7Bfill:none;stroke:%23fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:5px;%7D%3C/style%3E%3C/defs%3E%3Ccircle class='a' cx='50' cy='50' r='50'/%3E%3Cpath class='b' d='M30,50l10,10l20-20'/%3E%3Cpath class='b' d='M50,70l0,5'/%3E%3Cpath class='b' d='M50,25l0,5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -36,6 +36,11 @@ body{
 }
 a{color:var(--brand);text-decoration:none; transition: color 0.2s}
 a:hover{color:var(--brand-dark)}
+
+/* FIX: Ensure hidden class hides elements regardless of their natural display type */
+.hidden {
+    display: none !important; 
+}
 
 /* Header Styling */
 header{
@@ -84,10 +89,44 @@ nav a{color:var(--brand-dark);margin:0 15px;font-weight:600;padding: 5px 10px; b
 #about ul li {padding-left: 1.5em;position: relative;margin-bottom: 10px;}
 #about ul li::before {content: '✅';color: var(--accent);font-weight: 700;position: absolute;left: 0;}
 
+/* Input/Search Bar Styling */
+#planSearch {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+#planSearch:focus {
+    border-color: var(--brand);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 74, 173, 0.2);
+}
+
 /* Buttons */
 .btn{display:inline-block;padding:14px 28px;border-radius:30px;background:linear-gradient(90deg, var(--brand), #005a9d);color:#fff;font-weight:700;border:0;cursor:pointer;transition: all 0.2s ease;text-transform: uppercase;letter-spacing: 0.5px;box-shadow: 0 4px 10px rgba(0, 74, 173, 0.3);}
 .btn:hover{background:var(--brand-dark); box-shadow: 0 6px 15px rgba(0, 44, 112, 0.4);}
 .btn-green{background:linear-gradient(90deg, var(--accent), #1cb355);box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);}
+.contact-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: center;
+}
+.contact-actions a {
+    flex-grow: 1;
+    max-width: 300px;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.contact-whatsapp {background-color: var(--accent); color: white;}
+.contact-call {background-color: var(--brand); color: white;}
+
 
 /* Plan Card Styling */
 .plan {
@@ -107,7 +146,7 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
     transition: background-color 0.2s;
 }
 
-/* --- Language Toggle CSS (Restored and Visible) --- */
+/* --- Language Toggle CSS --- */
 #langToggle {
     position: fixed;
     bottom: 15px;
@@ -167,12 +206,11 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
     position: fixed;bottom: 75px;left: 15px;width: 300px;height: 400px;background: #fff;border-radius: 10px;box-shadow: var(--shadow-strong);z-index: 999;display: none;flex-direction: column;overflow: hidden;
 }
 #chatbotHeader {background-color: var(--brand);color: white;padding: 10px;font-weight: 600;cursor: pointer;}
-#chatbotBody {flex-grow: 1;padding: 10px;overflow-y: auto;border-bottom: 1px solid #eee;}
+#chatbotBody {flex-grow: 1;padding: 10px;overflow-y: auto;border-bottom: 1px solid #eee; display: flex; flex-direction: column;}
 #chatbotInput {width: 100%;padding: 10px;border: none;border-top: 1px solid #eee;outline: none;}
 .msg-bot, .msg-user {padding: 8px;margin-bottom: 8px;border-radius: 8px;max-width: 80%;}
 .msg-bot {background: #e6f7ff; align-self: flex-start;}
 .msg-user {background: #d4edda; align-self: flex-end; margin-left: auto;}
-
 
 /* Media Queries */
 @media(max-width:768px){
@@ -188,6 +226,13 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         height: 350px;
     }
     nav a {margin: 0 8px;}
+    .contact-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .contact-actions a {
+        max-width: 100%;
+    }
 }
 </style>
 </head>
@@ -277,7 +322,7 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
     <p style="margin-bottom: 25px;"><strong><span class="lang-en">Office:</span><span class="lang-mr hidden">कार्यालय:</span></strong> Shivanand, 2nd Flr., SV Rd., Goregaon, nr. Samrat Talkies, Mumbai, Maharashtra 400062</p>
 
     <div style="max-width:720px;margin:20px auto 40px;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.1)">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.9049341211903!2d72.84293717520738!3d19.155638182065406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b635dce6edc5%3A0xd8889595729557da!2sLIC%20of%20India%2C%20Branch%20Office!5e0!3m2!1sen!2sin!4v1753001927819!5m2!1sen!2sin" width="100%" height="300" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="about:blank" width="100%" height="300" style="border:0" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
     <div class="contact-actions">
@@ -339,7 +384,7 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         });
     });
 
-    // --- Language Toggle Logic (Restored) ---
+    // --- Language Toggle Logic (FIXED) ---
     const langToggle = document.getElementById('langToggle');
     const allLangElements = document.querySelectorAll('.lang-en, .lang-mr');
 
@@ -362,9 +407,10 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         const newLang = currentLang === 'en' ? 'mr' : 'en';
         updateLanguage(newLang);
     });
-    updateLanguage('en');
+    // Initialize language to English, hiding Marathi
+    updateLanguage('en'); 
 
-    // --- PDF Generation Logic (Unchanged) ---
+    // --- PDF Generation Logic ---
     document.getElementById('pdfBtn').addEventListener('click', function() {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
@@ -389,16 +435,19 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         doc.save('LIC_Plans_Vivek_Kadam.pdf');
     });
 
-    // --- Chatbot Logic (Unchanged) ---
+    // --- Chatbot Logic ---
     const chatbotBtn = document.getElementById('chatbotBtn');
     const chatbotWindow = document.getElementById('chatbotWindow');
     const chatbotBody = document.getElementById('chatbotBody');
     const chatbotInput = document.getElementById('chatbotInput');
     const chatbotHeader = document.getElementById('chatbotHeader');
+    
     chatbotBtn.addEventListener('click', () => {
         const isHidden = chatbotWindow.getAttribute('aria-hidden') === 'true';
-        chatbotWindow.style.display = isHidden ? 'flex' : 'none';
+        // Corrected logic: Use display: flex for the chatbot window when visible
+        chatbotWindow.style.display = isHidden ? 'flex' : 'none'; 
         chatbotWindow.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
+        
         if (isHidden) {
             const currentLang = langToggle.getAttribute('data-lang');
             const welcomeMessage = currentLang === 'en'
@@ -408,10 +457,12 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
             appendMessage(welcomeMessage, 'bot');
         }
     });
+    
     chatbotHeader.addEventListener('click', () => {
         chatbotWindow.style.display = 'none';
         chatbotWindow.setAttribute('aria-hidden', 'true');
     });
+    
     function appendMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add(sender === 'user' ? 'msg-user' : 'msg-bot');
@@ -419,6 +470,7 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         chatbotBody.appendChild(messageDiv);
         chatbotBody.scrollTop = chatbotBody.scrollHeight; 
     }
+    
     function getBotResponse(userMessage, lang) {
         const msg = userMessage.toLowerCase().trim();
         const responses_en = {'plan': "Vivek Sir offers popular plans like Jeevan Anand, Jeevan Umang, and Tech Term. Check the 'Plans' section for details!", 'contact': "You can call Vivek Sir at +91-9664999797 or email him at vivekkadam1969@gmail.com.", 'mdrt': "Vivek Sir achieved the prestigious MDRT designation in 2024, demonstrating top-tier service.", 'experience': "Vivek Sir has 26 years of experience in the insurance industry, serving clients since 1999.", 'quote': "For a personalized quote, please click the 'Book Meeting' button or call directly at +91-9664999797.", 'hi': "Hello there! How may I assist you today regarding life insurance and LIC plans?", 'default': "I'm a simple bot. Could you try asking about 'plans', 'contact', 'MDRT', or 'quote'?",};
@@ -429,6 +481,7 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         }
         return activeResponses['default'];
     }
+    
     chatbotInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             const userMessage = chatbotInput.value;
@@ -441,7 +494,7 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         }
     });
 
-    // --- WhatsApp Book Meeting Logic (Unchanged) ---
+    // --- WhatsApp Book Meeting Logic ---
     document.getElementById('bookWhatsApp').addEventListener('click', function() {
         const currentLang = langToggle.getAttribute('data-lang');
         const message = currentLang === 'en'
@@ -451,7 +504,7 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         window.open(url, '_blank');
     });
 
-    // --- Plan Table Language-Agnostic Search Logic (Unchanged) ---
+    // --- Plan Table Language-Agnostic Search Logic ---
     document.getElementById('planSearch').addEventListener('keyup', function() {
         const filter = this.value.toLowerCase();
         const rows = document.getElementById('planTable').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
