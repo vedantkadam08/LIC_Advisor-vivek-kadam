@@ -78,10 +78,15 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
   border-left: 5px solid var(--secondary-brand);
 }
 .about-cta a {
-  color: #fff; /* Changed from --secondary-brand for better visibility on button */
+  color: #fff; 
   text-decoration: none;
   font-weight: bold;
 }
+/* Language Specific Display Rule */
+.lang-en.hidden, .lang-mr.hidden {
+  display: none !important;
+}
+
 /* Chatbot & Language Toggle Styles (from Code 2) */
 #chatbotBtn{position:fixed;right:22px;bottom:96px;width:60px;height:60px;border-radius:50%;background:var(--brand);color:#fff;border:0;font-size:26px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.2);z-index:9999}
 #chatbotWindow{display:none;position:fixed;right:22px;bottom:170px;width:360px;max-width:92%;background:#fff;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,0.18);z-index:9999}
@@ -90,7 +95,7 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
 #chatbotInput{width:calc(100% - 24px);margin:10px 12px 18px;padding:10px;border-radius:8px;border:1px solid #ddd}
 .msg-user{background:#eef3ff;padding:8px;border-radius:8px;margin:6px 0 6px auto;max-width:85%;word-wrap:break-word}
 .msg-bot{background:#f2f2f2;padding:8px;border-radius:8px;margin:6px auto 6px 0;max-width:85%;word-wrap:break-word}
-.lang-mr.hidden{display:none}
+
 #langToggle{position:fixed;right:14px;bottom:14px;background:#fff;border-radius:30px;padding:6px 14px;border:2px solid #eee;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.08);z-index:9999;display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
 #langToggle .switch{width:46px;height:26px;background:#e9eef8;border-radius:20px;display:inline-block;position:relative}
 #langToggle .knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--brand);transition:all .22s ease}
@@ -142,17 +147,17 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
   <p><span class="lang-en">Founded on the principles of trust, integrity, and exceptional service, we are proud to serve individuals, families, and businesses with a comprehensive range of insurance products tailored to their unique needs.</span>
   <span class="lang-mr hidden">विश्वास, प्रामाणिकपणा आणि उत्कृष्ट ग्राहकसेवा या तत्त्वांवर आधारित, आम्हाला वैयक्तिक, कौटुंबिक आणि व्यावसायिक ग्राहकांना त्यांच्या गरजांनुसार सानुकूलित विमा उत्पादनांची सेवा देण्याचा अभिमान आहे.</span></p>
 
-  <h3>Why Choose Us?</h3>
+  <h3><span class="lang-en">Why Choose Us?</span><span class="lang-mr hidden">आम्हाला का निवडावे?</span></h3>
   <ul>
-    <li><strong>Expert Guidance:</strong> We take time to understand your needs and explain your options in clear, simple terms.</li>
-    <li><strong>Tailored Solutions:</strong> Whether it’s life, health, business, or retirement planning — we provide solutions that fit you.</li>
-    <li><strong>Trusted Support:</strong> We’re here when you need us, before, during, and after the policy is in place.</li>
+    <li><span class="lang-en"><strong>Expert Guidance:</strong> We take time to understand your needs and explain your options in clear, simple terms.</span><span class="lang-mr hidden"><strong>तज्ञ मार्गदर्शन:</strong> आम्ही तुमच्या गरजा समजून घेतो आणि तुमचे पर्याय स्पष्ट, सोप्या भाषेत समजावून सांगतो.</span></li>
+    <li><span class="lang-en"><strong>Tailored Solutions:</strong> Whether it’s life, health, business, or retirement planning — we provide solutions that fit you.</span><span class="lang-mr hidden"><strong>अनुरूप उपाय:</strong> जीवन, आरोग्य, व्यवसाय किंवा सेवानिवृत्ती नियोजन असो — आम्ही तुम्हाला अनुकूल असे उपाय प्रदान करतो.</span></li>
+    <li><span class="lang-en"><strong>Trusted Support:</strong> We’re here when you need us, before, during, and after the policy is in place.</span><span class="lang-mr hidden"><strong>विश्वासार्ह समर्थन:</strong> पॉलिसी लागू होण्यापूर्वी, दरम्यान आणि नंतर, जेव्हा तुम्हाला गरज असेल तेव्हा आम्ही तुमच्यासोबत आहोत.</span></li>
   </ul>
   
   <div class="about-cta">
-      <p><strong>Let’s protect what matters most — together.</strong></p>
+      <p><strong><span class="lang-en">Let’s protect what matters most — together.</span><span class="lang-mr hidden">सर्वात महत्त्वाचे काय आहे त्याचे संरक्षण करूया — एकत्र.</span></strong></p>
       <p>
-        <a href="tel:+919664999797" class="contact-call">📞 Call Now</a>
+        <a href="tel:+919664999797" class="contact-call">📞 <span class="lang-en">Call Now</span><span class="lang-mr hidden">आता कॉल करा</span></a>
         <span class="lang-en">Get in touch today to schedule a consultation and discover how we can help secure your tomorrow.</span>
         <span class="lang-mr hidden">आजच संपर्क करा आणि आपले भविष्य सुरक्षित करण्यासाठी मदत कशी करू शकतो हे शोधा.</span>
       </p>
@@ -171,12 +176,12 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
   </tr>
   </thead>
   <tbody>
-  <tr><td>New Endowment Plan (714)</td><td>Endowment</td><td>Guaranteed sum + bonuses</td></tr>
-  <tr><td>Jeevan Anand (715)</td><td>Endowment / Whole Life</td><td>Protection + savings</td></tr>
-  <tr><td>Jeevan Labh (736)</td><td>Participating Endowment</td><td>Endowment with bonuses</td></tr>
-  <tr><td>New Money Back (720 / 721)</td><td>Money Back</td><td>Periodic survival benefits</td></tr>
-  <tr><td>Jeevan Umang (745)</td><td>Whole Life</td><td>Annual survival benefits and life cover</td></tr>
-  <tr><td>New Tech Term (Online)</td><td>Term Assurance</td><td>Pure term cover</td></tr>
+  <tr><td><span class="lang-en">New Endowment Plan (714)</span><span class="lang-mr hidden">नवीन एंडोमेंट योजना (714)</span></td><td><span class="lang-en">Endowment</span><span class="lang-mr hidden">एंडोमेंट</span></td><td><span class="lang-en">Guaranteed sum + bonuses</span><span class="lang-mr hidden">हमी रक्कम + बोनस</span></td></tr>
+  <tr><td><span class="lang-en">Jeevan Anand (715)</span><span class="lang-mr hidden">जीवन आनंद (715)</span></td><td><span class="lang-en">Endowment / Whole Life</span><span class="lang-mr hidden">एंडोमेंट / संपूर्ण जीवन</span></td><td><span class="lang-en">Protection + savings</span><span class="lang-mr hidden">संरक्षण + बचत</span></td></tr>
+  <tr><td><span class="lang-en">Jeevan Labh (736)</span><span class="lang-mr hidden">जीवन लाभ (736)</span></td><td><span class="lang-en">Participating Endowment</span><span class="lang-mr hidden">सहभागी एंडोमेंट</span></td><td><span class="lang-en">Endowment with bonuses</span><span class="lang-mr hidden">बोनससह एंडोमेंट</span></td></tr>
+  <tr><td><span class="lang-en">New Money Back (720 / 721)</span><span class="lang-mr hidden">नवीन मनी बॅक (720 / 721)</span></td><td><span class="lang-en">Money Back</span><span class="lang-mr hidden">मनी बॅक</span></td><td><span class="lang-en">Periodic survival benefits</span><span class="lang-mr hidden">नियमित जगण्याचे फायदे</span></td></tr>
+  <tr><td><span class="lang-en">Jeevan Umang (745)</span><span class="lang-mr hidden">जीवन उमंग (745)</span></td><td><span class="lang-en">Whole Life</span><span class="lang-mr hidden">संपूर्ण जीवन</span></td><td><span class="lang-en">Annual survival benefits and life cover</span><span class="lang-mr hidden">वार्षिक जगण्याचे फायदे आणि जीवन विमा</span></td></tr>
+  <tr><td><span class="lang-en">New Tech Term (Online)</span><span class="lang-mr hidden">नवीन टेक टर्म (ऑनलाइन)</span></td><td><span class="lang-en">Term Assurance</span><span class="lang-mr hidden">टर्म विमा</span></td><td><span class="lang-en">Pure term cover</span><span class="lang-mr hidden">शुद्ध टर्म संरक्षण</span></td></tr>
   </tbody>
   </table>
   <button id="pdfBtn" class="btn" style="margin-top:15px;"><span class="lang-en">Download Plans PDF</span><span class="lang-mr hidden">योजना PDF डाउनलोड करा</span></button>
@@ -185,23 +190,23 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
 <section id="plans-list" class="card">
   <h2><span class="lang-en">Featured LIC Plans (List View)</span><span class="lang-mr hidden">वैशिष्ट्यीकृत LIC योजना (यादी)</span></h2>
   <div class="plan">
-    <h3>LIC Jeevan Anand</h3>
-    <p>A combination of protection and savings. Provides financial protection against death throughout the lifetime of the policyholder.</p>
+    <h3><span class="lang-en">LIC Jeevan Anand</span><span class="lang-mr hidden">LIC जीवन आनंद</span></h3>
+    <p><span class="lang-en">A combination of protection and savings. Provides financial protection against death throughout the lifetime of the policyholder.</span><span class="lang-mr hidden">संरक्षण आणि बचतीचे संयोजन. पॉलिसीधारकाच्या संपूर्ण आयुष्यासाठी मृत्यूविरुद्ध आर्थिक संरक्षण प्रदान करते.</span></p>
   </div>
 
   <div class="plan">
-    <h3>LIC New Endowment Plan</h3>
-    <p>Offers both investment returns and insurance. Ideal for long-term savings with guaranteed returns.</p>
+    <h3><span class="lang-en">LIC New Endowment Plan</span><span class="lang-mr hidden">LIC नवीन एंडोमेंट योजना</span></h3>
+    <p><span class="lang-en">Offers both investment returns and insurance. Ideal for long-term savings with guaranteed returns.</span><span class="lang-mr hidden">गुंतवणूक परतावा आणि विमा दोन्ही ऑफर करते. हमी परताव्यासह दीर्घकालीन बचतीसाठी आदर्श.</span></p>
   </div>
 
   <div class="plan">
-    <h3>LIC Tech Term Plan</h3>
-    <p>Pure term insurance plan available online only. Offers high cover at low premiums.</p>
+    <h3><span class="lang-en">LIC Tech Term Plan</span><span class="lang-mr hidden">LIC टेक टर्म योजना</span></h3>
+    <p><span class="lang-en">Pure term insurance plan available online only. Offers high cover at low premiums.</span><span class="lang-mr hidden">फक्त ऑनलाइन उपलब्ध शुद्ध टर्म विमा योजना. कमी प्रीमियममध्ये उच्च संरक्षण देते.</span></p>
   </div>
 
   <div class="plan">
-    <h3>LIC Jeevan Umang</h3>
-    <p>Whole life plan offering annual survival benefits and lump sum at maturity or on death.</p>
+    <h3><span class="lang-en">LIC Jeevan Umang</span><span class="lang-mr hidden">LIC जीवन उमंग</span></h3>
+    <p><span class="lang-en">Whole life plan offering annual survival benefits and lump sum at maturity or on death.</span><span class="lang-mr hidden">वार्षिक जगण्याचे फायदे आणि परिपक्वता किंवा मृत्यूवर एकरकमी रक्कम देणारी संपूर्ण जीवन योजना.</span></p>
   </div>
 </section>
 
@@ -222,10 +227,52 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
   </div>
 
   <div class="contact-actions" style="margin: 15px 0;">
-    <a href="https://wa.me/+919664999797" target="_blank" class="contact-whatsapp">💬 WhatsApp</a>
-    <a href="tel:+919664999797" class="contact-call">📞 Call Now</a>
+    <a href="https://wa.me/+919664999797" target="_blank" class="contact-whatsapp">💬 <span class="lang-en">WhatsApp</span><span class="lang-mr hidden">व्हॉट्सअॅप</span></a>
+    <a href="tel:+919664999797" class="contact-call">📞 <span class="lang-en">Call Now</span><span class="lang-mr hidden">आता कॉल करा</span></a>
   </div>
 </section>
+
+<section id="contact-duplicate" class="card center">
+  <h2><span class="lang-en">Contact Me (Original Block)</span><span class="lang-mr hidden">संपर्क करा (मूळ विभाग)</span></h2>
+
+  <img src="https://lh3.googleusercontent.com/pw/AP1GczPlzTcIZ7AGf_dvuyBZN2jlZ3wMcA3aUq5s1lEeJX5Wk6WqLTWkcPhMXbwygpPB6_nkjuBzK0MXe20FTHVdSYgB8AG0Ju7l6VYf-uJLIVMXWRvnyxHZWyeikj-kweK-2XreouJvPw8S5uOZv-vAGPFd=w391-h869-s-no-gm?authuser=0" alt="LIC Advisor" style="
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #004aad;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  ">
+
+  <p><strong><span class="lang-en">Name:</span><span class="lang-mr hidden">नाव:</span></strong> Vivek Kadam</p>
+  <p><strong><span class="lang-en">Phone:</span><span class="lang-mr hidden">फोन:</span></strong> +91-9664999797</p>
+  <p><strong><span class="lang-en">Email:</span><span class="lang-mr hidden">ईमेल:</span></strong> vivekkadam1969@gmail.com</p>
+  <p><strong><span class="lang-en">Office Address:</span><span class="lang-mr hidden">कार्यालयाचा पत्ता:</span></strong> Shivanand, 2nd Flr., SV Rd., Goregaon, nr. Samrat Talkies, Mumbai, Maharashtra 400062
+</p>
+
+  <div style="margin: 15px 0;">
+    <a href="https://wa.me/+919664999797" target="_blank" style="
+      background-color: #25D366;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-right: 10px;
+      display: inline-block;
+    ">💬 <span class="lang-en">WhatsApp</span><span class="lang-mr hidden">व्हॉट्सअॅप</span></a>
+
+    <a href="tel:+919664999797" style="
+      background-color: #004aad;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+    ">📞 <span class="lang-en">Call Now</span><span class="lang-mr hidden">आता कॉल करा</span></a>
+  </div>
+</section>
+
 
 <section id="book" class="card center">
   <h2><span class="lang-en">Book a Meeting</span><span class="lang-mr hidden">मीटिंग बुक करा</span></h2>
@@ -268,6 +315,7 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
       const isEnglish = el.classList.contains('lang-en');
       const isMarathi = el.classList.contains('lang-mr');
 
+      // Strict visibility control: hide the opposite language completely
       if ((isEnglish && lang === 'en') || (isMarathi && lang === 'mr')) {
         el.classList.remove('hidden');
       } else {
@@ -287,7 +335,6 @@ input[type=search],input[type=text],input[type=tel]{width:100%;padding:10px;bord
 
   // --- PDF Generation Logic (From Code 2) ---
   document.getElementById('pdfBtn').addEventListener('click', function() {
-    // PDF Library is loaded via CDN script tags
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     const isMarathi = langToggle.getAttribute('data-lang') === 'mr';
